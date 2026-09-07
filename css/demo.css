@@ -317,6 +317,26 @@ table.calc tr.big td { font-size: 16px; font-weight: 700; background: #e8f2f6; }
 .fw.warn { background: #fdf5e6; color: #7a4d05; border: 1px solid #f0dcae; }
 .fw.info { background: #eaf3fa; color: #1c4f7c; border: 1px solid #cbe0ef; }
 
+.fw-acts { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.wbtn {
+  border: 1px solid currentColor; background: #fff; color: inherit;
+  border-radius: 20px; padding: 4px 12px; font-size: 12px; font-weight: 600;
+  cursor: pointer; font-family: inherit;
+}
+.wbtn:hover { background: currentColor; }
+.wbtn:hover { color: #fff; }
+.wbtn.danger { color: #b3261e; }
+.warn-item .go { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+
+.toast {
+  position: fixed; left: 50%; transform: translateX(-50%) translateY(20px);
+  bottom: 26px; z-index: 80; background: #1f8a4c; color: #fff;
+  padding: 10px 20px; border-radius: 24px; font-size: 13.5px; font-weight: 600;
+  box-shadow: 0 6px 24px rgba(0,0,0,.28); opacity: 0; pointer-events: none;
+  transition: opacity .2s, transform .2s; max-width: 92vw; text-align: center;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
 .warn-badge {
   border: none; border-radius: 20px; padding: 5px 13px; font-size: 12.5px;
   cursor: pointer; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;

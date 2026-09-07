@@ -1534,6 +1534,8 @@
     }
     const fn = PAGES[route] || pageHome;
     document.getElementById('page').innerHTML = fn();
+    // পুরনো তীর যেন ঝুলে না থাকে — যে ঘরটা দেখানো হচ্ছিল সেটা DOM-এ না থাকলে সরাও
+    if (spot && !document.body.contains(spot.el)) clearSpotlight();
     applyWarnings();
     restoreAIPanel();
     window.scrollTo({ top: 0 });
@@ -1558,6 +1560,8 @@
     recompute();
     const fn = PAGES[route] || pageHome;
     document.getElementById('page').innerHTML = fn();
+    // পুরনো তীর যেন ঝুলে না থাকে — যে ঘরটা দেখানো হচ্ছিল সেটা DOM-এ না থাকলে সরাও
+    if (spot && !document.body.contains(spot.el)) clearSpotlight();
     applyWarnings();
     if (p) {
       const nel = document.querySelector('#page [data-path="' + p.replace(/"/g, '\\"') + '"]');
@@ -1602,6 +1606,7 @@
 
     UI.set(data, path, val);
     ReturnState.save(data);
+    spotlightDone(el);   // যে ঘরটি দেখানো হচ্ছিল সেটাই পূরণ হলে তীর সরিয়ে দাও
 
     if (el.type === 'checkbox' || el.tagName === 'SELECT' || el.type === 'radio') render();
     else rerender();
@@ -1637,7 +1642,7 @@
   }
 
   function onClick(e) {
-    const el = e.target.closest('[data-act],[data-go],[data-add],[data-del],[data-nav],[data-help],[data-askq],[data-goto],[data-tour],[data-zero],[data-scroll]');
+    const el = e.target.closest('[data-act],[data-go],[data-add],[data-del],[data-nav],[data-help],[data-askq],[data-goto],[data-tour],[data-zero],[data-scroll],[data-wact]');
     if (!el) return;
 
     const help = el.getAttribute('data-help');
@@ -1657,6 +1662,13 @@
 
     const zp = el.getAttribute('data-zero');
     if (zp) { applyZeroProfile(zp); return; }
+
+    const wa = el.getAttribute('data-wact');
+    if (wa) {
+      e.preventDefault(); e.stopPropagation();
+      try { doWarnAction(JSON.parse(wa)); } catch (err) {}
+      return;
+    }
 
     const sc = el.getAttribute('data-scroll');
     if (sc) {
@@ -1838,30 +1850,56 @@
   }
 
   let spotTimer = null;
-  function spotlight(el, label) {
+  let spot = null;   // { el, path, arrow, place }
+
+  function clearSpotlight() {
+    if (spot) {
+      window.removeEventListener('scroll', spot.place, true);
+      window.removeEventListener('resize', spot.place);
+      spot = null;
+    }
+    clearTimeout(spotTimer);
     document.querySelectorAll('.spotlight').forEach(x => x.classList.remove('spotlight'));
     document.querySelectorAll('.spot-arrow').forEach(x => x.remove());
+  }
+
+  function spotlight(el, label) {
+    clearSpotlight();
     if (!el) return;
     el.scrollIntoView({ behavior: 'auto', block: 'center' });
     el.classList.add('spotlight');
     const a = document.createElement('div');
     a.className = 'spot-arrow';
-    a.textContent = '👇 ' + (label || 'এখানে দিন');
+    const tick = el.type === 'checkbox' || el.type === 'radio';
+    a.textContent = '👇 ' + (label || (tick ? 'এই ঘরটি' : 'এখানে দিন'));
     document.body.appendChild(a);
     const place = () => {
+      if (!document.body.contains(el)) { clearSpotlight(); return; }
       const r = el.getBoundingClientRect();
-      a.style.left = Math.max(8, window.scrollX + r.left) + 'px';
+      a.style.left = Math.max(8, Math.min(window.scrollX + r.left,
+        window.scrollX + window.innerWidth - a.offsetWidth - 16)) + 'px';
       a.style.top = (window.scrollY + r.top - 44) + 'px';
     };
+    spot = { el, path: el.getAttribute && el.getAttribute('data-path'), arrow: a, place };
     place();
     requestAnimationFrame(place);
     setTimeout(place, 300);
+    window.addEventListener('scroll', place, true);
+    window.addEventListener('resize', place);
     if (el.focus) { try { el.focus({ preventScroll: true }); } catch (e) {} }
-    clearTimeout(spotTimer);
-    spotTimer = setTimeout(() => {
-      el.classList.remove('spotlight');
-      a.remove();
-    }, 12000);
+    spotTimer = setTimeout(clearSpotlight, 20000);
+  }
+
+  /* কাজটা করে ফেললে তীর নিজে থেকেই সরে যাক */
+  function spotlightDone(target) {
+    if (!spot || !target) return;
+    const same = target === spot.el ||
+      (spot.path && target.getAttribute && target.getAttribute('data-path') === spot.path) ||
+      (target.closest && target.closest('label') && target.closest('label').contains(spot.el));
+    if (!same) return;
+    const inTour = tour.steps.length > 0;
+    clearSpotlight();
+    if (inTour) setTimeout(() => tourStep(1), 450);   // ট্যুরে থাকলে পরের ঘরে
   }
 
   function findEl(path) {
@@ -1891,6 +1929,42 @@
 
   let warnings = [];
 
+  /* সতর্কবার্তার সাথে "কী করব" বোতাম */
+  function wActs(w) {
+    if (!w.actions || !w.actions.length) return '';
+    return '<span class="fw-acts">' + w.actions.map(a =>
+      '<button class="wbtn' + (a.danger ? ' danger' : '') + '" data-wact="' +
+      esc(JSON.stringify(a)) + '">' + esc(a.t) + '</button>').join('') + '</span>';
+  }
+
+  function doWarnAction(a) {
+    if (a.do === 'page') { location.hash = '#' + a.page; return; }
+    if (a.do === 'field') { focusField(a.path); return; }
+    if (a.do === 'set') {
+      UI.set(data, a.path, a.val);
+      ReturnState.save(data);
+      render();
+      const h = Object.values(FieldHelp).find(x => x.path === a.path);
+      const name = a.label || (h ? h.t : a.path);
+      toast('✅ হয়ে গেছে — ' + name + ' এখন "' +
+        (a.val === false ? 'টিক নেই' : a.val === true ? 'টিক দেওয়া' :
+          (typeof a.val === 'number' ? f(a.val) : a.val)) + '"');
+    }
+  }
+
+  function toast(msg) {
+    let t = document.getElementById('toast');
+    if (!t) {
+      t = document.createElement('div');
+      t.id = 'toast'; t.className = 'toast';
+      document.body.appendChild(t);
+    }
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toast._t);
+    toast._t = setTimeout(() => t.classList.remove('show'), 3200);
+  }
+
   function applyWarnings() {
     warnings = [];
     try { warnings = Validate.check(data, res, rules); } catch (e) { return; }
@@ -1906,7 +1980,8 @@
       byPath[p].forEach(w => {
         const d = document.createElement('div');
         d.className = 'fw ' + w.level;
-        d.innerHTML = '<span class="ic">' + icons[w.level] + '</span><span>' + nl2(w.msg) + '</span>';
+        d.innerHTML = '<span class="ic">' + icons[w.level] + '</span>' +
+          '<span>' + nl2(w.msg) + wActs(w) + '</span>';
         host.appendChild(d);
       });
     });
@@ -1931,7 +2006,8 @@
       h += '<h3 style="margin-top:14px">' + icons[lv] + ' ' + titles[lv] + ' (' + list.length + ')</h3>';
       list.forEach(w => {
         h += '<div class="warn-item ' + lv + '">' + nl2(w.msg) +
-          '<div class="go"><button class="btn ghost" data-goto="' + esc(w.path) + '">➜ ঘরটি দেখান</button></div></div>';
+          '<div class="go">' + wActs(w) +
+          '<button class="btn ghost" data-goto="' + esc(w.path) + '">➜ ঘরটি দেখান</button></div></div>';
       });
     });
     if (!h) h = '<div class="tip good"><h4>সব ঠিক আছে</h4><p>এখন পর্যন্ত কোনো অসঙ্গতি ধরা পড়েনি।</p></div>';
@@ -1952,8 +2028,7 @@
   }
   function stopTour() {
     tour.steps = [];
-    document.querySelectorAll('.spotlight').forEach(x => x.classList.remove('spotlight'));
-    document.querySelectorAll('.spot-arrow').forEach(x => x.remove());
+    clearSpotlight();
     document.getElementById('tourBar').classList.remove('open');
     if (aiWasOpen) openAI();  // ট্যুর শেষে আবার খুলে দিই
   }

@@ -8,9 +8,10 @@
   const n = v => TaxCalc.n(v);
   const f = v => TaxCalc.fmt(v);
 
+  /* actions = [{t: বোতামের লেখা, do: 'set'|'page'|'field', ...}] */
   function check(data, res, rules) {
     const out = [];
-    const add = (path, level, msg) => out.push({ path, level, msg });
+    const add = (path, level, msg, actions) => out.push({ path, level, msg, actions: actions || null });
     const A = data.assessment || {};
     const heads = A.heads || {};
     const income = res.totalIncome;
@@ -19,20 +20,27 @@
     if (!data.additional.location) {
       add('additional.location', 'error',
         'Location of Main Source of Income আবশ্যক — লাইভ সাইট এটি না দিলে সামনে এগোতে দেবে না। ' +
-        'আপনার অফিস/ব্যবসা যে এলাকায়, সেটি বেছে নিন।');
+        'আপনার অফিস/ব্যবসা যে এলাকায়, সেটি বেছে নিন।',
+        [{ t: '➜ ঘরটি দেখান', do: 'field', path: 'additional.location' }]);
     }
     if (data.additional.claimTaxRebate === 'No' && res.investment.actual > 0) {
       add('additional.claimTaxRebate', 'error',
         'আপনি "Claim tax rebate for investment?" = No দিয়েছেন, তাই কোনো রেয়াত পাচ্ছেন না — ' +
-        'অথচ Rebate পাতায় বিনিয়োগ দেখানো আছে। "Yes" করলে কর কমবে।');
+        'অথচ Rebate পাতায় বিনিয়োগ দেখানো আছে। "Yes" করলে কর কমবে।',
+        [{ t: '✔ Yes করে দিন', do: 'set', path: 'additional.claimTaxRebate', val: 'Yes' }]);
     } else if (data.additional.claimTaxRebate === 'No' && income > res.threshold) {
       add('additional.claimTaxRebate', 'warn',
         'রেয়াত দাবি করছেন না — DPS, সঞ্চয়পত্র, জীবন বীমা, GPF/RPF যেকোনো একটি থাকলেও "Yes" দিলে কর কমত। ' +
-        'বেতন থেকে GPF/RPF কাটা হলেও সেটা রেয়াতযোগ্য বিনিয়োগ।');
+        'বেতন থেকে GPF/RPF কাটা হলেও সেটা রেয়াতযোগ্য বিনিয়োগ।',
+        [{ t: '✔ Yes করে দিন', do: 'set', path: 'additional.claimTaxRebate', val: 'Yes' }]);
     }
     if (data.additional.guardianOfDisabled && n(data.taxpayer.disabledChildren) === 0) {
       add('taxpayer.disabledChildren', 'warn',
-        'প্রতিবন্ধী সন্তানের অভিভাবক হিসেবে সুবিধা চেয়েছেন কিন্তু সংখ্যা ০ — সংখ্যা দিলে করমুক্ত সীমা বাড়বে।');
+        'প্রতিবন্ধী সন্তানের অভিভাবক হিসেবে সুবিধা চেয়েছেন কিন্তু সংখ্যা ০ — সংখ্যা দিলে করমুক্ত সীমা বাড়বে।',
+        [
+          { t: '➜ সংখ্যা দিই', do: 'field', path: 'taxpayer.disabledChildren' },
+          { t: '✖ টিক তুলে দিন', do: 'set', path: 'additional.guardianOfDisabled', val: false, danger: true }
+        ]);
     }
 
     /* ---------- বেতন ---------- */
@@ -234,12 +242,18 @@
     }
     if (data.additional.ownMotorCar === 'Yes' && n(As.motorCar) === 0) {
       add('assets.motorCar', 'error',
-        'Additional Information-এ "গাড়ি আছে" বলেছেন কিন্তু সম্পদে গাড়ি নেই — অমিল ধরা পড়বে।');
+        'Additional Information-এ "গাড়ি আছে" বলেছেন কিন্তু সম্পদে গাড়ি নেই — অমিল ধরা পড়বে।',
+        [
+          { t: '➜ গাড়ির মূল্য দিই', do: 'field', path: 'assets.motorCar' },
+          { t: '✖ "গাড়ি নেই" করে দিন', do: 'set', path: 'additional.ownMotorCar', val: 'No', danger: true }
+        ]);
     }
     if (res.grossWealth > rules.grossWealthLimit && data.additional.grossWealthOver50Lakh === 'No') {
       add('assets.nonAgriProperty', 'error',
         'আপনার মোট সম্পদ ' + f(res.grossWealth) + ' — ৫০ লাখের বেশি। কিন্তু Additional Information-এ ' +
-        '"Gross Wealth over 50,00,000?" = No দিয়েছেন। ওটা Yes করুন।');
+        '"Gross Wealth over 50,00,000?" = No দিয়েছেন। ওটা Yes করুন।',
+        [{ t: '✔ Yes করে দিন', do: 'set', path: 'additional.grossWealthOver50Lakh', val: 'Yes',
+          label: 'Gross Wealth over 50,00,000?' }]);
     }
     if (n(data.wealth.previousNetWealth) === 0 && !data.taxpayer.firstTimeFiler && res.grossWealth > 0) {
       add('wealth.previousNetWealth', 'warn',
@@ -289,7 +303,8 @@
     if (res.sourceTaxAuto > 0 && n(data.payments.sourceTax) === 0) {
       add('payments.sourceTax', 'info',
         'আপনার এন্ট্রি থেকে উৎসে কাটা কর পাওয়া গেছে ' + f(res.sourceTaxAuto) +
-        ' টাকা — এখানে বসালে ততটাই কম টাকা দিতে হবে।');
+        ' টাকা — এখানে বসালে ততটাই কম টাকা দিতে হবে।',
+        [{ t: '✔ ' + f(res.sourceTaxAuto) + ' বসিয়ে দিন', do: 'set', path: 'payments.sourceTax', val: res.sourceTaxAuto }]);
     }
     if (n(data.payments.sourceTax) > res.totalAmountPayable * 3 && res.totalAmountPayable > 0) {
       add('payments.sourceTax', 'warn', 'দাবি করা উৎস কর প্রদেয় করের তুলনায় অনেক বেশি — সনদ মিলিয়ে দেখুন।');
@@ -309,7 +324,11 @@
       if (heads[k] && !amount) {
         add('assessment.heads.' + k, 'warn',
           '"' + label + '"-এ টিক দিয়েছেন কিন্তু কোনো অঙ্ক দেননি। ' +
-          'হয় পাতাটি পূরণ করুন, নয়তো টিক তুলে দিন — নাহলে লাইভ সাইট এগোতে দেবে না।');
+          'হয় পাতাটি পূরণ করুন, নয়তো টিক তুলে দিন — নাহলে লাইভ সাইট এগোতে দেবে না।',
+          [
+            { t: '📝 পাতায় গিয়ে অঙ্ক দিই', do: 'page', page: page },
+            { t: '✖ টিক তুলে দিন', do: 'set', path: 'assessment.heads.' + k, val: false, danger: true, label: label }
+          ]);
       }
     });
 
