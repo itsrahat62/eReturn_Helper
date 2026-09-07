@@ -1,0 +1,285 @@
+/* eReturn Demo — "কোন ঘরে কোনটা সিলেক্ট করবেন এবং কেন"
+   প্রতিটি ড্রপডাউন/রেডিওর প্রতিটি অপশনের জন্য:
+     o    অপশনের নাম (লাইভে যেভাবে লেখা)
+     when কখন এটা বাছবেন
+     why  কেন — কর/হিসাবে কী প্রভাব
+     tag  good = সাধারণত এটাই · care = সাবধান · rare = কম লাগে
+*/
+(function (global) {
+  'use strict';
+
+  const CHOICES = {
+
+    /* ================= Assessment ================= */
+    residentStatus: {
+      q: 'Resident না Non Resident?',
+      rule: 'আয়বর্ষে বাংলাদেশে ১৮২ দিন বা তার বেশি থাকলে Resident।',
+      opts: [
+        { o: 'Resident', when: 'দেশে থাকেন, দেশে চাকরি/ব্যবসা করেন। প্রবাসী হলেও বছরে ১৮২ দিন দেশে থাকলে।', why: 'করমুক্ত সীমা ও স্ল্যাব হার পাবেন — কর অনেক কম আসে।', tag: 'good' },
+        { o: 'Non Resident', when: 'বছরের বেশির ভাগ সময় বিদেশে ছিলেন এবং বাংলাদেশি নন।', why: '⚠️ করমুক্ত সীমা পাবেন না, পুরো আয়ে সরাসরি ৩০% কর।', tag: 'care' }
+      ]
+    },
+    hasExemptedIncome: {
+      q: 'সম্পূর্ণ করমুক্ত কোনো আয় আছে?',
+      opts: [
+        { o: 'Yes', when: 'বৈদেশিক রেমিট্যান্স, সরকারি পেনশন, সর্বজনীন পেনশন, IT/সফটওয়্যার রপ্তানির আয়, সরকারি পুরস্কার — যেকোনো একটি থাকলে।', why: '⭐ কর এক টাকাও বাড়বে না, কিন্তু "টাকা কোথা থেকে এলো" প্রমাণ হবে — সম্পদ বাড়ার ব্যাখ্যা দিতে দারুণ কাজে লাগে।', tag: 'good' },
+        { o: 'No', when: 'এরকম কোনো আয় নেই।', why: 'Tax Exempted Income পাতাটি আসবে না।' }
+      ]
+    },
+    hasTaxableIncome: {
+      q: 'আয়বর্ষে কোনো করযোগ্য আয় আছে?',
+      opts: [
+        { o: 'Yes', when: 'প্রায় সবাই — আয় করমুক্ত সীমার নিচে হলেও।', why: 'আয় দেখানোর ঘরগুলো আসবে। সীমার নিচে হলে কর ০ আসবে (জিরো রিটার্ন)।', tag: 'good' },
+        { o: 'No', when: 'বছরে একদমই কোনো আয় হয়নি।', why: '⚠️ আয় দেখানোর সুযোগই পাবেন না। আয় থাকলে "No" দেবেন না।', tag: 'care' }
+      ]
+    },
+
+    /* ================= Additional Information ================= */
+    location: {
+      q: 'প্রধান আয়ের উৎস কোন এলাকায়?',
+      rule: 'যেখানে আপনার অফিস/ব্যবসা, সেই এলাকা। ⚠️ ঘরটি আবশ্যক।',
+      opts: [
+        { o: 'Dhaka North City Corporation', when: 'অফিস/ব্যবসা ঢাকা উত্তর সিটিতে (গুলশান, বনানী, উত্তরা, মিরপুর, মহাখালী)।', why: 'শুধু রেকর্ডের জন্য — ২০২৬-২৭ থেকে ন্যূনতম কর সব এলাকায় একই ৫,০০০।' },
+        { o: 'Dhaka South City Corporation', when: 'ঢাকা দক্ষিণ সিটিতে (মতিঝিল, পল্টন, ধানমন্ডি, লালবাগ, যাত্রাবাড়ী)।', why: 'একই।' },
+        { o: 'Chattogram City Corporation', when: 'চট্টগ্রাম সিটি কর্পোরেশনে।', why: 'একই।' },
+        { o: 'Other City Corporation', when: 'অন্য কোনো সিটি কর্পোরেশনে (রাজশাহী, খুলনা, সিলেট, বরিশাল, রংপুর, ময়মনসিংহ, গাজীপুর, নারায়ণগঞ্জ, কুমিল্লা)।', why: 'একই।' },
+        { o: 'Any Other Area', when: 'সিটি কর্পোরেশনের বাইরে — জেলা/উপজেলা শহর বা গ্রাম।', why: 'একই। আগে এখানে ন্যূনতম কর ৩,০০০ ছিল।' }
+      ]
+    },
+    claimTaxRebate: {
+      q: 'বিনিয়োগের বিপরীতে কর রেয়াত দাবি করবেন?',
+      opts: [
+        { o: 'Yes', when: '⭐ প্রায় সবাই। DPS, সঞ্চয়পত্র, জীবন বীমা, GPF/RPF, শেয়ার, জাকাত ফান্ড — যেকোনো একটি থাকলেই। বেতন থেকে GPF/RPF কাটা হলেও এটি বিনিয়োগ।', why: 'Rebate পাতা আসবে, সেখানে বিনিয়োগ দেখিয়ে কর কমাতে পারবেন — কর কমানোর সবচেয়ে বড় সুযোগ।', tag: 'good' },
+        { o: 'No', when: 'সত্যিই কোনো রেয়াতযোগ্য বিনিয়োগ নেই।', why: '⚠️ Rebate পাতাই আসবে না, কোনো রেয়াত পাবেন না। না বুঝে দিলে হাজার হাজার টাকা হারাবেন।', tag: 'care' }
+      ]
+    },
+    grossWealthOver50Lakh: {
+      q: 'মোট সম্পদ ৫০ লাখের বেশি?',
+      rule: 'জমি + ফ্ল্যাট + গাড়ি + স্বর্ণ + ব্যাংক + সঞ্চয়পত্র + DPS + আসবাব — সব ক্রয়মূল্যে যোগ করুন (ঋণ বাদ দেওয়ার আগে)।',
+      opts: [
+        { o: 'Yes', when: 'যোগফল ৫০,০০,০০০ ছাড়ালে।', why: 'সম্পদ ও দায় বিবরণী (IT-10B) বাধ্যতামূলক হয়ে যাবে।' },
+        { o: 'No', when: '৫০ লাখের নিচে।', why: 'IT-10B বাধ্যতামূলক নয় — তবে দেখানো ভালো।' }
+      ]
+    },
+    ownMotorCar: {
+      q: 'নিজের নামে গাড়ি আছে?',
+      opts: [
+        { o: 'Yes', when: 'প্রাইভেট কার, মাইক্রোবাস, জিপ — নিজের নামে রেজিস্ট্রেশন থাকলে।', why: '⚠️ IT-10B বাধ্যতামূলক। একাধিক গাড়ি থাকলে নিট সম্পদ কম হলেও ১০% সারচার্জ।', tag: 'care' },
+        { o: 'No', when: 'গাড়ি নেই, অথবা শুধু মোটরসাইকেল আছে।', why: 'মোটরসাইকেল "গাড়ি" হিসেবে গণ্য নয়।' }
+      ]
+    },
+    offshoreProperty: {
+      q: 'দেশের বাইরে সম্পদ আছে?',
+      opts: [
+        { o: 'Yes', when: 'বিদেশে বাড়ি, ব্যাংক হিসাব, শেয়ার বা ব্যবসা থাকলে।', why: 'IT-10B বাধ্যতামূলক এবং বিদেশের সম্পদ আলাদা করে দেখাতে হবে।' },
+        { o: 'No', when: 'নেই।', why: '', tag: 'good' }
+      ]
+    },
+    shareholderDirector: {
+      q: 'কোনো কোম্পানির শেয়ারহোল্ডার পরিচালক?',
+      opts: [
+        { o: 'Yes', when: 'লিমিটেড কোম্পানির পরিচালক হিসেবে শেয়ার থাকলে (RJSC-তে নাম আছে)।', why: 'IT-10B বাধ্যতামূলক; কোম্পানির নাম ও শেয়ার সংখ্যা দিতে হবে।' },
+        { o: 'No', when: 'শুধু স্টক মার্কেটে শেয়ার কেনা থাকলেও "No" — পরিচালক হওয়া আলাদা জিনিস।', why: '', tag: 'good' }
+      ]
+    },
+    housePropertyQ: {
+      q: 'সিটি কর্পোরেশনে বাড়ি/ফ্ল্যাট আছে?',
+      opts: [
+        { o: 'Yes', when: 'সিটি কর্পোরেশন এলাকায় বাড়ি বা ফ্ল্যাটে বিনিয়োগ থাকলে।', why: 'IT-10B বাধ্যতামূলক।' },
+        { o: 'No', when: 'নেই, বা সিটি কর্পোরেশনের বাইরে।', why: '' }
+      ]
+    },
+
+    /* ================= Employment ================= */
+    employmentType: {
+      q: 'কোন ধরনের চাকরি?',
+      rule: '⭐ এই একটি বাছাইয়ে কর অনেক বদলে যায় — ভুল করবেন না।',
+      opts: [
+        { o: 'Government Pay Scale (Payment through iBAS++)', when: 'সরকারি চাকরি এবং বেতন iBAS++ সিস্টেমের মাধ্যমে আসে (বেশির ভাগ সরকারি কর্মচারী)।', why: '⭐ বাড়ি ভাড়া, চিকিৎসা ও যাতায়াত ভাতা **সম্পূর্ণ করমুক্ত** — শুধু মূল বেতন ও বোনাসে কর। উৎসে কাটা করও iBAS++ রেকর্ড থেকে যাচাই করা যায়।', tag: 'good' },
+        { o: 'Government Pay Scale (Payment not through iBAS++)', when: 'সরকারি বেতন কাঠামো কিন্তু iBAS++ নয় — স্বায়ত্তশাসিত সংস্থা, করপোরেশন, কিছু MPO প্রতিষ্ঠান।', why: 'ভাতাগুলো একইভাবে করমুক্ত, তবে উৎস কর হাতে ক্লেইম করতে হবে।' },
+        { o: 'Private/Other than Government Pay Scale', when: 'বেসরকারি কোম্পানি, ব্যাংক, NGO, বেসরকারি স্কুল-কলেজ, বিদেশি প্রতিষ্ঠান।', why: 'ছাড় = মোট বেতনের ১/৩ অথবা ৫,০০,০০০ — যেটি কম। আলাদা করে ভাতা করমুক্ত নয়।', tag: 'good' },
+        { o: 'Salary Subject to Reduced Tax Rate', when: 'বিশেষ SRO-তে হ্রাসকৃত হারে কর প্রযোজ্য এমন বেতন (খুব কম ক্ষেত্রে)।', why: 'নিশ্চিত না হলে এটি বাছবেন না।', tag: 'rare' }
+      ]
+    },
+    salaryExtra: {
+      q: '"Add More"-এ কোনটা নেবেন?',
+      rule: 'Salary Certificate-এ যা যা আছে, উপরের ৫টি ঘরে নেই এমন প্রতিটির জন্য একটি সারি যোগ করুন।',
+      opts: [
+        { o: 'Arrear Salary', when: 'আগের বছরের বকেয়া বেতন এ বছর পেলে।', why: 'করযোগ্য আয়ে যোগ হবে।' },
+        { o: 'Dearness / Special Allowance', when: 'মহার্ঘ ভাতা বা বিশেষ সুবিধা (সরকারি চাকরিতে খুব সাধারণ)।', why: 'তালিকায় না থাকলে "Other, If Any" নিয়ে নাম লিখে দিন।' },
+        { o: 'Education Allowance', when: 'সন্তানের শিক্ষা ভাতা পেলে।', why: '' },
+        { o: 'Tiffin Allowance', when: 'টিফিন/খাবার ভাতা পেলে।', why: '' },
+        { o: 'Employer’s Contribution to RPF', when: 'বেসরকারি চাকরিতে অফিস আপনার PF-এ যত টাকা দেয়।', why: '⭐ আয়ে যোগ হয় ঠিকই, কিন্তু Rebate পাতায় বিনিয়োগ হিসেবেও গোনা হয় — সাধারণত লাভই হয়।', tag: 'good' },
+        { o: 'Other Bonus', when: 'পারফরম্যান্স বোনাস, ইনসেনটিভ — উৎসব বোনাস ছাড়া অন্য বোনাস।', why: '' },
+        { o: 'Overtime Allowance', when: 'ওভারটাইমের টাকা।', why: '' },
+        { o: 'Leave Allowance', when: 'শ্রান্তি বিনোদন ভাতা / ছুটি নগদায়ন।', why: '' },
+        { o: 'Gratuity (Approved Gratuity Fund)', when: 'অনুমোদিত গ্র্যাচুইটি ফান্ড থেকে পেলে।', why: 'অনুমোদিত হলে করমুক্ত সুবিধা আছে।' },
+        { o: 'Other, If Any (Give Detail)', when: 'তালিকার কোনোটাই না মিললে।', why: 'কী বাবদ কত পেয়েছেন লিখে দিন।' }
+      ]
+    },
+
+    /* ================= Rent ================= */
+    propertyType: {
+      q: 'কী ভাড়া দিয়েছেন?',
+      opts: [
+        { o: 'House Property', when: 'বাড়ি, ফ্ল্যাট, অ্যাপার্টমেন্ট।', why: 'মেরামত খরচ আবাসিকে ২৫%, বাণিজ্যিকে ৩০% এমনিতেই বাদ যাবে।', tag: 'good' },
+        { o: 'Other Property', when: 'খালি জমি, দোকান, গুদাম, বিলবোর্ডের জায়গা।', why: '' }
+      ]
+    },
+    inCityCorporation: {
+      q: 'সম্পত্তি সিটি কর্পোরেশনে?',
+      opts: [
+        { o: 'Yes', when: 'সিটি কর্পোরেশন এলাকায়।', why: 'IT-10B বাধ্যতামূলকতা ও সারচার্জের হিসাবে কাজে লাগে। ৮,০০০ বর্গফুট ছাড়ালে ১০% সারচার্জ।', tag: 'care' },
+        { o: 'No', when: 'বাইরে।', why: '' }
+      ]
+    },
+
+    /* ================= Agriculture ================= */
+    agricultureType: {
+      q: 'কোন ধরনের কৃষি আয়?',
+      rule: '⚠️ গরু/মুরগি/মাছের খামার সাধারণত এখানে নয় — সেটা Business → "Certain Sources of Agro-Business Income"।',
+      opts: [
+        { o: 'Cultivation', when: 'ধান, গম, পাট, সবজি, ফল — ফসল চাষ।', why: '⭐ হিসাবের বই না থাকলে বিক্রয়মূল্যের ৬০% খরচ এমনিতেই বাদ যায়।', tag: 'good' },
+        { o: 'Income from Farming', when: 'খুব ছোট পরিসরের খামার (কেউ কেউ এটি ব্যবহার করেন)।', why: 'বড় খামার হলে Business খাতই সঠিক — কর আইনজীবীর সাথে যাচাই করুন।', tag: 'care' },
+        { o: 'Production of Tea or Rubber', when: 'চা বা রাবার বাগান।', why: 'আলাদা হারে কর হয় (৬০% ব্যবসায়িক, ৪০% কৃষি হিসেবে ভাগ)।', tag: 'rare' },
+        { o: 'Other Agricultural Income', when: 'কৃষি জমি বর্গা/ভাড়া দেওয়া, কৃষি যন্ত্র ভাড়া ইত্যাদি।', why: '' },
+        { o: 'Special Agricultural Income', when: 'SRO-তে বিশেষ হার নির্ধারিত কৃষি আয়।', why: '', tag: 'rare' }
+      ]
+    },
+    agriBooks: {
+      q: 'হিসাবের বই রাখেন?',
+      opts: [
+        { o: 'No', when: '⭐ বেশির ভাগ কৃষকের জন্য এটাই। আয়-ব্যয়ের নিয়মিত খাতা নেই।', why: 'বিক্রয়মূল্যের **৬০%** উৎপাদন খরচ হিসেবে নিজে থেকেই বাদ যাবে — কোনো ভাউচার লাগবে না।', tag: 'good' },
+        { o: 'Yes', when: 'সত্যিই নিয়মিত হিসাবের খাতা রাখেন এবং প্রকৃত খরচ ৬০%-এর বেশি।', why: 'প্রকৃত খরচ লিখতে হবে এবং প্রমাণ রাখতে হবে।', tag: 'care' }
+      ]
+    },
+
+    /* ================= Business ================= */
+    businessCategory: {
+      q: 'কোন ধরনের ব্যবসা/পেশা?',
+      rule: '⭐ এই বাছাইয়ে করের হার নির্ভর করে — মিলিয়ে নিন।',
+      opts: [
+        { o: 'Business or Professional Income', when: 'সাধারণ দোকান, ট্রেডিং, সেবা, ফ্রিল্যান্সিং, টিউশনি, ডাক্তার/উকিল/প্রকৌশলীর পেশা।', why: 'নিয়মিত স্ল্যাব হারে কর। বেশির ভাগ মানুষের জন্য এটাই।', tag: 'good' },
+        { o: 'Business or Professional Income (with TDS)', when: 'ঠিকাদারি/সাপ্লাই — বিল থেকে আগেই উৎসে কর কেটে রাখা হয়।', why: 'কাটা কর প্রদেয় কর থেকে বাদ যাবে; সনদ লাগবে।' },
+        { o: 'Certain Sources of Agro-Business Income', when: '⭐ গরু/দুগ্ধ খামার, পোল্ট্রি, হ্যাচারি, মাছের খামার/ঘের, বীজ উৎপাদন।', why: 'SRO অনুযায়ী **হ্রাসকৃত হারে** কর — সাধারণ ব্যবসার চেয়ে অনেক কম। এই অপশনটাই খামারের জন্য সঠিক।', tag: 'good' },
+        { o: 'Business Subject to Final Tax', when: 'যে ব্যবসার উৎসে কাটা করই চূড়ান্ত (যেমন কিছু আমদানি/রপ্তানি)।', why: 'স্ল্যাব হারে আবার কর বসবে না।', tag: 'rare' },
+        { o: 'Business Exempted from Turnover Tax', when: 'টার্নওভার কর থেকে অব্যাহতিপ্রাপ্ত ব্যবসা।', why: '', tag: 'rare' },
+        { o: 'Manufacturing of Tobacco Products', when: 'তামাকজাত পণ্য উৎপাদন।', why: '⚠️ সবচেয়ে বেশি হারে কর + তামাক সারচার্জ।', tag: 'care' },
+        { o: 'Production of Tea or Rubber', when: 'চা/রাবার উৎপাদন।', why: '', tag: 'rare' },
+        { o: 'Manufacturing of Carbonated/ Sweetened Beverage', when: 'কোমল/মিষ্টি পানীয় উৎপাদন।', why: 'বিশেষ হার।', tag: 'rare' },
+        { o: 'Business Income from Royalty, Intangibles etc.', when: 'রয়্যালটি, পেটেন্ট, ব্র্যান্ড থেকে ব্যবসায়িক আয়।', why: '', tag: 'rare' },
+        { o: 'Special Business Income', when: 'SRO-তে বিশেষভাবে নির্ধারিত ব্যবসা।', why: '', tag: 'rare' },
+        { o: 'Income Subject to Reduced Tax Rate', when: 'হ্রাসকৃত হারে করযোগ্য অন্য কোনো আয়।', why: '', tag: 'rare' }
+      ]
+    },
+    businessExpense: {
+      q: 'খরচের ঘরে কোনটা নেবেন?',
+      rule: 'যত বৈধ খরচ দেখাবেন, নিট মুনাফা তত কম, কর তত কম। প্রতিটির ভাউচার রাখুন।',
+      opts: [
+        { o: 'All general, administrative, selling & other expenses (Consolidated)', when: 'কর্মচারীর বেতন, দোকান ভাড়া, বিদ্যুৎ, পরিবহন, বিজ্ঞাপন — সব একসাথে।', why: 'বেশির ভাগ ছোট ব্যবসার জন্য এই একটিই যথেষ্ট।', tag: 'good' },
+        { o: 'Depreciation', when: '⭐ ফ্রিজ, শোকেস, কম্পিউটার, আসবাব, গাড়ি, মেশিন — যা বছরে মূল্য হারায়।', why: 'অনেকেই এটা দেখান না — বড় ছাড় হারান। নগদ খরচ না হলেও বাদ দেওয়া যায়।', tag: 'good' },
+        { o: 'Financial expense (Bank/FI interest, other charges)', when: 'ব্যবসার ঋণের সুদ, ব্যাংক চার্জ, LC খরচ।', why: 'পুরোটাই বাদ যায়।' },
+        { o: 'Bad debt written off', when: 'বাকিতে বিক্রি করে টাকা আর আদায় হয়নি।', why: 'প্রমাণ রাখতে হবে।' },
+        { o: 'Amortization', when: 'সফটওয়্যার, লাইসেন্স, গুডউইলের মূল্য ক্ষয়।', why: '', tag: 'rare' },
+        { o: 'R&D expense', when: 'গবেষণা ও উন্নয়ন খরচ।', why: '', tag: 'rare' },
+        { o: 'Amount paid for Right of Use', when: 'লিজ/ব্যবহারের অধিকার বাবদ পরিশোধ।', why: '', tag: 'rare' },
+        { o: "Contribution to Worker's Welfare Fund", when: 'শ্রমিক কল্যাণ তহবিলে চাঁদা।', why: '', tag: 'rare' }
+      ]
+    },
+
+    /* ================= Capital Gain ================= */
+    typeOfGains: {
+      q: 'কী বিক্রি করে লাভ হয়েছে?',
+      opts: [
+        { o: 'Transfer of property (Land Only)', when: 'শুধু জমি বিক্রি।', why: 'রেজিস্ট্রেশনের সময় কাটা কর দাবি করতে ভুলবেন না।', tag: 'good' },
+        { o: 'Transfer of property (House/Apartment)', when: 'বাড়ি বা ফ্ল্যাট বিক্রি।', why: 'একই।' },
+        { o: 'Transfer of share of listed Company (Individual)', when: 'সাধারণ বিনিয়োগকারী হিসেবে তালিকাভুক্ত শেয়ার বিক্রি।', why: 'সাধারণ বিনিয়োগকারীর শেয়ার মুনাফায় নির্দিষ্ট সীমা পর্যন্ত ছাড় থাকতে পারে।' },
+        { o: 'Transfer of share of listed Company (Director/Sponsor/Placement Shareholder)', when: 'পরিচালক/স্পন্সর/প্লেসমেন্ট শেয়ারহোল্ডার হিসেবে।', why: 'আলাদা হারে কর।', tag: 'care' },
+        { o: 'Transfer of share of not-listed Company/Private Limited Company', when: 'অতালিকাভুক্ত/প্রাইভেট লিমিটেড কোম্পানির শেয়ার।', why: '' },
+        { o: 'Signing money from the developer', when: 'ডেভেলপারের কাছ থেকে সাইনিং মানি পেলে।', why: 'পুরোটাই আয়।' },
+        { o: 'Compensation against property acquisition', when: 'সরকার জমি অধিগ্রহণ করে ক্ষতিপূরণ দিলে।', why: '' },
+        { o: 'Transfer of personal effects (Gold, Silver, Gems...)', when: 'স্বর্ণ/রুপা/হীরা/অলংকার বিক্রি।', why: '' },
+        { o: 'Transfer of business or undertaking', when: 'পুরো ব্যবসা হস্তান্তর।', why: '', tag: 'rare' },
+        { o: 'Transfer of valuable assets (Painting, Antiques, Club Membership)', when: 'চিত্রকর্ম, প্রাচীন সামগ্রী, ক্লাব সদস্যপদ।', why: '', tag: 'rare' },
+        { o: 'Other capital gain', when: 'উপরের কোনোটাই না মিললে।', why: '' }
+      ]
+    },
+
+    /* ================= Financial Assets ================= */
+    faType: {
+      q: 'টাকা কোথায় রাখা, কী ধরনের মুনাফা?',
+      rule: '⭐ প্রতিটি ব্যাংক/স্কিমের জন্য আলাদা সারি যোগ করুন।',
+      opts: [
+        { o: 'Interest From Sanchayapatra', when: 'পরিবার/৩ মাস অন্তর/৫ বছর/পেনশনার সঞ্চয়পত্রের মুনাফা।', why: '⭐ **চূড়ান্ত করদায়** — কেনার সময় কাটা ১০% করই শেষ, স্ল্যাব হারে আবার কর বসে না।', tag: 'good' },
+        { o: 'Interest/Profit (Bank/FI)', when: 'সঞ্চয়ী হিসাব, FDR, DPS-এর সুদ; ইসলামী ব্যাংকের মুনাফা।', why: 'স্ল্যাব হারে করযোগ্য। কাটা ১০% TDS প্রদেয় কর থেকে বাদ যাবে।', tag: 'good' },
+        { o: 'Interest/Profit/Discount on Treasury Bill/Bond/SUKUK/Other Securities with TDS', when: 'ট্রেজারি বিল, বন্ড, সুকুক।', why: 'চূড়ান্ত করদায় — কাটা করই চূড়ান্ত।' },
+        { o: 'Dividend (Any kind)', when: 'শেয়ার বা মিউচুয়াল ফান্ড থেকে পাওয়া লভ্যাংশ।', why: 'নির্দিষ্ট অঙ্ক পর্যন্ত লভ্যাংশ করমুক্ত থাকতে পারে; TDS দাবি করুন।' },
+        { o: 'Interest From Any Other Securities/Financial Assets', when: 'উপরের কোনোটাই না মিললে।', why: '' },
+        { o: 'Securities Subject to Reduced Tax Rate', when: 'SRO-তে হ্রাসকৃত হারে করযোগ্য সিকিউরিটিজ।', why: '', tag: 'rare' }
+      ]
+    },
+
+    /* ================= Other Sources ================= */
+    osType: {
+      q: 'কোন ধরনের অন্যান্য আয়?',
+      opts: [
+        { o: 'Any Other Income', when: 'উপরের কোনোটাই না মিললে — সবচেয়ে বেশি ব্যবহৃত।', why: 'Particulars-এ কী বাবদ পেয়েছেন লিখে দিন।', tag: 'good' },
+        { o: 'Meeting Fee, Honorarium etc. (with TDS)', when: 'সভার সম্মানী, পরীক্ষার পারিশ্রমিক, অতিথি বক্তার ফি।', why: 'সাধারণত ১০% উৎস কর কাটা হয় — দাবি করুন।', tag: 'good' },
+        { o: 'Royalty', when: 'বই, গান, সফটওয়্যার বা পেটেন্ট থেকে রয়্যালটি।', why: '' },
+        { o: 'Payment from WPPF', when: 'কোম্পানির শ্রমিক অংশগ্রহণ তহবিল থেকে পাওয়া।', why: 'নির্দিষ্ট সীমা পর্যন্ত করমুক্ত সুবিধা আছে।' },
+        { o: 'License Fee', when: 'লাইসেন্স ব্যবহারের বিপরীতে আয়।', why: '' },
+        { o: 'Fees for Technical Services', when: 'কারিগরি পরামর্শ/সেবার ফি।', why: '' },
+        { o: 'Cash Subsidy', when: 'সরকারি নগদ ভর্তুকি (রপ্তানি ভর্তুকি ইত্যাদি)।', why: '' },
+        { o: 'Lottery, Puzzle, Card Game/Online Game, or Similar', when: 'লটারি, প্রাইজবন্ড, পুরস্কার জেতা।', why: '⚠️ সাধারণত ২০% হারে উৎসে কর কাটা হয়।', tag: 'care' },
+        { o: 'Joint Venture(JV) Profit Share', when: 'যৌথ উদ্যোগের মুনাফার অংশ।', why: '', tag: 'rare' },
+        { o: 'Income From Intangible Assets', when: 'ব্র্যান্ড, ট্রেডমার্ক থেকে আয়।', why: '', tag: 'rare' }
+      ]
+    },
+
+    /* ================= Tax Exempted ================= */
+    exemptType: {
+      q: 'কোন ধরনের করমুক্ত আয়?',
+      rule: '⭐ এগুলো দেখালে কর বাড়ে না, কিন্তু টাকার উৎস প্রমাণ হয়।',
+      opts: [
+        { o: 'Foreign Remittance', when: 'প্রবাস থেকে বৈধ ব্যাংকিং চ্যানেলে পাঠানো টাকা।', why: 'সম্পূর্ণ করমুক্ত। ব্যাংকের এনক্যাশমেন্ট সনদ রাখুন।', tag: 'good' },
+        { o: 'Income from Pension', when: 'সরকারি পেনশন ও অনুমোদিত তহবিলের গ্র্যাচুইটি।', why: 'সম্পূর্ণ করমুক্ত।', tag: 'good' },
+        { o: 'Universal Pension Scheme', when: 'সর্বজনীন পেনশন স্কিম থেকে পাওয়া টাকা।', why: 'করমুক্ত; আবার চাঁদার জন্য রেয়াতও পাওয়া যায়।', tag: 'good' },
+        { o: 'Software and IT Business', when: 'সফটওয়্যার/IT সেবা রপ্তানির নির্দিষ্ট আয়।', why: 'শর্তসাপেক্ষে করমুক্ত — রেমিট্যান্স সনদ লাগবে।' },
+        { o: 'Income from Tax Exempted Bond or Securities', when: 'করমুক্ত বন্ড/সিকিউরিটিজের আয়।', why: '' },
+        { o: 'Welfare Allowance from Government/Muktijhoddha Kallyan Trust', when: 'সরকারি কল্যাণ ভাতা, মুক্তিযোদ্ধা ভাতা।', why: '' },
+        { o: 'Rewards from Government', when: 'সরকারি পুরস্কার।', why: '' },
+        { o: 'Income from Old Home', when: 'বৃদ্ধাশ্রম পরিচালনার আয়।', why: '', tag: 'rare' },
+        { o: 'Income from Prize', when: 'নির্দিষ্ট করমুক্ত পুরস্কার।', why: '', tag: 'rare' },
+        { o: 'Other Exemption under 6th Schedule Part 1', when: 'ষষ্ঠ তফসিলের অন্য কোনো অব্যাহতি।', why: '' },
+        { o: 'Exemption by SRO', when: 'বিশেষ SRO দিয়ে দেওয়া অব্যাহতি।', why: '', tag: 'rare' }
+      ]
+    },
+
+    /* ================= Assets ================= */
+    previousNetWealth: {
+      q: 'গত বছরের নিট সম্পদে কী দেবেন?',
+      opts: [
+        { o: 'গত বছরের রিটার্নের "Net Wealth" অঙ্ক', when: 'আগে রিটার্ন দিয়ে থাকলে।', why: '⭐ হুবহু মেলাতে হবে — নাহলে "shortage of fund" দেখাবে এবং সাইট আটকে দেবে।', tag: 'good' },
+        { o: '0', when: 'এটাই আপনার প্রথম রিটার্ন।', why: 'তখন এ বছরের পুরো সম্পদই "নতুন" ধরা হবে, আর তার উৎস আয়/করমুক্ত আয়/Other Receipts দিয়ে দেখাতে হবে।', tag: 'care' }
+      ]
+    }
+  };
+
+  function get(key) { return CHOICES[key] || null; }
+
+  function asText() {
+    const L = ['### কোন ঘরে কোনটা সিলেক্ট করবেন এবং কেন'];
+    Object.keys(CHOICES).forEach(k => {
+      const c = CHOICES[k];
+      L.push('');
+      L.push('**' + k + '** — ' + c.q + (c.rule ? ' (' + c.rule + ')' : ''));
+      c.opts.forEach(o => {
+        L.push('  - `' + o.o + '` → কখন: ' + o.when + (o.why ? ' | কেন: ' + o.why : '') +
+          (o.tag ? ' [' + o.tag + ']' : ''));
+      });
+    });
+    return L.join('\n');
+  }
+
+  global.Choices = { CHOICES, get, asText };
+})(window);

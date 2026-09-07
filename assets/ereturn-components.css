@@ -1,0 +1,6586 @@
+.incomeDetailsSpan {
+    font: normal normal bold 24px/28px Ubuntu;
+    color: #22223B;
+}
+
+.buttonAllign {
+    float: right;
+}
+
+.main_nav:hover {
+    float: right;
+    background-color: #01649A;
+    color: white;
+}
+
+.active{
+    background-color: #01649A !important;
+    color: white;
+    border: 0px;
+}
+
+#dynamicTable {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+#dynamicTable th {
+    background-color: #C0D8DE;
+    color: #424548;
+}
+
+#dynamicTable th, #dynamicTable td {
+    padding: 0.75rem 0.5rem !important;
+}
+
+#dynamicTable .subtotal-row td {
+    background-color: #fff;
+    border-top: 1px solid #dee2e6;
+    font-size: 14px;
+}
+
+#dynamicTable .subtotal-row .subtotal-amount {
+    display: block;
+    padding-right: 0.75rem;
+}
+
+.tableBgStyle {
+    background-color: #FFFFFF; 
+}
+
+.main {
+    margin-left: 3px !important; 
+    font-size: 12px;
+}
+
+.addAnotherButtonClass {
+    float: right; 
+    padding: 0; 
+    margin-bottom: 5px;
+}
+
+.addAnotherBtnStyle {
+    width: 75px;
+    color: #01649A; 
+    font-size: 14px; 
+    float: right; 
+    background: none; 
+    border: 1px solid #01649A; 
+    border-radius: 20px;
+    outline: none;
+}
+
+#summaryTable th {
+    background-color: #C0D8DE;
+    color: #424548;
+}
+
+label,input,select,option,p{
+    font-size: 14px !important;
+}
+
+.saveContinueBtn {
+background-color: #01649A;
+color: #ffffff;
+width: 200px;
+}
+
+.backBtn {
+background-color: #01649A;
+color: #ffffff;
+width: 100px;
+}
+
+.deleteBtnStyle {
+    background: none; 
+    outline: none; 
+    border: none;
+}
+
+.saveDraftBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 100px;
+    margin-right: 3px;
+}
+
+.autoFillBtn {
+    background-color: #01649A;
+    border-color: #01649A; 
+    color: #ffffff;
+    margin-left: 8px;
+   
+}
+
+::ng-deep .tooltip-350 ~ .tooltip .tooltip-inner {
+    max-width: 380px;
+    min-width: 380px;
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    box-shadow: 1px 1px 10px 2px #00000029;
+    color: #0F0F0F;
+    
+}
+
+.tooltip-350{
+    margin-left: 3px;
+}
+
+.totalExpenseTaxBtn{
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.addAnotherBtnNoteCurrency {
+    height: 30px;
+    width: 215px;
+    color: #01649A;
+    font-size: 14px;
+    
+    background: none;
+    border: 1px solid #01649A;
+    border-radius: 20px;
+    outline: none;
+  }
+
+.border-bottom{
+    border: 1px solid #E1EAEC !important;
+  }
+
+.font-14
+  {
+      font-size: 14px !important;
+  }
+
+.removeBtnStyle {
+    height: 30px;
+    width: 230px;
+    color: red;
+    font-size: 14px;
+    float: right;
+    background: none;
+    border: 1px solid red;
+    border-radius: 20px;
+    outline: none;
+  }
+
+.autofillButton {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 100px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    box-shadow: 0px 4px 6px;
+ }
+
+.syncFromInputBtnStyle{
+    width: -moz-fit-content;
+    width: fit-content;
+    color: #01649A;
+    font-size: 14px;
+    float: right;
+    background: none;
+    border: 1px solid #01649A;
+    border-radius: 20px;
+    outline: none;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+
+.assets-liabilities-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+.autofill-label-text {
+  color: #01649A;
+  font-size: 15px;
+}
+
+.bank-account-details-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 12px 0 !important;
+}
+
+
+.custom-row
+{
+    background-color: #c7dee5  !important;
+}
+.force-padding
+{
+    padding-left: 30px !important;
+}
+.main_nav:hover {
+    float: right;
+    background-color: #01649A;
+    color: white;
+}
+.activeMainNav{
+    background-color: #01649A !important;
+    color: white;
+    border: 0px;
+}
+label,input,select,option,p{
+    font-size: 14px !important;
+}
+.saveContinueBtn {
+background-color: #01649A;
+color: #ffffff;
+width: 200px;
+}
+.backBtn {
+background-color: #01649A;
+color: #ffffff;
+width: 100px;
+}
+#dynamicTable {
+    font-size: 14px;
+}
+.saveDraftBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 100px;
+    margin-right: 3px;
+}
+.customCss{
+    margin-left: 45px; 
+    width: 13%;
+}
+@media (min-height: 769px){
+    .customCss{
+        margin-left: 55px; 
+        width: 13.6%;
+    }
+}
+
+.multiple-section {
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 10px #00000029;
+    opacity: 1;
+    padding: 20px 30px 20px 30px!important;
+    border: 1px solid #E0E0E0;
+}
+
+.addPropertyBtn {
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    
+    border-radius: 4px;
+    margin-right: 10px;
+    color: #01649A;
+    border-color: #01649A;
+}
+
+.property-btn-active{
+    background-color:#01649A;
+    color: white;
+    border: 0px;
+}
+
+.main_nav:hover {
+    float: right;
+    background-color: #01649A;
+    color: white;
+}
+
+.activeMainNav{
+    background-color: #01649A !important;
+    color: white;
+    border: 0px;
+}
+
+.activeHead{
+    background-color: #01649A !important;
+    color: white;
+    border: 0px;
+}
+
+label,input,select,option,p{
+    font-size: 14px !important;
+}
+
+.saveContinueBtn {
+background-color: #01649A;
+color: #ffffff;
+width: 200px;
+}
+
+.backBtn {
+background-color: #01649A;
+color: #ffffff;
+width: 100px;
+}
+
+.saveDraftBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 100px;
+    margin-right: 3px;
+}
+
+::ng-deep .tooltip-360 ~ .tooltip .tooltip-inner {
+    max-width: 300px;
+    min-width: 300px;
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    box-shadow: 1px 1px 10px 2px #00000029;
+    color: #0F0F0F;
+    font-size: 12px;
+    font-style: italic;
+    font-family: Helvetica;
+    font-weight: bold;
+    text-align: left !important;
+}
+
+.tooltip-360{
+    margin-left: 3px;
+}
+
+@page {
+    size: A4;
+    margin: 0;
+  }
+  
+  table.table-bordered {
+    border: 1px solid black;
+    margin-top: 20px;
+  }
+  
+  table.table-bordered td,
+  th {
+    border: 1px solid black;
+  }
+  
+  .tin-text-bottom {
+    line-height: 30px;
+  }
+  
+  .tin-text-up table.table {
+    position: absolute;
+    top: -20px;
+    left: 0px;
+    width: 650px;
+  }
+  
+  .tin-text-bottom table.table {
+    position: absolute;
+    top: -20px;
+    width: 340px;
+    left: 100px;
+  }
+  
+  .tax-no-table td {
+    padding: 0px 10px;
+    text-align: center;
+  }
+  
+  .ml-360 {
+    margin-left: 400px;
+  }
+  
+  .blank-space {
+    margin: 300px;
+  }
+  
+  .bb,
+  .bt,
+  .bl,
+  .br {
+    border-color: black !important;
+    border-width: 2px !important;
+  }
+  
+  .readonly {
+    background-color: #e9ecef;
+  }
+  
+  .back-to-home {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 66%;
+    margin-right: 35px;
+  }
+  
+  .save-as-draft {
+    background-color: #C0D8DE;
+    color: #424548;
+    width: 66%;
+    margin-right: 35px;
+    margin-left: -25px;
+  }
+  
+  .save-return {
+    background-color: #ffc107;
+    color: #212529;
+    ;
+    width: 100%;
+  }
+  
+  ::ng-deep .tooltip-350~.tooltip .tooltip-inner {
+    max-width: 380px;
+    min-width: 380px;
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    box-shadow: 1px 1px 10px 2px #00000029;
+    color: #0F0F0F;
+    text-align: left !important;
+  }
+  
+  .modal-bg-img {
+    background-color: white;
+  }
+  
+  .modal-bg-img {
+    background-image: url('bg.5d098f693c7b79f2afcb.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 50vh;
+  }
+  
+  .gateway-1-img {
+    background-image: url('SBL_LOGO_new.6068ba8cd94223617a03.jpg');
+    background-repeat: no-repeat;
+    background-size: 130px 80px;
+    max-width: 200px;
+    max-height: 100px;
+    background-position: center;
+  }
+  
+  .gateway-2-img {
+    background-image: url('pay_gateway_2.bdfd6ef49b3383b646cb.JPG');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 5vh;
+  }
+  
+  .gateway-3-img {
+    background-image: url('pay_gateway_3.3f84573ed7bdff722bf2.JPG');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 5vh;
+  }
+  
+  .continuePaymentBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 200px;
+  }
+  
+  .amount-field{
+    margin-top: 5px;
+  }
+  
+  .bangla-font {
+    font-family: Solaiman Lipi;
+  }
+  
+  .btn-primary {
+    background-color: #01649A;
+    border-color: #01649A;
+    color: white;
+  }
+  
+  @media print {
+    
+    .btn {
+      display: none;;
+    }
+    .return-view-background-print {
+        display: block;
+    }
+    .return-view-background {
+      box-shadow: none !important;
+    }
+  }
+  
+  @media only screen and (min-width: 1200px) {
+    .tin-text-up table.table {
+      width: 650px;
+    }
+  }
+  
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .tin-text-up table.table {
+      width: 450px;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .tin-text-up table.table {
+      top: 0px;
+      left: -77px;
+      width: 400px;
+    }
+  }
+  
+  @media only screen and (min-width: 600px) and (max-width: 777px) {
+    .tin-text-up table.table {
+      top: 0px;
+      left: -77px;
+      width: 400px;
+    }
+  }
+  
+  @media only screen and (max-width: 599px) {
+    .tin-text-up table.table {
+      top: 0px;
+      left: -77px;
+      width: 100px;
+    }
+  }
+  
+
+.headline {
+  text-align: left;
+  
+  font-size: 17px;
+  font-weight:bold;
+  letter-spacing: 0px;
+  color: #0F0F0F;
+  
+  opacity: 1;
+}
+  
+  
+
+
+.hiddenFiled {
+  margin-left: 20px;
+}
+  
+  
+
+
+.backBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 100px;
+}
+  
+  
+
+
+::ng-deep .tooltip-350 ~ .tooltip .tooltip-inner {
+  max-width: 380px;
+  min-width: 380px;
+  background: #F4F9FA 0% 0% no-repeat padding-box;
+  box-shadow: 1px 1px 10px 2px #00000029;
+  color: #0F0F0F;
+  text-align: left !important;
+}
+  
+  
+
+
+.tooltip-350{
+  margin-left: 3px;
+}
+  
+  
+
+
+.saveContinueBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  margin-right: 10px;
+  width: 200px;
+}
+  
+  
+
+
+label,input,select,option,p{
+  font-size: 14px !important;
+}
+  
+  
+
+
+.saveDraftBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 100px;
+  margin-right: 3px;
+}
+  
+  
+
+
+.font-12
+{
+  font-size: 12px !important;
+}
+  
+  
+
+
+.addAnotherBtnStyle {
+  width: 75px;
+  color: #01649A;
+  font-size: 14px;
+  float: right;
+  background: none;
+  border: 1px solid #01649A;
+  border-radius: 20px;
+  outline: none;
+}
+  
+  
+
+
+.removeBtnStyle {
+  width: 92px;
+  color: red;
+  font-size: 14px;
+  float: right;
+  background: none;
+  border: 1px solid red;
+  border-radius: 20px;
+  outline: none;
+}
+  
+  
+
+
+.mt-20{
+  margin-top: 20px !important;
+}
+  
+  
+
+
+.custom-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+  
+  
+
+
+.custom-container > div {
+  display: flex;
+  flex-direction: column;
+}
+  
+  
+
+
+.custom-container > div > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+  
+  
+
+
+.content-background {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+  
+  
+
+
+.row-12 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+  
+  
+
+
+@media (min-width: 576px) and (max-width: 830px) {
+  .childInputFieldClass {
+    width: 75px !important;
+    font-size: 10px !important;
+  }
+  .calendarBoxClass {
+    height: 29px !important;
+  } 
+  
+}
+  
+  
+
+
+@media (min-width: 360px) and (max-width: 415px) {
+  .childInputFieldClass {
+    width: 50px !important;
+    font-size: 7px !important;
+  }
+  .calendarBoxClass {
+    height: 25px !important;
+  }
+  .calendarIconBtnClass {
+    font-size: 8px !important;
+  }
+  .it10bClass {
+    margin-top: 10px;
+  }
+  .backBtn {
+    width: 50px;
+    font-size: 9px;
+  }
+  .saveDraftBtn {
+    width: 50px;
+    font-size: 9px;
+  }
+  .saveContinueBtn {
+    width: 110px;
+    font-size: 9px;
+  }
+  .arrowSaveContinue {
+    font-size: 12px !important;
+  }
+  .arrowBack {
+    font-size: 12px !important;
+    
+  }
+  .dropdownClass {
+    width: 250px;
+    font-size: 10px !important;
+  }
+}
+  
+  
+
+
+@media (min-width: 416px) and (max-width: 575px) {
+
+  .backBtn {
+    width: 70px;
+    font-size: 11px;
+  }
+  .saveDraftBtn {
+    width: 70px;
+    font-size: 11px;
+  }
+  .saveContinueBtn {
+    width: 140px;
+    font-size: 11px;
+  }
+  .arrowSaveContinue {
+    font-size: 14px !important;
+  }
+  .arrowBack {
+    font-size: 14px !important;
+    
+  }
+  .it10bClass {
+    margin-top: 10px;
+  }
+
+  .dropdownClass {
+    width: 250px;
+    font-size: 13px !important;
+  }
+
+}
+  
+  
+
+
+.h-fit-content {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.headline {
+    text-align: left;
+    
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 0px;
+    color: #0F0F0F;
+    text-transform: capitalize;
+    opacity: 1;
+}
+
+label {
+    font-size: larger;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.form-control.input {
+    width: 105%;
+}
+
+.button-group {
+    padding-top: 1.5%;
+}
+
+@media screen and (max-width: 768px) {
+    form {
+        display: contents;
+    }
+}
+
+#label-font {
+    width: 100%;
+    font-family: system-ui;
+    font-size: 12pt !important;
+}
+
+.tooltip {
+    margin-left: 20px;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.text-decoration-underline {
+    text-decoration: underline !important;
+}
+
+.text-black {
+    color: #000 !important;
+}
+
+.bg-grey {
+    background: #E1EAEC;
+}
+
+.img-120 {
+    width: 120px;
+    height: 120px;
+}
+
+.pt-38 {
+    padding-top: 38px;
+}
+
+.bt-black {
+    border-top: 1px solid black;
+    height: 2px;
+    width: 150px;
+}
+
+.mtn-5 {
+    margin-top: -5px;
+}
+
+.mr-35 {
+    margin-right: 35px;
+}
+
+.custom-input {
+    background: #F4F9FA !important;
+    border-bottom: 1px solid #bbb !important;
+    border: 0;
+    border-radius: 0 !important;
+    width: 100%;
+    font-size: 12px!important;
+}
+
+.custom-input:focus,
+.custom-input:active {
+    background: #F4F9FA !important;
+    border-bottom: 1px solid #bbb !important;
+    border: 0;
+    border-radius: 0 !important;
+    outline: 0;
+}
+
+.form-group label {
+    font-size: 11px !important;
+}
+
+.ft-11 {
+    font-size: 11px !important;
+}
+
+.ft-10 {
+    font-size: 10px !important;
+}
+
+.ft-12 {
+    font-size: 12px !important;
+}
+
+.main_nav:hover {
+    float: right;
+    background-color: #01649A;
+    color: white;
+}
+
+.active {
+    background-color: #01649A !important;
+    color: white;
+    border: 0px;
+}
+
+.border-none {
+    border: none !important;
+}
+
+h6 {
+    text-decoration: underline;
+}
+
+.border-full {
+    border: 1px solid grey !important;
+}
+
+.border-left {
+    border-left: 1px solid grey !important;
+}
+
+.border-right {
+    border-right: 1px solid grey !important;
+}
+
+.border-top {
+    border-top: 1px solid grey !important;
+}
+
+.border-bottom {
+    border-bottom: 1px solid grey !important;
+}
+
+.assessment-input-box-len {
+    width: 30px !important;
+    height: 45px !important;
+}
+
+.row-height-922 {
+    height: 30px !important;
+}
+
+.custom-checkbox {
+    
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 5px;
+    border: 2px solid #555;
+}
+
+.custom-padding {
+    padding-top: 10px !important;
+}
+
+.pl-30 {
+    padding-left: 30px !important;
+}
+
+.pl-50 {
+    padding-left: 50px !important;
+}
+
+.pl-40 {
+    padding-left: 40px !important;
+}
+
+.pl-22 {
+    padding-left: 22px !important;
+}
+
+.pl-80 {
+    padding-left: 80px !important;
+}
+
+.pl-100 {
+    padding-left: 100px !important;
+}
+
+.pl-110 {
+    padding-left: 110px !important;
+}
+
+.header-left {
+    width: 60%;
+    float: left;
+    display: flex;
+    align-items: flex-end;
+    height: 80px;
+    
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    border-radius: 10px 0 0 10px;
+}
+
+.header-right {
+    width: 40%;
+    float: right;
+    text-align: right;
+    height: 80px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 30px;
+    
+}
+
+@font-face {
+    font-family: Ayuthaya;
+    font-weight: normal;
+    src: url('ayuthaya.960dec3dbacb43ccc318.ttf');
+}
+
+.font-14 {
+    font-size: 14px !important;
+}
+
+.custom-page-back-width {
+    width: 75% !important;
+    margin: 0 auto !important;
+    background: #fff !important;
+    
+}
+
+.back-white {
+    background: white !important;
+}
+
+.mt-10 {
+    margin-top: 10px !important;
+}
+
+.border-none {
+    border: none !important;
+}
+
+.custom-logo-width {
+    width: 110px !important;
+}
+
+.custom-page-body-bg {
+    background: #fff !important;
+}
+
+.wid-75-0-margin {
+    width: 75% !important;
+    margin: 0 auto !important;
+}
+
+.p-15 {
+    padding-top: 15px !important;
+}
+
+.pb-15 {
+    padding-bottom: 15px !important;
+}
+
+.va-middle {
+    vertical-align: middle !important;
+}
+
+.btn-customize {
+    background-color: white;
+    font-size: 12px;
+}
+
+.btn-customize:hover {
+    background-color: black !important;
+    color: white;
+}
+
+.multiple-section {
+  background: #F4F9FA 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 10px #00000029;
+  opacity: 1;
+  padding: 20px 30px 20px 30px!important;
+  border: 1px solid #E0E0E0;
+}
+
+.salary-btn {
+  background: #F4F9FA 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+  margin-right: 10px;
+  color: #01649A;
+  border-color: #01649A;
+}
+
+.salary-btn-active{
+  background: #01649A;
+  color: white;
+  border: 0px;
+}
+
+.main_nav:hover {
+  float: right;
+  background-color: #01649A;
+  color: white;
+}
+
+.activeMainNav{
+  background-color: #01649A !important;
+  color: white;
+  border: 0px;
+}
+
+.remove {
+  color: red;
+  border-radius: 50px;
+  text-align: center;
+}
+
+.headline {
+  text-align: left;
+  
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 0px;
+  color: #0F0F0F;
+  
+  opacity: 1;
+}
+
+.fa-times-circle:hover{
+  color: red;
+}
+
+label,input,select,option,p{
+  font-size: 14px;
+}
+
+.activeHead{
+  background-color: #01649A !important;
+  color: white;
+  border: 0px;
+}
+
+.backBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 100px;
+}
+
+.saveContinueBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 200px;
+}
+
+.deleteBtnStyle {
+  background: none; 
+  outline: none; 
+  border: none;
+
+}
+
+.saveDraftBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 100px;
+  margin-right: 3px;
+}
+
+.border-none
+{
+  border: none !important;
+}
+
+.border-full
+{
+  border: 1px solid grey !important;
+}
+
+.border-left
+{
+  border-left: 1px solid grey !important;
+}
+
+.border-right
+{
+  border-right: 1px solid grey !important;
+}
+
+.border-top
+{
+  border-top: 1px solid grey !important;
+}
+
+.border-bottom
+{
+  border-bottom: 1px solid grey !important;
+}
+
+.row-height-922
+{
+  height : 30px !important;
+}
+
+.salary-Summary-Section{
+  margin-bottom: 10px; 
+  margin-left: 5px; 
+  margin-right: 5px;
+}
+
+.tax-exempted{
+  
+  margin-top: 3px;
+}
+
+.tableBgStyle {
+  background-color: #FFFFFF; 
+}
+
+#salarySummaryTable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.table-margin{
+  margin-top: 15px;
+}
+
+#salarySummaryTable th {
+  background-color: #C0D8DE;
+  color: #424548;
+}
+
+#salarySummaryTable tr:nth-child(even){background-color: #f2f2f2;}
+
+.netIncomeSection {
+  background-color: #E1EAEC;
+  margin-top: 30px; 
+  margin-left: 3px;                    
+  margin-bottom: 30px; 
+  
+  border-radius: 5px;
+}
+
+.netIncomeDivStyle {
+  margin-top: 10px; 
+  margin-bottom: 10px;
+}
+
+.netIncomeDivStyle2 {
+  margin-top: 10px; 
+  
+}
+
+.netIncomeLabel {
+  margin-top: 10px;
+}
+
+.netIncomeInput {
+  height: 35px; 
+  margin-top: 5px;
+}
+
+.netTaxExemptedIncomeDivStyle {
+  margin-top: -10px; 
+  
+}
+
+.taxableIncomeDivStyle{
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.netTaxExemptedIncomeLabel {
+  margin-top: 10px;
+}
+
+.netTaxExemptedIncomeInput {
+  height: 35px; 
+  margin-top: 5px;
+}
+
+::ng-deep .tooltip-370 ~ .tooltip .tooltip-inner {
+  max-width: 300px;
+  min-width: 300px;
+  background: #F4F9FA 0% 0% no-repeat padding-box;
+  box-shadow: 1px 1px 10px 2px #00000029;
+  color: #0F0F0F;
+  font-size: 12px;
+  font-style: italic;
+  font-family: Helvetica;
+  font-weight: bold;
+  text-align: left !important;
+}
+
+.tooltip-370{
+  margin-left: 3px;
+}
+
+.others-label{
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.assets_liabilities:hover {
+    float: right;
+    background-color: #01649A;
+    color: white;
+}
+
+.incomeBtn {
+    float: right; 
+    background: #1350ac; 
+    color: white;
+}
+
+.buttonAllign {
+    float: right;
+    padding-right: 5px;
+}
+
+.multiple-section {
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 10px #00000029;
+    opacity: 1;
+    padding: 20px 30px 20px 30px!important;
+    border: 1px solid #E0E0E0;
+}
+
+.capitalGainBtn {
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    
+    border-radius: 4px;
+    margin-right: 10px;
+    color: #01649A;
+    border-color: #01649A;
+}
+
+.capital-gain-btn-active {
+    background-color:#01649A;
+    color: white;
+    border: 0px;
+}
+
+.fa-times-circle:hover {
+    color: red;
+}
+
+.fa-times-circle {
+    margin-left: 10px;
+}
+
+.incomeDetailsSpan {
+    
+    font-size:20px; 
+    font-weight: bold;
+    color: #22223B;
+}
+
+.headMargin {
+    margin-top: 36px
+}
+
+.addAnother {
+    text-align: right;
+    padding: 0;
+}
+
+.addAnotherCatBtn {
+    margin-right: 5px;
+    border-radius: 50px;
+    background-color: #01649A; 
+    color: white;
+}
+
+.fa-question-circle {
+    padding-right: 5px;
+}
+
+.calenderDatePicker {
+    font-size: 14px;
+}
+
+.lavelStyle {
+    margin-right: 40px;
+}
+
+.backBtn {
+    font-size: 14px;
+}
+
+.nextContinueBtnAlign {
+    text-align: right;
+}
+
+.nextContinueBtn {
+    font-size: 14px;
+    vertical-align: sub;
+}
+
+.main_nav:hover {
+    float: right;
+    background-color: #01649A;
+    color: white;
+}
+
+.activeMainNav{
+    background-color: #01649A !important;
+    color: white;
+    border: 0px;
+}
+
+.activeHead{
+    background-color: #01649A !important;
+    color: white;
+    border: 0px;
+}
+
+label,input,select,option,p{
+    font-size: 14px !important;
+}
+
+.saveContinueBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 200px;
+}
+
+.backBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 100px;
+}
+
+.saveDraftBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 100px;
+    margin-right: 3px;
+  }
+
+::ng-deep .tooltip-350 ~ .tooltip .tooltip-inner {
+    max-width: 380px;
+    min-width: 380px;
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    box-shadow: 1px 1px 10px 2px #00000029;
+    color: #0F0F0F;
+    text-align: left !important;
+  }
+
+.tooltip-350{
+    margin-left: 3px;
+}
+
+.mt-8{
+    margin-top: 8px !important;
+  }
+
+.addAnotherButtonClass {
+    float: right; 
+    padding: 0; 
+    margin-bottom: 5px;
+}
+
+.addAnotherBtnStyle {
+    width: 75px;
+    color: #01649A; 
+    font-size: 14px; 
+    float: right; 
+    background: none; 
+    border: 1px solid #01649A; 
+    border-radius: 20px;
+    outline: none;
+}
+
+#transferOfShareIndividualTable th {
+    background-color: #C0D8DE;
+    color: #424548;
+}
+
+.tableBgStyle {
+    background-color: #FFFFFF; 
+    margin-top: 5px;
+}
+
+.deleteBtnStyle {
+    background: none; 
+    outline: none; 
+    border: none;
+}
+
+.incomeDetailsSpan {
+  
+  font-size: 20px;
+  font-weight: bold;
+  color: #22223B;
+}
+
+.buttonAllign {
+  float: right;
+  padding-right: 5px;
+}
+
+.assets_liabilities:hover {
+  float: right;
+  background-color: #01649A;
+  color: white;
+}
+
+.rebateBtn {
+  float: right;
+  background-color: #1350ac;
+  color: white;
+}
+
+#dynamicTable th {
+  background-color: #C0D8DE;
+  color: #424548;
+}
+
+.tableBgStyle {
+  background-color: #FFFFFF;
+}
+
+.main {
+  margin-left: 3px !important;
+  font-size: 12px;
+}
+
+.addAnotherButtonClass {
+  float: right;
+  padding: 0;
+  margin-bottom: 5px;
+}
+
+.addAnotherBtnStyle {
+  width: 75px;
+  color: #01649A;
+  font-size: 14px;
+  float: right;
+  background: none;
+  border: 1px solid #01649A;
+  border-radius: 20px;
+  outline: none;
+}
+
+.syncFromInputBtnStyle{
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #01649A;
+  font-size: 14px;
+  float: right;
+  background: none;
+  border: 1px solid #01649A;
+  border-radius: 20px;
+  outline: none;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.main_nav:hover {
+  float: right;
+  background-color: #01649A;
+  color: white;
+}
+
+.active {
+  background-color: #01649A !important;
+  color: white;
+  border: 0px;
+}
+
+label,
+input,
+select,
+option {
+  font-size: 14px !important;
+}
+
+.saveContinueBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 200px;
+}
+
+.backBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 100px;
+}
+
+.deleteBtnStyle {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.investmentCategory {
+  font-size: 17px;
+}
+
+.saveDraftBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 100px;
+  margin-right: 3px;
+}
+
+.red-border{
+  border: 1px solid red;
+}
+
+.border-none{
+  border: none;
+}
+
+.pl-50
+{
+  padding-left: 50px !important;
+}
+
+.pr-50
+{
+  padding-right: 50px !important;
+}
+
+.netIncomeSection {
+  background-color: #E1EAEC;
+  margin-top: 30px; 
+  margin-left: 3px;                    
+  margin-bottom: 30px; 
+  
+  border-radius: 5px;
+}
+
+.netIncomeDivStyle2 {
+  margin-top: 10px; 
+  
+}
+
+.netTaxExemptedIncomeDivStyle {
+  margin-top: -10px; 
+  padding-bottom: 10px !important;
+  
+}
+
+.border-bottom{
+  border: 1px solid #E1EAEC !important;
+}
+
+
+.multiple-section {
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 10px #00000029;
+    opacity: 1;
+    padding: 20px 30px 20px 30px!important;
+    border: 1px solid #E0E0E0;
+  }
+  
+  .salary-btn {
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #707070;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  .salary-btn-active{
+    background: #3F85ED;
+    color: white;
+    border: 0px;
+  }
+  
+
+.multiple-section {
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 10px #00000029;
+    opacity: 1;
+    padding: 20px 30px 20px 30px!important;
+    border: 1px solid #E0E0E0;
+  }
+
+  .agriculture-btn {
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    margin-right: 10px;
+    color: #01649A;
+    border-color: #01649A;
+  }
+
+  .salary-btn-active{
+    background: #01649A;
+    color: white;
+    border: 0px;
+  }
+
+  .remove {
+    color: red;
+    border-radius: 50px;
+    text-align: center;
+  }
+
+  .headline {
+    text-align: left;
+    
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 0px;
+    color: #0F0F0F;
+    text-transform: capitalize;
+    opacity: 1;
+  }
+
+  .hiddenFiled {
+    margin-left: 20px;
+  }
+
+  .fa-times-circle:hover{
+    color: red;
+  }
+
+  .font-10{
+    font-size: 10px !important;
+  }
+
+  .font-11{
+    font-size: 11px !important;
+  }
+
+  .font-14{
+    font-size: 14px !important;
+  }
+
+  .main_nav:hover {
+    float: right;
+    background-color: #01649A;
+    color: white;
+  }
+
+  .activeMainNav{
+    background-color: #01649A !important;
+    color: white;
+    border: 0px;
+  }
+
+  label,input,select,option,p{
+    font-size: 14px !important;
+  }
+
+  .activeHead{
+    background-color: #01649A !important;
+    color: white;
+    border: 0px;
+  }
+
+  .backBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 100px;
+  }
+
+  .saveContinueBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 200px;
+  }
+
+  .saveDraftBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 100px;
+    margin-right: 3px;
+  }
+
+  .adjustCapitalGain {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 150px;
+  height: 34px;
+  margin-top: 31px;
+  margin-right: 3px;
+}
+
+  [data-hidden="true"]
+{
+  display: none !important
+}
+
+  ::ng-deep .tooltip-350 ~ .tooltip .tooltip-inner {
+  max-width: 380px;
+  min-width: 380px;
+  background: #F4F9FA 0% 0% no-repeat padding-box;
+  box-shadow: 1px 1px 10px 2px #00000029;
+  color: #0F0F0F;
+  text-align: left !important;
+}
+
+  .tooltip-350{
+  margin-left: 3px;
+}
+
+  .mt-8{
+  margin-top: 8px !important;
+}
+
+  .mt-16{
+  margin-top: 16px !important;
+}
+
+  .alertMessage{
+  font-style: italic;
+  font-family: Helvetica;
+  font-weight: bold;
+  color: orange;
+}
+
+  .tea-rubber-alert{
+  font-style: italic;
+  font-family: Helvetica;
+  font-weight: bold;
+  color: #0070c0;
+}
+
+  hr {
+  display: block;
+  height: 2px;
+  border: 0;
+  border-top: 1px solid #bcbcbc;
+  padding: 0;
+}
+
+  /*
+Future Tea/Rubber table feature disabled for now.
+*/
+
+  #TeaRubberTable th {
+  background-color: #C0D8DE;
+  color: #424548;
+}
+
+  .tableBgStyle {
+  background-color: #FFFFFF;
+  margin-top: 5px;
+}
+
+  .addAnotherBtnStyle {
+  width: 75px;
+  color: #01649A;
+  font-size: 14px;
+  float: right;
+  background: none;
+  border: 1px solid #01649A;
+  border-radius: 20px;
+  outline: none;
+}
+
+  .deleteBtnStyle {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+  .tea-rubber-selected-row {
+  background-color: #F4F9FA;
+}
+
+  #TeaRubberTable td,
+#TeaRubberTable th {
+  vertical-align: middle !important;
+  font-size: 12px !important;
+}
+
+  .tea-rubber-table-section {
+  margin-bottom: 24px;
+}
+
+  .tea-rubber-entry-section {
+  margin-top: 16px;
+  margin-bottom: 14px;
+  padding-top: 0;
+  border-top: none;
+}
+
+  .tea-rubber-entry-title {
+  background-color: #E1EAEC;
+  border-radius: 4px;
+  padding: 12px 16px;
+  font-weight: bold;
+  font-size: 15px;
+  color: #0F0F0F;
+  box-shadow: 0px 2px 6px #00000014;
+}
+
+  .tableBgStyle {
+  font-size: 11px;
+  font-weight: normal;
+}
+
+  .tableBgStyle th {
+  background-color: #C0D8DE;
+  color: #424548;
+}
+
+  .tableBgStyle {
+  background-color: #FFFFFF; 
+}
+
+  .table-footer th, .table-footer td{
+  font-size: 15px;
+}
+  
+
+
+.taxPaymentSpan {
+  
+  font-size: 20px;
+  font-weight: bold;
+  color: #22223B;
+}
+
+.buttonAllign {
+  float: right;
+  padding-right: 5px;
+}
+
+.assets_liabilities:hover {
+  float: right;
+  background-color: #01649A;
+  color: white;
+}
+
+.ledger-alert {
+  font-style: italic;
+  font-family: Helvetica;
+  font-weight: bold;
+  color: #0070c0;
+}
+
+.taxPaymentBtn {
+  float: right;
+  background-color: #1350ac;
+  color: white;
+}
+
+#particularsIncomeTable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+}
+
+#particularsIncomeTable th {
+  background-color: #C0D8DE;
+  color: #424548;
+}
+
+#particularsIncomeTable {
+  border: 1px solid #ddd;
+}
+
+.tableBgStyle {
+  background-color: #FFFFFF;
+}
+
+#particularsIncomeTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.editBtn {
+  height: 36px;
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.totalIncome {
+  background-color: #E1EAEC;
+}
+
+.labelStyle {
+  margin-top: 10px;
+}
+
+#taxComputationTable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+#taxComputationTable th {
+  background-color: #C0D8DE;
+  color: #424548;
+}
+
+#taxComputationTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.AmountPayable {
+  background-color: #E1EAEC;
+}
+
+.VerifiedAmount {
+  background-color: #E1EAEC;
+}
+
+#verifiedPaymentTable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+#verifiedPaymentTable th {
+  background-color: #C0D8DE;
+  color: #424548;
+}
+
+#verifiedPaymentTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.Style {
+  margin-top: 10px;
+}
+
+#finalPayableTable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+#finalPayableTable th {
+  background-color: #C0D8DE;
+  color: #424548;
+}
+
+#finalPayableTable tr.payment-refund-divider td {
+  border-top: 2px solid #BEBEBE;
+}
+
+#dynamicTable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  margin-left: 20px;
+  width: 167%;
+  font-size: 14px;
+}
+
+#dynamicTable th {
+  background-color: #E1EAEC;
+  color: #424548;
+}
+
+#dynamicTable {
+  border: 1px solid #ddd;
+}
+
+.verifyandClaim {
+  border: 1px solid #ddd;
+  margin-top: 20px;
+  margin-left: 1px;
+  margin-right: 1px;
+  height: 50px;
+  background-color: #F4F9FA;
+}
+
+.verifyandClaimLabel {
+  margin-top: 10px;
+}
+
+.claimBtn {
+  margin-top: 10px;
+  margin-left: -10px;
+  background-color: #01649A;
+  color: #FFFFFF;
+}
+
+.verifyBtn {
+  margin-top: 10px;
+  margin-left: 10px;
+  background-color: #01649A;
+  color: #FFFFFF;
+}
+
+.back-btn-style {
+  background: #3F85ED 0% 0% no-repeat padding-box !important;
+  border-radius: 4px !important;
+  opacity: 1 !important;
+  color: #FFFFFF !important;
+  font: normal normal 600 16px/14px Open Sans !important;
+  width: 198px !important;
+  height: 40px !important;
+  margin-left: 30px;
+}
+
+.save-continue-btn-style {
+  background: #BEBEBE 0% 0% no-repeat padding-box !important;
+  border-radius: 4px !important;
+  opacity: 1 !important;
+  color: #FFFFFF !important;
+  font: normal normal 600 16px/14px Open Sans !important;
+  width: 198px !important;
+  height: 40px !important;
+  margin-right: 30px;
+}
+
+.paidCarOwnershipStyle {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 20px;
+  width: 167%;
+}
+
+.main_nav:hover {
+  float: right;
+  background-color: #01649A;
+  color: white;
+}
+
+.active {
+  background-color: #01649A !important;
+  color: white;
+  border: 0px;
+}
+
+label, input:not(.amount-input), select, option, p {
+  font-size: 14px !important;
+}
+
+.saveContinueBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 200px;
+}
+
+.makePaymentBtn {
+  width: 100%;
+  background-color: #C0D8DE;
+  color: #424548;
+  font-weight: bold;
+}
+
+.proceedOfflineBtn {
+  width: 66%;
+}
+
+.proceedOnlineBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 66%;
+  margin-right: 35px;
+}
+
+.bankTdsClaimSave {
+  background-color: #01649A;
+  color: #ffffff;
+  margin-right: -5px !important;
+  width: 30%;
+}
+
+.deleteBtnStyle {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.taxComputationSave {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 150px;
+}
+
+.taxComputationReset {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 200px;
+}
+
+.backBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 100px;
+}
+
+.custom-btn {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+::ng-deep .modal-content {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.custom-modal .modal-dialog {
+  max-width: 700px; 
+  width: 100%;
+}
+
+.modal-bg-img {
+  background-color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.gap-bank {
+  gap: 0.35rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 1rem;
+}
+
+.font-gray {
+  color: #6a6a6a;
+  font-size: 12px;
+}
+
+.amount-section {
+  background-color: #08558B1A;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
+  padding: 5px;
+  border: 1px solid #08558B;
+  border-radius: 8px;
+
+  &.editable {
+    background-color: white;
+    gap: 0;
+    border: 1px solid #E9ECED;
+  }
+}
+
+.gateway-card {
+  border: 1px solid #E9ECED;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 16px;
+  border-radius: 8px;
+
+  &:hover {
+    border: 1px solid #08558B;
+    background-color: #08558B1A;
+  }
+}
+
+.powered-by-card {
+  border: 1px solid #E9ECED;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 8px;
+
+  .title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #3B6995;
+  }
+}
+
+.gateway-check-icon {
+  position: absolute;
+  right: 5px;
+  top: 15%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  z-index: 10;
+}
+
+.gateway-card.selected {
+  border: 1px solid #08558B;
+  background-color: #08558B1A;
+}
+
+.continuePaymentBtn {
+  background-color: #08558B;
+  color: #ffffff;
+  width: 100%;
+  height: 48px;
+  padding: 12px 16px;
+  border-radius: 8px;
+
+  &:disabled {
+    background-color: #6D6D6D;
+  }
+}
+
+.banking-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  height: 21px;
+  width: 36px;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+}
+
+.fa-times-circle:hover {
+  color: red;
+}
+
+.gateway-1-img {
+  background-image: url('SBL_LOGO_new.6068ba8cd94223617a03.jpg');
+  background-repeat: no-repeat;
+  background-size: 130px 80px;
+  
+  max-width: 200px;
+  max-height: 100px;
+  background-position: center;
+}
+
+.gateway-3-img {
+  background-image: url('pay_gateway_3.3f84573ed7bdff722bf2.JPG');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 5vh;
+}
+
+.warning-red-border {
+  border: 1px solid red;
+}
+
+.border-clear {
+  border: 1px solid #ddd;
+}
+
+.tax-computation {
+  margin-bottom: -20px;
+}
+
+.force-padding {
+  padding-left: 30px !important;
+}
+
+.force-padding-salary {
+  padding-left: 50px !important;
+}
+
+#paymentListTable th {
+  background-color: #C0D8DE;
+  color: #424548;
+}
+
+.ml-minus-12 {
+  margin-left: -2vw !important;
+}
+
+::ng-deep .icon ~ .tooltip .tooltip-inner,
+::ng-deep .tooltip-350 ~ .tooltip .tooltip-inner,
+::ng-deep .editPayment ~ .tooltip .tooltip-inner {
+  max-width: 380px;
+  min-width: 100px;
+  background: #F4F9FA 0% 0% no-repeat padding-box;
+  box-shadow: 1px 1px 10px 2px #00000029;
+  color: #0F0F0F;
+  
+}
+
+::ng-deep .editPayment ~ .tooltip .tooltip-inner {
+  transform: translateX(-35%) !important;
+}
+
+.tooltip-350 {
+  margin-left: 3px;
+}
+
+@media (min-width: 1200px) {
+  .proceedOfflineBtn {
+    width: 280px;
+  }
+}
+
+@media (min-width: 1650px) {
+  .proceedOnlineBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 67%;
+    margin-right: 35px;
+  }
+}
+
+.payment-method-tab-btn {
+  background: #F4F9FA 0% 0% no-repeat padding-box;
+  
+  border-radius: 4px;
+  margin-right: 10px;
+  color: #01649A;
+  border-color: #01649A;
+  width: 120px;
+}
+
+.payment-method-tab-btn-active {
+  background-color: #01649A;
+  color: white;
+  border: 0px;
+}
+
+.card-type-btn {
+  background: white;
+  color: green;
+  border-color: green;
+  width: 120px;
+  height: 40px;
+  border-radius: 0px;
+}
+
+.card-type-btn-active {
+  background-color: green;
+  color: white;
+  border: 0px;
+}
+
+
+
+
+.material-icons {
+    display: inline-flex;
+    vertical-align: middle;
+    color: #C23306;
+ }
+.material-icons-green {
+  display: inline-flex;
+  vertical-align: middle;
+  color: green;
+}
+.card{
+    background-color: #F4F9FA;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+    border-top: 0px solid #F4F9FA;
+    border-bottom: 0px solid #F4F9FA;
+}
+.fa-color{
+    color: #3F85ED ;
+}
+.fa-text
+{
+    font-style: italic;
+}
+.fa-customize{
+    margin-left: auto;
+}
+.custom-row{
+    margin-bottom:140px;
+}
+.btn-customize {
+    background-color: white;
+    font-size: 12px;
+  }
+.btn-customize:hover {
+    background-color: black !important;
+    color:  white;
+  }
+::-webkit-input-placeholder {
+    font-style: italic;
+    font-size: small;
+ }
+:-moz-placeholder {
+    font-style: italic;
+    font-size: small;
+ }
+::-moz-placeholder {
+    font-style: italic;
+    font-size: small;
+ }
+:-ms-input-placeholder {
+    font-style: italic;
+    font-size: small;
+ }
+::ng-deep .custom-tooltip ~ .tooltip .tooltip-inner {
+    
+    min-width: 300px;
+    background-color: #fffbfa;
+    border-radius: 3%;
+    
+    border: 1px solid#C23306;
+
+    text-align: left;
+    font-family: 'Open Sans';
+    font-weight: 600;
+  }
+.tooltip-content {
+    color:  #C23306;
+  }
+.app-body{
+  overflow: visible !important;
+}
+.text-blue{
+  color: #145DA0 !important;
+}
+@media (max-width: 767px){
+  .logo-text{
+      display: block !important;
+  }
+}
+@media (min-width: 768px){
+  .logo-text{
+      display: none !important;
+  }
+}
+.font-11
+{
+   font-size: 11px !important;;
+}
+.font-12
+{
+   font-size: 12px !important;;
+}
+.font-13
+{
+   font-size: 13px !important;;
+}
+.font-14
+{
+   font-size: 14px !important;;
+}
+
+
+
+.incomeDetailsSpan {
+    font: normal normal bold 24px/28px Ubuntu;
+    color: #22223B;
+}
+
+.buttonAllign {
+    float: right;
+}
+
+.main_nav:hover {
+    float: right;
+    background-color: #01649A;
+    color: white;
+}
+
+.active{
+    background-color: #01649A !important;
+    color: white;
+    border: 0px;
+}
+
+#dynamicTable {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+#dynamicTable th {
+    background-color: #C0D8DE;
+    color: #424548;
+}
+
+.tableBgStyle {
+    background-color: #FFFFFF; 
+}
+
+.main {
+    margin-left: 3px !important; 
+    font-size: 12px;
+}
+
+.addAnotherButtonClass {
+    float: right; 
+    padding: 0; 
+    margin-bottom: 5px;
+}
+
+.addAnotherBtnStyle {
+    width: 75px;
+    color: #01649A; 
+    font-size: 14px; 
+    float: right; 
+    background: none; 
+    border: 1px solid #01649A; 
+    border-radius: 20px;
+    outline: none;
+}
+
+#summaryTable th {
+    background-color: #C0D8DE;
+    color: #424548;
+}
+
+label,input,select,option,p{
+    font-size: 14px !important;
+}
+
+.saveContinueBtn {
+background-color: #01649A;
+color: #ffffff;
+width: 200px;
+}
+
+.backBtn {
+background-color: #01649A;
+color: #ffffff;
+width: 100px;
+}
+
+.deleteBtnStyle {
+    background: none; 
+    outline: none; 
+    border: none;
+}
+
+.saveDraftBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 100px;
+    margin-right: 3px;
+}
+
+.autoFillBtn {
+    background-color: #01649A;
+    border-color: #01649A; 
+    color: #ffffff;
+    margin-left: 8px;
+   
+}
+
+::ng-deep .tooltip-350 ~ .tooltip .tooltip-inner {
+    max-width: 380px;
+    min-width: 380px;
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    box-shadow: 1px 1px 10px 2px #00000029;
+    color: #0F0F0F;
+    
+}
+
+.tooltip-350{
+    margin-left: 3px;
+}
+
+.totalExpenseTaxBtn{
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.addAnotherBtnNoteCurrency {
+    height: 30px;
+    width: 215px;
+    color: #01649A;
+    font-size: 14px;
+    
+    background: none;
+    border: 1px solid #01649A;
+    border-radius: 20px;
+    outline: none;
+  }
+
+.border-bottom{
+    border: 1px solid #E1EAEC !important;
+  }
+
+.font-14
+  {
+      font-size: 14px !important;
+  }
+
+.removeBtnStyle {
+    height: 30px;
+    width: 230px;
+    color: red;
+    font-size: 14px;
+    float: right;
+    background: none;
+    border: 1px solid red;
+    border-radius: 20px;
+    outline: none;
+  }
+
+.autofillButton {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 100px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    box-shadow: 0px 4px 6px;
+ }
+
+.syncFromInputBtnStyle{
+    width: -moz-fit-content;
+    width: fit-content;
+    color: #01649A;
+    font-size: 14px;
+    float: right;
+    background: none;
+    border: 1px solid #01649A;
+    border-radius: 20px;
+    outline: none;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+
+.assets-liabilities-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.autofill-label-text {
+  color: #01649A;
+  font-size: 15px;
+}
+
+
+
+
+.text-style {
+  font: normal normal bold 32px/37px Ubuntu;
+  letter-spacing: 0.26px;
+  color: #22223B;
+  opacity: 1;
+}
+
+
+.assets_liabilities:hover {
+  float: right;
+  background-color: #01649A;
+  color: white;
+}
+
+.incomeBtn {
+  float: right; 
+  background: #1350ac; 
+  color: white;
+}
+
+.buttonAllign {
+  float: right;
+  padding-right: 5px;
+}
+
+.headline {
+  text-align: left;
+  
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 0px;
+  color: #0F0F0F;
+  
+  opacity: 1;
+}
+
+.tooltip{
+  margin-left: 20px;
+}
+
+.custom-form-check-padding
+{
+  padding-left: 2.25rem;
+}
+
+.view-only {
+  pointer-events: none;
+  opacity: 0.9;
+  background-color: #f0f0f0;
+}
+
+#SanchyapatraTable th {
+  background-color: #C0D8DE;
+  color: #424548;
+}
+
+.fa-times-circle:hover {
+  color: red;
+}
+
+.expenditure:hover{
+  background-color: #01649A;
+  color: white;
+}
+
+.assets_liabilities:hover{
+  background-color: #01649A;
+  color: white;
+}
+
+.multiple-section {
+  background: #F4F9FA 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 10px #00000029;
+  opacity: 1;
+  padding: 20px 30px 20px 30px!important;
+  border: 1px solid #E0E0E0;
+}
+
+.SecurityBtn {
+  background-color: #F4F9FA 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+  margin-right: 10px;
+  color: #01649A;
+  border-color: #01649A;
+}
+
+.property-btn-active{
+  background-color:#01649A;
+  color: white;
+  border: 0px;
+}
+
+#dynamicTable {
+  font-size: 11px;
+  font-weight: normal;
+}
+
+#dynamicTable th {
+  background-color: #C0D8DE;
+  color: #424548;
+}
+
+.tableBgStyle {
+  background-color: #FFFFFF; 
+}
+
+.table-bank-fi .table td, .table-bank-fi .table th {
+  padding: 0.75rem 0.25rem !important;
+  vertical-align: middle !important;
+}
+
+.modal-body-scroll {
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
+}
+
+.addAnotherBtnStyle {
+  width: 75px;
+  color: #01649A; 
+  font-size: 14px; 
+  float: right; 
+  background: none; 
+  border: 1px solid #01649A; 
+  border-radius: 20px;
+  outline: none;
+}
+
+.main_nav:hover {
+  float: right;
+  background-color: #01649A;
+  color: white;
+}
+
+.activeMainNav{
+  background-color: #01649A !important;
+  color: white;
+  border: 0px;
+}
+
+.activeHead{
+  background-color: #01649A !important;
+  color: white;
+  border: 0px;
+}
+
+.navFont{
+  font-size: 14px;
+}
+
+.saveContinueBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 200px;
+}
+
+.backBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 100px;
+}
+
+.deleteBtnStyle {
+  background: none; 
+  outline: none; 
+  border: none;
+}
+
+.saveDraftBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 100px;
+  margin-right: 3px;
+}
+
+.netIncomeDivStyle {
+  margin-top: 10px; 
+  margin-bottom: 10px;
+}
+
+.netIncomeDivStyle2 {
+  margin-top: 10px; 
+  
+}
+
+.bl-1 {
+  border-left: 1px solid #BDC6C6;
+}
+
+.netIncomeInput {
+  height: 35px; 
+  margin-top: 5px;
+}
+
+.netTaxExemptedIncomeDivStyle {
+  margin-top: -10px; 
+  
+}
+
+.taxableIncomeDivStyle{
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.netTaxExemptedIncomeLabel {
+  margin-top: 10px;
+}
+
+.netTaxExemptedIncomeInput {
+  height: 35px; 
+  margin-top: 5px;
+}
+
+::ng-deep .tooltip-350 ~ .tooltip .tooltip-inner {
+  max-width: 380px;
+  min-width: 380px;
+  background: #F4F9FA 0% 0% no-repeat padding-box;
+  box-shadow: 1px 1px 10px 2px #00000029;
+  color: #0F0F0F;
+  
+}
+
+.tooltip-350{
+  margin-left: 3px;
+}
+
+::ng-deep .tooltip-370 ~ .tooltip .tooltip-inner {
+  max-width: 300px;
+  min-width: 300px;
+  background: #F4F9FA 0% 0% no-repeat padding-box;
+  box-shadow: 1px 1px 10px 2px #00000029;
+  color: #0F0F0F;
+  font-size: 12px;
+  font-style: italic;
+  font-family: Helvetica;
+  font-weight: bold;
+  text-align: left !important;
+}
+
+.tooltip-370{
+  margin-left: 3px;
+}
+
+.assets_liabilities:hover {
+  float: right;
+  background-color: #01649A;
+  color: white;
+}
+
+.incomeBtn {
+  float: right; 
+  background: #1350ac; 
+  color: white;
+}
+
+.buttonAllign {
+  float: right;
+  padding-right: 5px;
+}
+
+.multiple-section {
+  background: #F4F9FA 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 10px #00000029;
+  opacity: 1;
+  padding: 20px 30px 20px 30px!important;
+  border: 1px solid #E0E0E0;
+}
+
+.capitalGainBtn {
+  background: #F4F9FA 0% 0% no-repeat padding-box;
+  
+  border-radius: 4px;
+  margin-right: 10px;
+  color: #01649A;
+  border-color: #01649A;
+}
+
+.capital-gain-btn-active {
+  background-color:#01649A;
+  color: white;
+  border: 0px;
+}
+
+.fa-times-circle:hover {
+  color: red;
+}
+
+.fa-times-circle {
+  margin-left: 10px;
+}
+
+.incomeDetailsSpan {
+  
+  font-size:20px; 
+  font-weight: bold;
+  color: #22223B;
+}
+
+.headMargin {
+  margin-top: 36px
+}
+
+.addAnother {
+  text-align: right;
+  padding: 0;
+}
+
+.addAnotherCatBtn {
+  margin-right: 5px;
+  border-radius: 50px;
+  background-color: #01649A; 
+  color: white;
+}
+
+.fa-question-circle {
+  padding-right: 5px;
+}
+
+.calenderDatePicker {
+  font-size: 14px;
+}
+
+.lavelStyle {
+  margin-right: 40px;
+}
+
+.backBtn {
+  font-size: 14px;
+}
+
+.nextContinueBtnAlign {
+  text-align: right;
+}
+
+.nextContinueBtn {
+  font-size: 14px;
+  vertical-align: sub;
+}
+
+#InterestorProfitTable th {
+  background-color: #C0D8DE;
+  color: #424548;
+}
+
+.tableBgStyle {
+  background-color: #FFFFFF; 
+  margin-top: 5px;
+}
+
+.InterestOrProfit {
+  
+  margin-left: 3px; 
+  
+  font-size: 12px;
+}
+
+.addAnotherButtonClass {
+  float: right; 
+  padding: 0; 
+  margin-bottom: 5px;
+}
+
+.addAnotherBtnStyle {
+  width: 75px;
+  color: #01649A; 
+  font-size: 14px; 
+  float: right; 
+  background: none; 
+  border: 1px solid #01649A; 
+  border-radius: 20px;
+  outline: none;
+}
+
+.netIncomeSection {
+  background-color: #E1EAEC;
+  margin-top: 70px; 
+  margin-left: 3px;                    
+  margin-bottom: 30px; 
+  
+  border-radius: 5px;
+}
+
+.netIncomeDivStyle {
+  margin-top: 10px; 
+  margin-bottom: 10px;
+}
+
+.netIncomeLabel {
+  margin-top: 10px;
+}
+
+.netIncomeInput {
+  height: 35px; 
+  margin-top: 5px;
+}
+
+.netTaxExemptedIncomeDivStyle {
+  margin-top: -10px; 
+  margin-bottom: 10px;
+}
+
+.netTaxExemptedIncomeLabel {
+  margin-top: 10px;
+}
+
+.main_nav:hover {
+  float: right;
+  background-color: #01649A;
+  color: white;
+}
+
+.activeMainNav{
+  background-color: #01649A !important;
+  color: white;
+  border: 0px;
+}
+
+label,input,select,option,p{
+  font-size: 12px !important;
+}
+
+.saveContinueBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 200px;
+}
+
+.backBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 100px;
+}
+
+.activeHead{
+  background-color: #01649A !important;
+  color: white;
+  border: 0px;
+}
+
+.deleteBtnStyle {
+  background: none; 
+  outline: none; 
+  border: none;
+}
+
+.saveDraftBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 100px;
+  margin-right: 3px;
+}
+
+::ng-deep .tooltip-350 ~ .tooltip .tooltip-inner {
+  max-width: 380px;
+  min-width: 380px;
+  background: #F4F9FA 0% 0% no-repeat padding-box;
+  box-shadow: 1px 1px 10px 2px #00000029;
+  color: #0F0F0F;
+  
+}
+
+.tooltip-350{
+  margin-left: 3px;
+}
+
+.text-right{
+  text-align: right;
+}
+
+.border-bottom{
+  border-bottom: 1px solid #000 !important;
+}
+
+.backBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 100px;
+}
+textarea:focus { 
+    outline: none !important;
+    border: 1px solid #dadde1 !important;
+}
+textarea {
+    box-sizing: border-box;
+    width: 100%;
+}
+.tableBgStyle {
+    background-color: #FFFFFF;
+  }
+.titleSection{
+    margin-top: 5px; 
+    margin-bottom: 5px;
+}
+.titleText{
+    margin-right: 10px; 
+    color: #01649A;
+}
+.text-border{
+    border-left: 10px solid #01649A;
+    border-right: 0px solid #01649A;
+    border-top: 0px solid #01649A;
+    border-bottom: 0px solid #01649A;
+    padding: 5px 10px;
+    font-size:19px; 
+    font-weight: normal;
+    color: #000000;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 10px 10px 20px #00000029;
+    border-radius: 10px 37px 37px 10px;
+    opacity: 1;
+}
+#extensionDetailsTable {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+    border: 1px solid #ddd;
+}
+#extensionDetailsTable th {
+    background-color: #C0D8DE;
+    color: #424548;
+}
+.page-default-height{
+    min-height: 80vh !important;
+}
+::ng-deep .tooltip-350 ~ .tooltip .tooltip-inner {
+    max-width: 380px;
+    min-width: 380px;
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    box-shadow: 1px 1px 10px 2px #00000029;
+    color: #0F0F0F;
+    text-align: left !important;
+  }
+.tooltip-350{
+    margin-left: 3px;
+  }
+.saveDraftBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 80px;
+    margin-right: 3px;
+  }
+
+  
+
+.backBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 100px;
+}
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 60%;
+    
+    transform: translate(-50%, -50%);
+    font-size: 20px!important;
+}
+
+.multiple-section {
+  background: #F4F9FA 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 10px #00000029;
+  opacity: 1;
+  padding: 20px 30px 20px 30px !important;
+  border: 1px solid #E0E0E0;
+}
+
+.business-profession-btn {
+  background: #F4F9FA 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+  margin-right: 10px;
+  color: #01649A;
+  border-color: #01649A;
+}
+
+.salary-btn-active {
+  background: #01649A;
+  color: white;
+  border: 0px;
+}
+
+.remove {
+  color: red;
+  border-radius: 50px;
+  text-align: center;
+}
+
+.headline {
+  text-align: left;
+  
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 0px;
+  color: #0F0F0F;
+  text-transform: capitalize;
+  opacity: 1;
+}
+
+.hiddenFiled {
+  margin-left: 20px;
+}
+
+.fa-times-circle:hover {
+  color: red;
+}
+
+.font-10 {
+  font-size: 10px !important;
+}
+
+.font-11 {
+  font-size: 11px !important;
+}
+
+.font-14 {
+  font-size: 14px !important;
+}
+
+.custom-dropdown {
+  position: relative;
+  opacity: 1;
+}
+
+.custom-dropdown label,
+.custom-dropdown a {
+  transition: all 100ms ease-out;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  height: 40px;
+  min-width: 200px;
+  padding: 0 6px;
+  
+  
+  margin: 0 !important;
+}
+
+.custom-dropdown label {
+  position: relative;
+}
+
+.custom-dropdown label:before, .custom-dropdown label:after {
+  transition: all 100ms ease-in;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 2px;
+  height: 8px;
+  background: black;
+  border-radius: 2px;
+}
+
+.custom-dropdown label:before {
+  transform: rotate(-45deg);
+}
+
+.custom-dropdown label:after {
+  transform: rotate(45deg);
+}
+
+.custom-dropdown label.down:before, .custom-dropdown label.down:after {
+  transform-origin: center 7px;
+  top: 40%;
+  margin-top: -6px;
+  right: 10px;
+}
+
+.custom-dropdown label.right:before, .custom-dropdown label.right:after {
+  transform-origin: left center;
+  top: 60%;
+  right: 20px;
+}
+
+.custom-dropdown label.right:before {
+  margin-top: -9px;
+}
+
+.custom-dropdown label.right:after {
+  margin-top: -6px;
+}
+
+.custom-dropdown > label {
+  transform: translateZ(1px);
+  z-index: 1;
+}
+
+.custom-dropdown ul {
+  display: none;
+  z-index: 1;
+  list-style: none !important;
+  width: 100% !important;
+  
+  padding: 0 !important;
+  margin: 0 !important;
+  background: white !important;
+}
+
+.custom-dropdown ul ul {
+  position: static !important;
+}
+
+.custom-dropdown ul li {
+  will-change: transform;
+  padding: 1px;
+  opacity: 0;
+  border-bottom: 1px solid #DDD !important;
+  position: relative !important;
+}
+
+.custom-dropdown ul li:last-child {
+  border-bottom: 0 !important;
+}
+
+.custom-dropdown > ul {
+  position: relative;
+  padding-top: 2px;
+}
+
+.custom-dropdown > ul > li {
+  transform: translateY(-100%);
+}
+
+.custom-dropdown > ul > li > label {
+  transform: translateZ(0.5px);
+}
+
+.custom-dropdown > ul ul {
+  position: absolute;
+  top: 0;
+  right: -204px;
+}
+
+.custom-dropdown > ul ul > li {
+  transform: translateX(-100%);
+  padding-left: 20px !important;
+
+}
+
+.custom-dropdown ul li ul li {
+  border-top: 1px solid #ddd !important;
+  border-bottom: 0 !important;
+}
+
+.custom-dropdown input {
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  opacity: 0;
+  position: absolute;
+  width: 200px;
+  height: 48px;
+  margin: 0;
+}
+
+.custom-dropdown input:hover ~ label {
+  border-color: red;
+}
+
+.custom-dropdown input:focus ~ label {
+  border-color: black;
+}
+
+.custom-dropdown input:active ~ label {
+  border-color: black;
+}
+
+.custom-dropdown input:checked ~ label {
+  border-color: red;
+}
+
+.custom-dropdown input:checked ~ label.down:before, .custom-dropdown input:checked ~ label.down:after {
+  margin-top: -16px;
+}
+
+.custom-dropdown input:checked ~ label.down:before {
+  transform: rotate(-135deg);
+}
+
+.custom-dropdown input:checked ~ label.down:after {
+  transform: rotate(135deg);
+}
+
+.custom-dropdown input:checked ~ label.right:before {
+  transform: rotate(45deg);
+  margin-top: -11px;
+}
+
+.custom-dropdown input:checked ~ label.right:after {
+  transform: rotate(-45deg);
+  margin-top: -4px;
+}
+
+.custom-dropdown input:checked ~ ul {
+  display: inline-block;
+}
+
+.custom-dropdown input:checked ~ ul > li {
+  opacity: 1;
+  transform: none;
+}
+
+.custom-dropdown > input {
+  z-index: 2;
+  top: 0;
+  left: 0;
+}
+
+.custom-dropdown > input:not(:checked) ~ ul > li input:checked ~ ul li {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.main_nav:hover {
+  float: right;
+  background-color: #01649A;
+  color: white;
+}
+
+.activeMainNav {
+  background-color: #01649A !important;
+  color: white;
+  border: 0px;
+}
+
+label, input, select, option, p {
+  font-size: 14px !important;
+}
+
+.activeHead {
+  background-color: #01649A !important;
+  color: white;
+  border: 0px;
+}
+
+.backBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 100px;
+}
+
+.saveContinueBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 200px;
+}
+
+.saveDraftBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 100px;
+  margin-right: 3px;
+}
+
+[data-hidden="true"] {
+  display: none !important
+}
+
+::ng-deep .tooltip-350 ~ .tooltip .tooltip-inner {
+  max-width: 380px;
+  min-width: 380px;
+  background: #F4F9FA 0% 0% no-repeat padding-box;
+  box-shadow: 1px 1px 10px 2px #00000029;
+  color: #0F0F0F;
+  text-align: left !important;
+}
+
+.tooltip-350 {
+  margin-left: 3px;
+}
+
+.mt-8 {
+  margin-top: 8px !important;
+}
+
+.category-name-btn {
+  border-radius: 4px;
+  padding: 6px 12px;
+  background-color: #fff;
+  border: 1px solid #CED4DA;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.category-name-btn:hover {
+  cursor: default;
+}
+
+.business-category {
+  background: #fff;
+  color: #5c6873;
+  font-size: 14px;
+  position: relative;
+}
+
+.business-category-options {
+  border: 1px solid #aaa;
+  list-style: none;
+  padding-left: 0px;
+  background: #fff;
+  width: 100%;
+  position: absolute;
+  z-index: 99;
+  border-radius: 5px;
+}
+
+.bsmt-category-sub-options, .bsft-category-sub-options {
+  padding-left: 0px;
+  list-style: none;
+  position: absolute;
+  right: -430px;
+  background: #fff;
+  width: 430px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.bsft-category-sub-options {
+  top: 66px;
+  height: 100px;
+}
+
+.bsmt-category-sub-options {
+  top: -37px;
+  height: 230px;
+  overflow-y: scroll;
+}
+
+.reg-business-type {
+  padding-left: 0px;
+  list-style: none;
+  position: absolute;
+  right: -430px;
+  background: #fff;
+  top: -37px;
+  width: 430px;
+  border: 1px solid #aaa;
+  
+  
+  border-radius: 7px;
+}
+
+.business-category-options li {
+  cursor: default;
+  color: #5c6873;
+  padding: 2px 12px;
+}
+
+.business-category-options li:hover {
+  background-color: #01649A;
+  color: #fff;
+}
+
+.bottom-margin {
+  margin-bottom: 85px;
+}
+
+.adjust-capital-gain-btn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 150px;
+  height: 34px;
+  margin-top: 31px;
+  margin-right: 3px;
+}
+
+.alertMessage {
+  font-style: italic;
+  font-family: Helvetica;
+  font-weight: bold;
+  color: #0070c0;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.claim-btn {
+  cursor: pointer;
+  background-color: #01649A;
+  color: #ffffff;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+
+  border-left: 1px solid #ced4da;
+}
+
+.manufacturing-alert {
+  font-style: italic;
+  font-family: Helvetica;
+  font-weight: bold;
+  color: #0070c0;
+}
+
+.claim-btn:hover {
+  background-color: #01649A;
+  color: #ffffff;
+}
+
+div.is-invalid {
+  border: 1px solid #dc3545;
+}
+
+.royalty-intangibles-section {
+  width: 100%;
+}
+
+.royalty-intangibles-section .table-bank-fi {
+  width: 100%;
+}
+
+.royalty-intangibles-section .netIncomeSection {
+  margin-left: 0;
+}
+
+.tableBgStyle {
+  background-color: #FFFFFF;
+}
+
+.table-bank-fi .table td, .table-bank-fi .table th {
+  padding: 0.75rem 0.25rem !important;
+  vertical-align: middle !important;
+}
+
+.addAnotherBtnStyle {
+  width: 75px;
+  color: #01649A;
+  font-size: 14px;
+  float: right;
+  background: none;
+  border: 1px solid #01649A;
+  border-radius: 20px;
+  outline: none;
+}
+
+.deleteBtnStyle {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.netIncomeSection {
+  background-color: #E1EAEC;
+  margin-top: 70px;
+  margin-left: 3px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+
+.netIncomeDivStyle {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.netIncomeDivStyle2 {
+  margin-top: 10px;
+}
+
+.netIncomeLabel {
+  margin-top: 10px;
+}
+
+.bl-1 {
+  border-left: 1px solid #BDC6C6;
+}
+
+.netTaxExemptedIncomeInput {
+  height: 35px;
+  margin-top: 5px;
+}
+
+#dynamicTableRoyalty {
+  font-size: 11px;
+  font-weight: normal;
+}
+
+#dynamicTableRoyalty th {
+  background-color: #C0D8DE;
+  color: #424548;
+}
+
+#dynamicTableRoyalty td .form-control {
+  font-size: 12px !important;
+  color: #424548;
+}
+
+#dynamicTableRoyalty td {
+  vertical-align: top !important;
+}
+
+#dynamicTableRoyalty tfoot td {
+  background-color: #E1EAEC;
+  vertical-align: middle !important;
+  font-weight: normal;
+}
+
+.importBtnStyle {
+  background-color: #01649A;
+  color: #ffffff;
+  border-radius: 4px;
+}
+
+.importBtnStyle:hover {
+  background-color: #01649A;
+  color: #ffffff;
+}
+
+.special-business-adjustment56-section {
+  margin-top: 15px;
+}
+
+.income-summary-card {
+  margin-top: 10px;
+}
+
+.income-summary-card-title {
+  font-size: 15px;
+  color: #424548;
+}
+
+#dynamicTableStandardIncomeExpense {
+  font-size: 11px;
+  font-weight: normal;
+}
+
+#dynamicTableStandardIncomeExpense th {
+  /* background-color: #C0D8DE; */
+  color: #424548;
+}
+
+#dynamicTableStandardIncomeExpense td .form-control,
+#dynamicTableStandardIncomeExpense tfoot .form-control {
+  font-size: 12px !important;
+  color: #424548;
+}
+
+#dynamicTableStandardIncomeExpense td {
+  vertical-align: top !important;
+}
+
+#dynamicTableStandardIncomeExpense tfoot th {
+  /* background-color: #E1EAEC; */
+  vertical-align: middle !important;
+  font-weight: normal;
+}
+
+#dynamicTableFailureOfPayment56 {
+  font-size: 11px;
+  font-weight: normal;
+}
+
+#dynamicTableFailureOfPayment56 th {
+  background-color: #C0D8DE;
+  color: #424548;
+}
+
+#dynamicTableFailureOfPayment56 td {
+  vertical-align: top !important;
+}
+
+/* Tea/Rubber Import Modal */
+
+.tea-rubber-import-header {
+  border-bottom: none;
+  padding: 22px 22px 10px 22px;
+}
+
+.tea-rubber-import-title {
+  color: #005B8F;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.tea-rubber-import-body {
+  padding: 10px 22px 15px 22px;
+}
+
+.tea-rubber-import-subtitle {
+  color: #222222;
+  font-size: 14px !important;
+  font-weight: 400;
+  margin-bottom: 18px;
+}
+
+#TeaRubberImportTable {
+  background-color: #FFFFFF;
+}
+
+#TeaRubberImportTable th {
+  background-color: #C0D8DE;
+  color: #1F2D3D;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 14px 10px;
+  vertical-align: middle;
+  border-top: none;
+}
+
+#TeaRubberImportTable td {
+  color: #1F1F1F;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 14px 10px;
+  vertical-align: middle;
+  border-top: 1px solid #D9E1E4;
+}
+
+#TeaRubberImportTable .select-col {
+  text-align: center;
+}
+
+#TeaRubberImportTable .amount-col {
+  text-align: right;
+  padding-right: 24px;
+  white-space: nowrap;
+}
+
+.tea-rubber-import-selected {
+  background-color: #F4F9FA;
+}
+
+.tea-rubber-import-summary-row td {
+  background-color: #E1EAEC;
+  color: #1F1F1F;
+  font-weight: 600;
+}
+
+.tea-rubber-import-footer {
+  border-top: none;
+  padding: 16px 22px 22px 22px;
+}
+
+.bg-gray-light{
+  cursor: not-allowed;
+  background: #eeefff;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+hr {
+  display: block;
+  height: 2px;
+  border: 0;
+  border-top: 1px solid #bcbcbc;
+  padding: 0;
+}
+
+@media (max-width: 960px) {
+
+    .modal-dialog.modal-xl.tea-rubber-import-modal, .tea-rubber-import-modal, .modal-dialog{
+        max-width: calc(100vw - 1rem) !important;
+        width: calc(100vw - 1rem) !important;
+        margin: .5rem !important;
+    }
+
+    .modal-dialog.tea-rubber-import-modal .modal-content {
+        height: calc(100vh - 1rem);
+        border-radius: 0;
+    }
+  
+}
+
+.bg_image{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media (max-height: 767px){
+    .bg_image{
+        height: 77vh;
+    }
+}
+
+@media (min-height: 768px){
+    .bg_image{
+        height: 87vh;
+    }
+}
+
+.download_section{
+    margin-top: -50px!important;
+}
+
+.download_btn{
+    margin-right: 40px!important;
+}
+
+.main-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 15px;
+  font-family: Arial, sans-serif;
+  color: #000;
+  position: relative;
+}
+
+.back-btn-fixed {
+  position: absolute;
+  left: calc(50% - 480px);
+  top: 30px;
+  z-index: 1000 !important;
+
+  background-color: #01649A;
+  color: #fff;
+  width: 100px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.back-btn-fixed:hover {
+  background-color: #004d77 !important;
+}
+
+.saveContinueBtn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.arrowBack {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.certificate-table, .inner-table {
+  width: 100%;
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+  table-layout: fixed;
+  color: #000 !important;
+}
+
+.certificate-table {
+  border: 1px solid #000 !important;
+}
+
+.inner-table {
+  border: none !important;
+}
+
+.certificate-table td, .inner-table td {
+  padding: 0;
+  margin: 0;
+  font-weight: normal !important;
+  vertical-align: top;
+}
+
+.br-1 {
+  border-right: 1px solid #000 !important;
+}
+
+.bb-1 {
+  border-bottom: 1px solid #000 !important;
+}
+
+.col-60 {
+  width: 60%;
+}
+
+.col-40 {
+  width: 40%;
+}
+
+.digit-container {
+  display: flex;
+  align-items: center;
+}
+
+.digit-box {
+  width: 25px;
+  height: 32px;
+  border: 1px solid #000 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1px;
+
+}
+
+.bg-light-gray {
+  background-color: #f9f9f9 !important;
+}
+
+.min-h-120 {
+  min-height: 120px;
+}
+
+.min-h-100 {
+  min-height: 100px;
+}
+
+.min-h-50 {
+  min-height: 50px;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.small {
+  font-size: 13px;
+}
+
+h5, .fw-bold {
+  font-weight: bold !important;
+}
+
+.reason-text {
+  display: block;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  text-align: justify;
+  line-height: 1.5;
+}
+
+@media print {
+  @page {
+    margin: 10mm;
+    size: auto;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  .main-wrapper, .main-wrapper * {
+    visibility: visible;
+  }
+
+  .main-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .no-print, .back-btn-fixed, button {
+    display: none !important;
+  }
+}
+
+.btn-download-custom {
+  background-color: white !important;
+  color: #01649A !important;
+  border: 1px solid #01649A !important;
+  width: 100px !important;
+  border-radius: 50px !important;
+  position: absolute;
+  right: 14px;
+  top: 6px;
+  z-index: 999 !important;
+  cursor: pointer !important;
+}
+
+.btn-download-custom:hover {
+  background-color: #01649A !important;
+  color: #ffffff !important;
+}
+
+
+.headline {
+  text-align: left;
+  font: normal normal 600 18px/24px Open Sans;
+  letter-spacing: 0px;
+  color: #0F0F0F;
+  text-transform: capitalize;
+  opacity: 1;
+}
+
+
+.tooltip {
+  margin-left: 20px;
+}
+
+
+.fs-10 {
+  font-size: 10px;
+}
+
+
+.fs-14 {
+  font-size: 14px;
+}
+
+
+.fs-13 {
+  font-size: 13px;
+}
+
+
+.text-decoration-underline {
+  text-decoration: underline !important;
+}
+
+
+.text-black {
+  color: #000 !important;
+}
+
+
+.bg-grey {
+  background: #E1EAEC;
+}
+
+
+.img-120 {
+  width: 100px;
+  height: 120px;
+}
+
+
+.pt-38 {
+  padding-top: 38px;
+}
+
+
+.bt-black {
+  border-top: 2px solid black;
+  height: 2px;
+  width: 150px;
+}
+
+
+.mtn-5 {
+  margin-top: -5px;
+}
+
+
+.mr-35 {
+  margin-right: 35px;
+}
+
+
+.defaultBtnStyle {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+
+.customEmail {
+  
+  border: none;
+}
+
+
+.verification-icon {
+  color: #007bff;
+}
+
+
+.customAddress {
+  
+  border: none;
+  
+}
+
+
+.tooltip-350 {
+  margin-left: 3px;
+}
+
+
+.bg_image{
+  background-image: url('bg.5d098f693c7b79f2afcb.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (max-height: 767px){
+  .bg_image{
+      height: 79vh;
+  }
+}
+
+@media (min-height: 768px){
+  .bg_image{
+      height: 87vh;
+  }
+}
+
+.content-bg{
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029!important;
+  border-radius: 5px!important;
+  opacity: 1!important;
+  padding: 20px 30px 20px 30px!important;
+}
+
+.customTop{
+  margin-top: 50px!important;
+}
+
+.nbr_logo{
+  float: left;
+  margin-left: 100px;
+  width:15vw;
+  height:7vh;
+}
+
+.mujib100_logo{
+  float: right;
+  margin-top: 10px!important;
+  margin-right: 100px;
+  width:7vw;
+  height:11vh;
+}
+
+.customMargin{
+  margin-top: 60px;
+}
+
+.main_section{
+  font-size: 18px;
+}
+
+.site_link{
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.link_Btn {
+  background-color: #01649A;
+  color: #ffffff;
+  outline: none;
+}
+
+.fontColor {
+  color: rgb(164,172,173);
+}
+
+.created-by{
+  float: right;
+}
+
+.synesis_logo{
+  margin-top: 3px;
+  height: 20px;
+  float: left;
+  margin-left: -20px;
+}
+
+.art_logo_section{
+  color: rgb(164,172,173);
+}
+
+.art_logo{
+  margin-top: 3px;
+  height: 22px;
+  width: 27px;
+  float: left;
+  margin-left: -20px;
+}
+
+.custom_top{
+  margin-top: 60px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 55px!important;
+  width: 100%;
+}
+
+.nbrText{
+  margin-left: 180px;
+}
+
+
+.bg_image{
+    background-image: url('bg.5d098f693c7b79f2afcb.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media (max-height: 767px){
+    .bg_image{
+        height: 79vh;
+    }
+}
+
+@media (min-height: 768px){
+    .bg_image{
+        height: 87vh;
+    }
+}
+
+.content-bg{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029!important;
+    border-radius: 5px!important;
+    opacity: 1!important;
+    padding: 20px 30px 20px 30px!important;
+}
+
+.customTop{
+    margin-top: 50px!important;
+}
+
+.nbr_logo{
+    float: left;
+    margin-left: 100px;
+    width:15vw;
+    height:7vh;
+}
+
+.mujib100_logo{
+    float: right;
+    margin-top: 10px!important;
+    margin-right: 100px;
+    width:7vw;
+    height:11vh;
+}
+
+.customMargin{
+    margin-top: 60px;
+}
+
+.main_section{
+    font-size: 18px;
+}
+
+.site_link{
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.link_Btn {
+    background-color: #01649A;
+    color: #ffffff;
+    outline: none;
+}
+
+.fontColor {
+    color: rgb(164,172,173);
+}
+
+.created-by{
+    float: right;
+}
+
+.synesis_logo{
+    margin-top: 3px;
+    height: 20px;
+    float: left;
+    margin-left: -20px;
+}
+
+.art_logo_section{
+    color: rgb(164,172,173);
+}
+
+.art_logo{
+    margin-top: 3px;
+    height: 22px;
+    width: 27px;
+    float: left;
+    margin-left: -20px;
+}
+
+.custom_top{
+    margin-top: 60px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 55px!important;
+    width: 100%;
+}
+
+.nbrText{
+    margin-left: 180px;
+}
+  
+
+#sanchaypatraTable th {
+    background-color: #C0D8DE;
+    color: #424548;
+  }
+  
+  .tableBgStyle {
+    background-color: #FFFFFF;
+  }
+
+.menu_bg_Color {
+    background-color: #F4F9FA;
+}
+
+.border-full
+{
+    border: 1px solid #F4F9FA !important;
+}
+
+.navbar-nav a.active {
+    background-color: #01649A;
+    color: #ffffff;
+}
+
+.navbar-nav a:hover {
+    
+    background-color: #01649A;
+    color: #ffffff;
+}
+
+.nav-item{
+    float: right;
+    padding-right: 5px;
+}
+
+.bg_image{
+    background-image: url('/assets/img/background/eReturn_bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media (max-height: 767px){
+    .bg_image{
+        height: 79vh;
+    }
+}
+
+@media (min-height: 768px){
+    .bg_image{
+        height: 87vh;
+    }
+}
+
+.eReturn_logo_sologan{
+    margin-top: 18vh;
+    margin-left: 10vw;
+    width:28%;
+    height:15%;
+}
+
+.defaultBtnStyle {
+    background: none; 
+    outline: none; 
+    border: none;
+  }
+
+.customEmail
+  {
+    width: 86% !important;
+    border: none;
+  }
+
+.customSopuse{
+    width: 65% !important;
+    border: none;
+  }
+
+.customAddress
+  {
+    border: none;
+  }
+
+.fs-10{
+    font-size: 10px;
+  }
+
+.fs-14{
+    font-size: 14px;
+  }
+
+.fs-13{
+    font-size: 13px;
+  }
+
+.submission-overlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 10px;
+    border-radius: 8px;    
+    z-index: 10;    
+    text-align: left;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+
+.assets_liabilities:hover {
+    float: right;
+    background-color: #01649A;
+    color: white;
+}
+
+.incomeBtn {
+    float: right; 
+    background: #1350ac; 
+    color: white;
+}
+
+.buttonAllign {
+    float: right;
+    padding-right: 5px;
+}
+
+.multiple-section {
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 10px #00000029;
+    opacity: 1;
+    padding: 20px 30px 20px 30px!important;
+    border: 1px solid #E0E0E0;
+}
+
+.capitalGainBtn {
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    
+    border-radius: 4px;
+    margin-right: 10px;
+    color: #01649A;
+    border-color: #01649A;
+}
+
+.capital-gain-btn-active {
+    background-color:#01649A;
+    color: white;
+    border: 0px;
+}
+
+.fa-times-circle:hover {
+    color: red;
+}
+
+.fa-times-circle {
+    margin-left: 10px;
+}
+
+.incomeDetailsSpan {
+    
+    font-size:20px; 
+    font-weight: bold;
+    color: #22223B;
+}
+
+.headMargin {
+    margin-top: 36px
+}
+
+.addAnother {
+    text-align: right;
+    padding: 0;
+}
+
+.addAnotherCatBtn {
+    margin-right: 5px;
+    border-radius: 50px;
+    background-color: #01649A; 
+    color: white;
+}
+
+.fa-question-circle {
+    padding-right: 5px;
+}
+
+.calenderDatePicker {
+    font-size: 14px;
+}
+
+.lavelStyle {
+    margin-right: 40px;
+}
+
+.backBtn {
+    font-size: 14px;
+}
+
+.nextContinueBtnAlign {
+    text-align: right;
+}
+
+.nextContinueBtn {
+    font-size: 14px;
+    vertical-align: sub;
+}
+
+#InterestorProfitTable th {
+    background-color: #C0D8DE;
+    color: #424548;
+}
+
+#InterestorProfitTable td {
+    vertical-align: top !important;
+}
+
+#InterestorProfitTable table {
+    margin-bottom: 0px;
+}
+
+#InterestorProfitTable tfoot td {
+    background-color: #E1EAEC;
+    vertical-align: middle !important;
+}
+
+.tableBgStyle {
+    background-color: #FFFFFF; 
+    margin-top: 5px;
+}
+
+.InterestOrProfit {
+    
+    margin-left: 3px; 
+    
+    font-size: 12px;
+}
+
+.addAnotherButtonClass {
+    float: right; 
+    padding: 0; 
+    margin-bottom: 5px;
+}
+
+.addAnotherBtnStyle {
+    width: 75px;
+    color: #01649A; 
+    font-size: 14px; 
+    float: right; 
+    background: none; 
+    border: 1px solid #01649A; 
+    border-radius: 20px;
+    outline: none;
+}
+
+.netIncomeSection {
+    background-color: #E1EAEC;
+    margin-top: 70px; 
+    margin-left: 3px;                    
+    margin-bottom: 30px; 
+    
+    border-radius: 5px;
+}
+
+.netIncomeDivStyle {
+    margin-top: 10px; 
+    margin-bottom: 10px;
+}
+
+.netIncomeDivStyle2 {
+    margin-top: 10px; 
+    
+}
+
+.netIncomeLabel {
+    margin-top: 10px;
+}
+
+.netIncomeInput {
+    height: 35px; 
+    margin-top: 5px;
+}
+
+.netTaxExemptedIncomeDivStyle {
+    margin-top: -10px; 
+    margin-bottom: 10px;
+}
+
+.netTaxExemptedIncomeLabel {
+    margin-top: 10px;
+}
+
+.netTaxExemptedIncomeInput {
+    height: 35px; 
+    margin-top: 5px;
+}
+
+.main_nav:hover {
+    float: right;
+    background-color: #01649A;
+    color: white;
+}
+
+.activeMainNav{
+    background-color: #01649A !important;
+    color: white;
+    border: 0px;
+}
+
+label,input,select,option,p{
+    font-size: 14px !important;
+}
+
+.saveContinueBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 200px;
+}
+
+.backBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 100px;
+}
+
+.activeHead{
+    background-color: #01649A !important;
+    color: white;
+    border: 0px;
+}
+
+.deleteBtnStyle {
+    background: none; 
+    outline: none; 
+    border: none;
+}
+
+.saveDraftBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 100px;
+    margin-right: 3px;
+}
+
+::ng-deep .tooltip-350 ~ .tooltip .tooltip-inner {
+    max-width: 380px;
+    min-width: 380px;
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    box-shadow: 1px 1px 10px 2px #00000029;
+    color: #0F0F0F;
+    
+}
+
+.tooltip-350{
+    margin-left: 3px;
+}
+
+::ng-deep .tooltip-370 ~ .tooltip .tooltip-inner {
+    max-width: 300px;
+    min-width: 300px;
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    box-shadow: 1px 1px 10px 2px #00000029;
+    color: #0F0F0F;
+    font-size: 12px;
+    font-style: italic;
+    font-family: Helvetica;
+    font-weight: bold;
+    text-align: left !important;
+  }
+
+.tooltip-370{
+    margin-left: 3px;
+  }
+  
+
+
+#asycudaTable th {
+  background-color: #C0D8DE;
+  color: #424548;
+}
+
+.tableBgStyle {
+  background-color: #FFFFFF;
+}
+
+.claim-btn {
+  cursor: pointer;
+  background-color: #01649A;
+  color: #ffffff;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  border-left: 1px solid #ced4da;
+}
+
+.table-wrapper {
+  height: 500px;
+  overflow-y: auto;
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.bin-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bin-label {
+  margin-right: 6px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.meta-chip {
+  padding: 5px 12px;
+  border-radius: 16px;
+  border: 1px solid #01649A;
+  background-color: white;
+  color: #01649A;
+  cursor: pointer;
+  margin-right: 5px;
+  margin-bottom: 8px;
+  transition: all 0.2s ease;
+}
+
+.meta-chip.selected {
+  background-color: #01649A;
+  color: white;
+}
+
+.claim-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.total-tax {
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+.claim-btn {
+  margin-right: 6px;
+}
+
+input[type=checkbox] {
+  accent-color: #01649A;
+}
+
+#table th {
+    background-color: #C0D8DE;
+    color: #424548;
+  }
+  
+  .tableBgStyle {
+    background-color: #FFFFFF;
+  }
+
+.backBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 100px;
+}
+
+textarea:focus {
+    outline: none !important;
+    border: 1px solid #dadde1 !important;
+}
+
+textarea {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.tableBgStyle {
+    background-color: #FFFFFF;
+}
+
+.titleSection {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.titleText {
+    margin-right: 10px;
+    color: #01649A;
+}
+
+.text-border {
+    border-left: 10px solid #01649A;
+    border-right: 0px solid #01649A;
+    border-top: 0px solid #01649A;
+    border-bottom: 0px solid #01649A;
+    padding: 5px 10px;
+    font-size: 19px;
+    font-weight: normal;
+    color: #000000;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 10px 10px 20px #00000029;
+    border-radius: 10px 37px 37px 10px;
+    opacity: 1;
+}
+
+#extensionDetailsTable {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+    border: 1px solid #ddd;
+}
+
+#extensionDetailsTable th {
+    background-color: #C0D8DE;
+    color: #424548;
+}
+
+.page-default-height {
+    min-height: 80vh !important;
+}
+
+::ng-deep .tooltip-350~.tooltip .tooltip-inner {
+    max-width: 380px;
+    min-width: 380px;
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    box-shadow: 1px 1px 10px 2px #00000029;
+    color: #0F0F0F;
+    text-align: left !important;
+}
+
+.tooltip-350 {
+    margin-left: 3px;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.headline {
+  text-align: left;
+  
+  
+  font-size: 17px;
+  font-weight: bold;
+  
+  
+  letter-spacing: 0px;
+  color: #0F0F0F;
+  
+  opacity: 1;
+}
+
+
+
+
+::ng-deep .tooltip-350 ~ .tooltip .tooltip-inner {
+  max-width: 380px;
+  min-width: 380px;
+  background: #F4F9FA 0% 0% no-repeat padding-box;
+  box-shadow: 1px 1px 10px 2px #00000029;
+  color: #0F0F0F;
+  
+
+}
+
+
+
+
+.tooltip-350 {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+
+
+
+.saveContinueBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  margin-right: 10px;
+  width: 200px;
+}
+
+
+
+
+label,input,select,option,p{
+  font-size: 14px !important;
+}
+
+
+
+
+.saveDraftBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 100px;
+  margin-right: 3px;
+}
+
+
+
+
+.backBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 100px;
+}
+
+
+
+
+.labelTo {
+  margin-top: 5px; 
+  padding-left: 20px;
+}
+
+
+
+
+.income-head-form .input-group:not(.i-radio) {
+  margin-left: 20px
+}
+
+
+
+
+.income-head-form .form-group
+{
+   margin-bottom: 0;
+}
+
+
+
+
+.assessment_info_form .form-group
+{
+   margin-bottom: 8px;
+}
+
+
+
+
+@media (min-width: 765px) and (max-width: 915px) {
+  .labelFrom {
+    padding-left: 10px;
+  }
+  .dateInputField {
+    width: 60px !important;
+    font-size: 9px !important;
+  }
+  .calendarBoxClass {
+    height: 27px !important;
+  }
+  .calendarIconBtnClass {
+    font-size: 8px !important;
+  }
+}
+
+
+
+
+@media (max-width: 726px) {
+  .labelTo {
+    padding-left: 5px;
+  }
+
+  .saveDraftBtn {
+    width: 90px;
+    margin-right: 3px;
+  }
+  .saveContinueBtn {
+    margin-right: 10px;
+    width: 150px;
+  }
+  
+}
+
+
+
+
+@media (max-width: 575px) {
+  .headsOfIncomeCls {
+    margin-top: 20px;
+  }
+}
+
+
+.headline {
+    text-align: left;
+    
+    font-size: 17px;
+    font-weight:bold;
+    letter-spacing: 0px;
+    color: #0F0F0F;
+    
+    opacity: 1;
+  }
+    
+  
+  ::ng-deep .tooltip-350 ~ .tooltip .tooltip-inner {
+    max-width: 380px;
+    min-width: 380px;
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    box-shadow: 1px 1px 10px 2px #00000029;
+    color: #0F0F0F;
+    text-align: left !important;
+  }
+    
+  
+  .tooltip-350{
+    margin-left: 3px;
+  }
+    
+  
+  label,input,select,option,p{
+    font-size: 14px !important;
+  }
+    
+  
+  .font-12
+  {
+    font-size: 12px !important;
+  }
+    
+  
+  .mt-20{
+    margin-top: 20px !important;
+  }
+    
+  
+  .page-default-height{
+    min-height: 75vh !important;
+}
+    
+  
+  .saveDraftBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 100px;
+    margin-right: 3px;
+  }
+    
+  
+  .saveContinueBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    margin-right: 10px;
+    width: 200px;
+  }
+  
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+table.table-bordered {
+  border: 1px solid black;
+  margin-top: 20px;
+}
+
+table.table-bordered td,
+th {
+  border: 1px solid black;
+}
+
+.tin-text-bottom {
+  line-height: 30px;
+}
+
+.tin-text-up table.table {
+  position: absolute;
+  top: -20px;
+  left: 0px;
+  width: 650px;
+}
+
+.tin-text-bottom table.table {
+  position: absolute;
+  top: -20px;
+  width: 340px;
+  left: 100px;
+}
+
+.tax-no-table td {
+  padding: 0px 10px;
+  text-align: center;
+}
+
+.ml-360 {
+  margin-left: 400px;
+}
+
+.blank-space {
+  margin: 300px;
+}
+
+.bb,
+.bt,
+.bl,
+.br {
+  border-color: black !important;
+  border-width: 2px !important;
+}
+
+.readonly {
+  background-color: #e9ecef;
+}
+
+.back-to-home {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 66%;
+  margin-right: 35px;
+}
+
+.save-as-draft {
+  background-color: #C0D8DE;
+  color: #424548;
+  width: 66%;
+  margin-right: 35px;
+  margin-left: -25px;
+}
+
+.save-return {
+  background-color: #ffc107;
+  color: #212529;
+  ;
+  width: 100%;
+}
+
+::ng-deep .tooltip-350~.tooltip .tooltip-inner {
+  max-width: 380px;
+  min-width: 380px;
+  background: #F4F9FA 0% 0% no-repeat padding-box;
+  box-shadow: 1px 1px 10px 2px #00000029;
+  color: #0F0F0F;
+  text-align: left !important;
+}
+
+.modal-bg-img {
+  background-color: white;
+}
+
+.modal-bg-img {
+  background-image: url('bg.5d098f693c7b79f2afcb.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 50vh;
+}
+
+.gateway-1-img {
+  background-image: url('SBL_LOGO_new.6068ba8cd94223617a03.jpg');
+  background-repeat: no-repeat;
+  background-size: 130px 80px;
+  max-width: 200px;
+  max-height: 100px;
+  background-position: center;
+}
+
+.gateway-2-img {
+  background-image: url('pay_gateway_2.bdfd6ef49b3383b646cb.JPG');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 5vh;
+}
+
+.gateway-3-img {
+  background-image: url('pay_gateway_3.3f84573ed7bdff722bf2.JPG');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 5vh;
+}
+
+.continuePaymentBtn {
+  background-color: #01649A;
+  color: #ffffff;
+  width: 200px;
+}
+
+.amount-field{
+  margin-top: 5px;
+}
+
+.bangla-font {
+  font-family: Solaiman Lipi;
+}
+
+.btn-primary {
+  background-color: #01649A;
+  border-color: #01649A;
+  color: white;
+}
+
+.close {
+  outline: none;
+  border: none;
+}
+
+.checkbox-body {
+  margin-left: 3.92vw;
+}
+
+.submit-for-qstn {
+  font-size: 1vw !important;
+}
+
+@media print {
+  .container {
+    width: 210mm;
+    height: 297mm;
+  }
+  .btn {
+    display: none;;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .tin-text-up table.table {
+    width: 650px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .tin-text-up table.table {
+    width: 450px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .tin-text-up table.table {
+    top: 0px;
+    left: -77px;
+    width: 400px;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 777px) {
+  .tin-text-up table.table {
+    top: 0px;
+    left: -77px;
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  .tin-text-up table.table {
+    top: 0px;
+    left: -77px;
+    width: 100px;
+  }
+}
+
+
+.headline {
+  margin-top: 8px;
+  text-align: left;
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 0px;
+  color: #0F0F0F;
+  opacity: 1;
+}
+
+::ng-deep .tooltip-350 ~ .tooltip .tooltip-inner {
+  max-width: 380px;
+  min-width: 380px;
+  background: #F4F9FA 0% 0% no-repeat padding-box;
+  box-shadow: 1px 1px 10px 2px #00000029;
+  color: #0F0F0F;
+
+}
+
+.centerButtonWrapper {
+  display: flex;
+  justify-content: right;
+  margin-top: 20px;
+}
+
+.saveContinueBtn {
+  background-color: #01649A;
+  color: #fff;
+  width: 200px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.saveContinueBtn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.arrowSaveContinue {
+  font-size: 14px !important;
+}
+
+.arrowBack {
+  font-size: 14px !important;
+
+}
+
+.time-extension-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.time-extension-table {
+  width: 100%;
+  max-width: 800px;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.time-extension-table td {
+  padding: 10px;
+  vertical-align: top;
+  word-wrap: break-word;
+}
+
+.col-label {
+  width: 30%;
+}
+
+.col-value {
+  width: 50%;
+}
+
+.col-action {
+  width: 20%;
+}
+
+.label {
+  font-weight: 600;
+  color: #333;
+  text-align: left;
+}
+
+.value {
+  text-align: left;
+  color: #555;
+}
+
+.btn-sm {
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.pt-20 {
+  padding-top: 20px;
+}
+
+
+.nextBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 150px;
+}
+    
+.backBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 150px;
+}
+    
+.navFont{
+    font-size: 14px;
+}
+    
+label,input,select,option,p{
+    font-size: 14px !important;
+}
+    
+.activeHead{
+    background-color: #01649A !important;
+    color: #ffffff !important;
+    border: 0px;
+}
+    
+
+.assets_liabilities:hover {
+    float: right;
+    background-color: #01649A;
+    color: white;
+}
+
+.incomeBtn {
+    float: right; 
+    background: #1350ac; 
+    color: white;
+}
+
+.buttonAllign {
+    float: right;
+    padding-right: 5px;
+}
+
+.headline {
+    text-align: left;
+    
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 0px;
+    color: #0F0F0F;
+    
+    opacity: 1;
+}
+
+.header {
+    background-color: #C0D8DE;
+    color: #424548;
+    font-weight: normal;
+    font-size: 17px;
+    height: 50px;
+    font-weight: normal;
+}
+
+#AnnualRentTable th {
+    
+    background-color: #C0D8DE;
+    color: #424548;
+    font-weight: normal;
+}
+
+.assets_liabilities:hover{
+    background-color: #01649A;
+    color: white;
+}
+
+#DeductionTable th, #AllowableTable th {
+    background-color: #C0D8DE;
+    color: #424548;
+    font-weight: normal;
+}
+
+.multiple-section {
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 10px #00000029;
+    opacity: 1;
+    padding: 20px 30px 20px 30px!important;
+    border: 1px solid #E0E0E0;
+}
+
+.addPropertyBtn {
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    
+    border-radius: 4px;
+    margin-right: 10px;
+    color: #01649A;
+    border-color: #01649A;
+}
+
+.property-btn-active{
+    background-color:#01649A;
+    color: white;
+    border: 0px;
+}
+
+.fa-times-circle:hover {
+    color: red;
+}
+
+.background{
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029!important;
+    border-radius: 5px!important;
+    opacity: 1!important;
+    padding: 0px 30px 20px 30px!important;
+}
+
+.main_nav:hover {
+    float: right;
+    background-color: #01649A;
+    color: white;
+}
+
+.activeMainNav{
+    background-color: #01649A !important;
+    color: white;
+    border: 0px;
+}
+
+.activeHead{
+    background-color: #01649A !important;
+    color: white;
+    border: 0px;
+}
+
+label,input,select,option,p{
+    font-size: 14px !important;
+}
+
+.saveContinueBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 200px;
+}
+
+.backBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 100px;
+}
+
+.netIncomeSection {
+    margin-top: 100px; 
+    margin-left: 1px;
+    margin-right: 1px;                    
+    margin-bottom: 30px; 
+    border: 1px solid #01649A; 
+    border-radius: 5px;
+}
+
+.netIncomeDivStyle {
+    margin-top: 10px; 
+    margin-bottom: 10px;
+}
+
+.netIncomeLabel {
+    margin-top: 10px;
+}
+
+.netIncomeInput {
+    height: 50px; 
+    margin-top: 5px;
+}
+
+.saveDraftBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 100px;
+    margin-right: 3px;
+  }
+
+.spacer {
+    margin-left: 50px; 
+}
+
+::ng-deep .tooltip-350 ~ .tooltip .tooltip-inner {
+    max-width: 380px;
+    min-width: 380px;
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    box-shadow: 1px 1px 10px 2px #00000029;
+    color: #0F0F0F;
+    text-align: left !important;
+  }
+
+.tooltip-350{
+    margin-left: 3px;
+  }
+
+.addAnotherBtnStyle {
+    width: 75px;
+    height: 30px;
+    color: #01649A;
+    font-size: 14px;
+    float: left;
+    background: none;
+    border: 1px solid #01649A;
+    
+    border-radius: 7px;
+    outline: none;
+    margin-top: 35px !important;
+  }
+
+.removeBtnStyle {
+    width: 92px;
+    height: 30px;
+    color: red;
+    font-size: 14px;
+    float: right;
+    background: none;
+    border: 1px solid red;
+    
+    border-radius: 7px;
+    outline: none;
+    margin-top: 35px !important;
+  }
+
+.deleteOtherOwnerBtnStyle {
+    background: none; 
+    outline: none; 
+    border: none;
+  
+  }
+
+.addOtherOwnertBtnStyle {
+    width: 88px;
+    color: #01649A; 
+    font-size: 12px; 
+    float: right; 
+    background: none; 
+    border: 1px solid #01649A; 
+    border-radius: 20px;
+    outline: none;
+}
+
+.tableBgStyle {
+    background-color: #FFFFFF; 
+}
+
+.summary-Section{
+    margin-bottom: 10px; 
+    margin-left: 5px; 
+    margin-right: 5px;
+}
+
+#summaryTable {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+#summaryTable th {
+    background-color: #C0D8DE;
+    color: #424548;
+}
+
+#summaryTable tfoot th {
+    background-color: #E1EAEC;
+    color: #424548;
+}
+
+.table-margin{
+    margin-top: 15px;
+}
+
+.total-income{
+    
+     margin-left:32px; 
+     height: 35px;
+     /* width: 520px; */
+}
+
+.multiple-section {
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 10px #00000029;
+    opacity: 1;
+    padding: 20px 30px 20px 30px!important;
+    border: 1px solid #E0E0E0;
+  }
+  
+  .salary-btn {
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    margin-right: 10px;
+    color: #01649A;
+    border-color: #01649A;
+  }
+  
+  .salary-btn-active{
+    background: #01649A;
+    color: white;
+    border: 0px;
+  }
+  
+  .main_nav:hover {
+    float: right;
+    background-color: #01649A;
+    color: white;
+  }
+  
+  .activeMainNav{
+    background-color: #01649A !important;
+    color: white;
+    border: 0px;
+  }
+  
+  .remove {
+    color: red;
+    border-radius: 50px;
+    text-align: center;
+  }
+  
+  .headline {
+    text-align: left;
+    
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 0px;
+    color: #0F0F0F;
+    
+    opacity: 1;
+  }
+  
+  .fa-times-circle:hover{
+    color: red;
+  }
+  
+  label,input,select,option,p{
+    font-size: 14px;
+  }
+  
+  .activeHead{
+    background-color: #01649A !important;
+    color: white;
+    border: 0px;
+  }
+  
+  .backBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 100px;
+  }
+  
+  .saveContinueBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 200px;
+  }
+  
+  .deleteBtnStyle {
+    background: none; 
+    outline: none; 
+    border: none;
+  
+  }
+  
+  .saveDraftBtn {
+    background-color: #01649A;
+    color: #ffffff;
+    width: 100px;
+    margin-right: 3px;
+  }
+  
+  .border-none
+  {
+    border: none !important;
+  }
+  
+  .border-full
+  {
+    border: 1px solid grey !important;
+  }
+  
+  .border-left
+  {
+    border-left: 1px solid grey !important;
+  }
+  
+  .border-right
+  {
+    border-right: 1px solid grey !important;
+  }
+  
+  .border-top
+  {
+    border-top: 1px solid grey !important;
+  }
+  
+  .border-bottom
+  {
+    border-bottom: 1px solid grey !important;
+  }
+  
+  .row-height-922
+  {
+    height : 30px !important;
+  }
+  
+  .salary-Summary-Section{
+    margin-bottom: 10px; 
+    margin-left: 5px; 
+    margin-right: 5px;
+  }
+  
+  .tax-exempted{
+    
+    margin-top: 3px;
+  }
+  
+  .tableBgStyle {
+    background-color: #FFFFFF; 
+  }
+  
+  #salarySummaryTable {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    font-size: 14px;
+  }
+  
+  .table-margin{
+    margin-top: 15px;
+  }
+  
+  #salarySummaryTable th {
+    background-color: #C0D8DE;
+    color: #424548;
+  }
+  
+  #salarySummaryTable tr:nth-child(even){background-color: #f2f2f2;}
+  
+  .netIncomeSection {
+    background-color: #E1EAEC;
+    margin-top: 30px; 
+    margin-left: 3px;                    
+    margin-bottom: 30px; 
+    
+    border-radius: 5px;
+  }
+  
+  .netIncomeDivStyle {
+    margin-top: 10px; 
+    margin-bottom: 10px;
+  }
+  
+  .netIncomeDivStyle2 {
+    margin-top: 10px; 
+    
+  }
+  
+  .netIncomeLabel {
+    margin-top: 10px;
+  }
+  
+  .netIncomeInput {
+    height: 35px; 
+    margin-top: 5px;
+  }
+  
+  .netTaxExemptedIncomeDivStyle {
+    margin-top: -10px; 
+    
+  }
+  
+  .taxableIncomeDivStyle{
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+  
+  .netTaxExemptedIncomeLabel {
+    margin-top: 10px;
+  }
+  
+  .netTaxExemptedIncomeInput {
+    height: 35px; 
+    margin-top: 5px;
+  }
+  
+  ::ng-deep .tooltip-390 ~ .tooltip .tooltip-inner {
+    max-width: 300px;
+    min-width: 300px;
+    background: #F4F9FA 0% 0% no-repeat padding-box;
+    box-shadow: 1px 1px 10px 2px #00000029;
+    color: #0F0F0F;
+    font-size: 12px;
+    font-style: italic;
+    font-family: Helvetica;
+    font-weight: bold;
+    text-align: center !important;
+  }
+  
+  .tooltip-390{
+    margin-left: 3px;
+  }
+  
+  .alertMessage{
+    font-style: italic;
+    font-family: Helvetica;
+    font-weight: bold;
+    color: orange;
+  }
+
+.headline {
+    text-align: left;
+    
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 0px;
+    color: #0F0F0F;
+    text-transform: capitalize;
+    opacity: 1;
+  }
+  
+  
+  .tooltip{
+    margin-left: 20px;
+  }
+  
+  
+  .fs-14{
+    font-size: 14px;
+  }
+  
+  
+  .text-decoration-underline{
+    text-decoration: underline !important;
+  }
+  
+  
+  .text-black{
+    color: #000 !important;
+  }
+  
+  
+  .bg-grey{
+    background: #E1EAEC;
+  }
+  
+  
+  .img-120{
+    width: 120px;
+    height: 120px;
+  }
+  
+  
+  .pt-38{
+    padding-top: 38px;
+  }
+  
+  
+  .bt-black{
+    border-top: 1px solid black;height: 2px;width: 150px;
+  }
+  
+  
+  .mtn-5{
+    margin-top: -5px;
+  }
+  
+  
+  .mr-35{
+    margin-right: 35px;
+  }
+  
+  
+  .custom-input{
+    background: #F4F9FA !important;
+    border-bottom: 1px solid #bbb !important;
+    border: 0;
+    border-radius: 0 !important;
+    width: 100%;
+    font-size: 12px!important;
+    }
+  
+  
+  .custom-input:focus,.custom-input:active{
+        background: #F4F9FA !important;
+    border-bottom: 1px solid #bbb !important;
+    border: 0;
+    border-radius: 0 !important;
+    outline: 0;
+    }
+  
+  
+  .form-group label{
+    font-size: 11px !important;
+}
+  
+  
+  .ft-11{
+    font-size: 11px !important;
+}
+  
+  
+  .ft-10{
+    font-size: 10px !important;
+}
+  
+  
+  .ft-12{
+    font-size: 12px !important;
+}
+  
+  
+  .main_nav:hover {
+  float: right;
+  background-color: #01649A;
+  color: white;
+}
+  
+  
+  .active{
+  background-color: #01649A !important;
+  color: white;
+  border: 0px;
+}
+  
+  
+  .border-none
+{
+    border: none !important;
+}
+  
+  
+  .border-full
+{
+    border: 1px solid grey !important;
+}
+  
+  
+  .border-left
+{
+    border-left: 1px solid grey !important;
+}
+  
+  
+  .border-right
+{
+    border-right: 1px solid grey !important;
+}
+  
+  
+  .border-top
+{
+    border-top: 1px solid grey !important;
+}
+  
+  
+  .border-bottom
+{
+    border-bottom: 1px solid grey !important;
+}
+  
+  
+  .assessment-input-box-len
+{
+    width: 30px !important; 
+    height: 45px !important; 
+}
+  
+  
+  .row-height-922
+{
+    height : 30px !important;
+}
+  
+  
+  .custom-checkbox {
+  
+  width: 30px !important; 
+  height: 30px !important; 
+  border-radius:5px;
+  border:2px solid #555;
+}
+  
+  
+  .custom-padding{
+  padding-top: 10px !important;
+}
+  
+  
+  .pl-30{
+  padding-left: 30px !important;
+}
+  
+  
+  .pl-50{
+  padding-left:50px !important;
+}
+  
+  
+  .pl-40{
+  padding-left:40px !important;
+}
+  
+  
+  .pl-22{
+  padding-left:22px !important;
+}
+  
+  
+  .pl-80{
+  padding-left:80px !important;
+}
+  
+  
+  .pl-100{
+  padding-left:100px !important;
+}
+  
+  
+  .pl-110{
+  padding-left:110px !important;
+}
+  
+  
+  .header-left{
+  width: 60%;
+    float: left;
+    display: flex;
+    align-items: flex-end;
+    height: 80px;
+    
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+    padding-left: 30px;border-radius: 10px 0 0 10px;
+}
+  
+  
+  .header-right{
+  width: 40%;
+  float: right;
+  text-align: right;
+  height: 80px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-right:30px;   
+   
+}
+  
+  
+  @font-face {
+  font-family: Ayuthaya;
+  font-weight: normal;
+  src: url('ayuthaya.960dec3dbacb43ccc318.ttf');
+}
+  
+  
+  .font-14
+{
+  font-size: 14px !important;
+}
+  
+  
+  .custom-page-back-width{
+  width:75% !important;
+  margin:0 auto !important;
+  background: #fff !important; 
+  
+}
+  
+  
+  .back-white
+{
+  background: white !important;
+}
+  
+  
+  .mt-10{
+  margin-top: 10px !important;
+}
+  
+  
+  .border-none{
+  border: none !important;
+}
+  
+  
+  .custom-logo-width
+{
+  width:110px !important;
+}
+  
+  
+  .custom-page-body-bg{
+  background:#fff !important;
+}
+  
+  
+  .wid-75-0-margin{
+  width:75% !important;
+  margin:0 auto !important;
+}
+  
+  
+  .p-15{
+  padding-top: 15px !important;
+}
+  
+  
+  .pb-15{
+  padding-bottom: 15px !important;
+}
+  
+  
+  .va-middle
+{
+   vertical-align: middle !important;
+}
+  
+  
+  .btn-customize {
+  background-color: white;
+  font-size: 12px;
+}
+  
+  
+  .btn-customize:hover {
+  background-color: black !important;
+  color:  white;
+}
+
+.verificationSection {
+    margin: 32px 16px 32px 32px;
+}
+
+.verificationLabel {
+    color: #424548;
+    font-size: 14px;
+}
+
+.form-check-input.is-invalid {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem red;
+}
+
+
+
+
+
+
+
+
+.headline {
+    text-align: left;
+    
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 0px;
+    color: #0F0F0F;
+    text-transform: capitalize;
+    opacity: 1;
+  }
+  
+  
+  .tooltip{
+    margin-left: 20px;
+  }
+  
+  
+  .fs-14{
+    font-size: 14px;
+  }
+  
+  
+  .text-decoration-underline{
+    text-decoration: underline !important;
+  }
+  
+  
+  .text-black{
+    color: #000 !important;
+  }
+  
+  
+  .bg-grey{
+    background: #E1EAEC;
+  }
+  
+  
+  .img-120{
+    width: 120px;
+    height: 120px;
+  }
+  
+  
+  .pt-38{
+    padding-top: 38px;
+  }
+  
+  
+  .bt-black{
+    border-top: 1px solid black;height: 2px;width: 150px;
+  }
+  
+  
+  .mtn-5{
+    margin-top: -5px;
+  }
+  
+  
+  .mr-35{
+    margin-right: 35px;
+  }
+  
+  
+  .custom-input{
+    background: #F4F9FA !important;
+    border-bottom: 1px solid #bbb !important;
+    border: 0;
+    border-radius: 0 !important;
+    width: 100%;
+    font-size: 12px!important;
+    }
+  
+  
+  .custom-input:focus,.custom-input:active{
+        background: #F4F9FA !important;
+    border-bottom: 1px solid #bbb !important;
+    border: 0;
+    border-radius: 0 !important;
+    outline: 0;
+    }
+  
+  
+  .form-group label{
+    font-size: 11px !important;
+}
+  
+  
+  .ft-11{
+    font-size: 11px !important;
+}
+  
+  
+  .main_nav:hover {
+  float: right;
+  background-color: #01649A;
+  color: white;
+}
+  
+  
+  .active{
+  background-color: #01649A !important;
+  color: white;
+  border: 0px;
+}

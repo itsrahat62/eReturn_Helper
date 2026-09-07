@@ -1,0 +1,6 @@
+# API key কখনও রিপোতে নয়
+keys.local.js
+
+node_modules/
+.DS_Store
+Thumbs.db
