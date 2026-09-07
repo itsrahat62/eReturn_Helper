@@ -319,13 +319,21 @@ table.calc tr.big td { font-size: 16px; font-weight: 700; background: #e8f2f6; }
 
 .fw-acts { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
 .wbtn {
-  border: 1px solid currentColor; background: #fff; color: inherit;
+  border: 1px solid #55606c; background: #fff; color: #33404d;
   border-radius: 20px; padding: 4px 12px; font-size: 12px; font-weight: 600;
-  cursor: pointer; font-family: inherit;
+  cursor: pointer; font-family: inherit; white-space: nowrap;
 }
-.wbtn:hover { background: currentColor; }
-.wbtn:hover { color: #fff; }
-.wbtn.danger { color: #b3261e; }
+.wbtn:hover { background: #33404d; color: #fff; }
+
+.fw.error .wbtn, .warn-item.error .wbtn { border-color: #8e1b12; color: #8e1b12; }
+.fw.error .wbtn:hover, .warn-item.error .wbtn:hover { background: #8e1b12; color: #fff; }
+.fw.warn .wbtn, .warn-item.warn .wbtn { border-color: #7a4d05; color: #7a4d05; }
+.fw.warn .wbtn:hover, .warn-item.warn .wbtn:hover { background: #7a4d05; color: #fff; }
+.fw.info .wbtn, .warn-item.info .wbtn { border-color: #1c4f7c; color: #1c4f7c; }
+.fw.info .wbtn:hover, .warn-item.info .wbtn:hover { background: #1c4f7c; color: #fff; }
+
+.wbtn.danger { border-color: #b3261e; color: #b3261e; background: #fff; }
+.wbtn.danger:hover { background: #b3261e; color: #fff; }
 .warn-item .go { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
 
 .toast {
