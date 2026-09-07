@@ -1,0 +1,38 @@
+# Netlify — কোনো বিল্ড লাগে না, পুরো ফোল্ডারটাই স্ট্যাটিক সাইট
+[build]
+  publish = "."
+  command = ""
+
+# ক্যাশিং: HTML সবসময় নতুন, স্ট্যাটিক ফাইল দীর্ঘমেয়াদি
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+    X-Frame-Options = "SAMEORIGIN"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# হ্যাশ-রাউটিং, তাই সব পথ index.html-এ
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
