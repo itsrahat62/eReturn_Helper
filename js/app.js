@@ -6,7 +6,7 @@
   const esc = UI.esc;
 
   /* প্রতিবার ছাড়ার সময় বাড়ানো হয় — লাইভে কোন বিল্ড চলছে বোঝার জন্য */
-  const APP_VERSION = '2026.09.07-3';
+  const APP_VERSION = '2026.09.07-4';
 
   /* ---------------- বাংলা ফন্ট ও লেখার আকার ---------------- */
 
@@ -1491,10 +1491,14 @@
           '<div class="fs" style="font-family:\'' + esc(ft.id) + '\', sans-serif">' +
           'করমুক্ত সীমা ৪,০০,০০০ টাকা।<br>বিনিয়োগ রেয়াত ও ন্যূনতম কর।</div></button>').join('') +
         '</div>' +
-        '<div style="margin-top:16px"><b style="font-size:14px">লেখার আকার</b>' +
+        '<div style="margin-top:18px"><b>লেখার আকার</b>' +
         '<div class="sizepick" style="margin-top:8px">' + SIZES.map(s =>
-          '<button class="btn ' + (curScale === s.id ? '' : 'ghost') + '" data-uiscale="' + esc(s.id) + '">' +
-          esc(s.t) + '</button>').join('') + '</div></div>') +
+          '<button class="btn ' + (curScale === s.id ? '' : 'ghost') + '" data-uiscale="' + esc(s.id) + '"' +
+          ' style="font-size:calc(' + (13 * parseFloat(s.id)).toFixed(1) + 'px * var(--ui-scale))">' +
+          (curScale === s.id ? '✓ ' : '') + esc(s.t) + '</button>').join('') + '</div>' +
+        '<div class="small muted" style="margin-top:8px">এখন: <b>' +
+        esc((SIZES.find(x => x.id === curScale) || {}).t || 'স্বাভাবিক') + '</b> · ফন্ট: <b>' +
+        esc((FONTS.find(x => x.id === curFont) || {}).bn || curFont) + '</b></div></div>') +
       UI.card('Ask AI — API key',
         '<p class="muted small" style="line-height:1.8">key না দিলেও Ask AI কাজ করে (বিল্ট-ইন অফলাইন জ্ঞান থেকে)। ' +
         'key দিলে সত্যিকারের AI বিস্তারিত উত্তর দেবে। key শুধু আপনার ব্রাউজারে থাকে — কোথাও পাঠানো হয় না।<br>' +
