@@ -6,7 +6,31 @@
   const esc = UI.esc;
 
   /* প্রতিবার ছাড়ার সময় বাড়ানো হয় — লাইভে কোন বিল্ড চলছে বোঝার জন্য */
-  const APP_VERSION = '2026.09.07-2';
+  const APP_VERSION = '2026.09.07-3';
+
+  /* ---------------- বাংলা ফন্ট ও লেখার আকার ---------------- */
+
+  const FONTS = [
+    { id: 'Anek Bangla', bn: 'আনেক বাংলা', note: 'আধুনিক ও ঝকঝকে — ডিফল্ট' },
+    { id: 'Hind Siliguri', bn: 'হিন্দ শিলিগুড়ি', note: 'সরল, বাংলাদেশে সবচেয়ে পরিচিত' },
+    { id: 'Tiro Bangla', bn: 'তিরো বাংলা', note: 'বইয়ের মতো — লম্বা লেখা পড়তে আরাম' },
+    { id: 'Baloo Da 2', bn: 'বালু দা ২', note: 'মোটা ও গোলগাল — দূর থেকেও পড়া যায়' },
+    { id: 'Noto Sans Bengali', bn: 'নোটো সান্স বাংলা', note: 'নিরপেক্ষ, সব ডিভাইসে একরকম' }
+  ];
+  const SIZES = [
+    { id: '0.92', t: 'ছোট' }, { id: '1', t: 'স্বাভাবিক' },
+    { id: '1.1', t: 'বড়' }, { id: '1.22', t: 'আরও বড়' }
+  ];
+  const FONT_KEY = 'ereturn-demo:font';
+  const SIZE_KEY = 'ereturn-demo:uiscale';
+
+  function getFont() { try { return localStorage.getItem(FONT_KEY) || 'Anek Bangla'; } catch (e) { return 'Anek Bangla'; } }
+  function getScale() { try { return localStorage.getItem(SIZE_KEY) || '1'; } catch (e) { return '1'; } }
+  function applyFont() {
+    document.documentElement.style.setProperty('--bn-font', "'" + getFont() + "'");
+    document.documentElement.style.setProperty('--ui-scale', getScale());
+  }
+  applyFont();
 
   let data = ReturnState.load();
   let rules = TaxRules.load();
@@ -1455,7 +1479,22 @@
 
   function pageSettings() {
     const k = AskAI.allKeys();
+    const curFont = getFont(), curScale = getScale();
     return head('সেটিংস / AI key') +
+      UI.card('লেখার ফন্ট ও আকার',
+        '<p class="muted small" style="margin-top:-6px">পড়তে কষ্ট হলে এখান থেকে বদলে নিন। ' +
+        'সাথে সাথেই বদলাবে এবং আপনার ব্রাউজারে মনে থাকবে।</p>' +
+        '<div class="fontpick">' + FONTS.map(ft =>
+          '<button class="fontcard' + (curFont === ft.id ? ' active' : '') + '" data-font="' + esc(ft.id) + '">' +
+          '<div class="fn">' + (curFont === ft.id ? '<span class="tick">✓</span>' : '') +
+          esc(ft.bn) + ' — ' + esc(ft.note) + '</div>' +
+          '<div class="fs" style="font-family:\'' + esc(ft.id) + '\', sans-serif">' +
+          'করমুক্ত সীমা ৪,০০,০০০ টাকা।<br>বিনিয়োগ রেয়াত ও ন্যূনতম কর।</div></button>').join('') +
+        '</div>' +
+        '<div style="margin-top:16px"><b style="font-size:14px">লেখার আকার</b>' +
+        '<div class="sizepick" style="margin-top:8px">' + SIZES.map(s =>
+          '<button class="btn ' + (curScale === s.id ? '' : 'ghost') + '" data-uiscale="' + esc(s.id) + '">' +
+          esc(s.t) + '</button>').join('') + '</div></div>') +
       UI.card('Ask AI — API key',
         '<p class="muted small" style="line-height:1.8">key না দিলেও Ask AI কাজ করে (বিল্ট-ইন অফলাইন জ্ঞান থেকে)। ' +
         'key দিলে সত্যিকারের AI বিস্তারিত উত্তর দেবে। key শুধু আপনার ব্রাউজারে থাকে — কোথাও পাঠানো হয় না।<br>' +
@@ -1649,7 +1688,7 @@
   }
 
   function onClick(e) {
-    const el = e.target.closest('[data-act],[data-go],[data-add],[data-del],[data-nav],[data-help],[data-askq],[data-goto],[data-tour],[data-zero],[data-scroll],[data-wact],.er-side a.item');
+    const el = e.target.closest('[data-act],[data-go],[data-add],[data-del],[data-nav],[data-help],[data-askq],[data-goto],[data-tour],[data-zero],[data-scroll],[data-wact],[data-font],[data-uiscale],.er-side a.item');
     if (!el) return;
 
     const help = el.getAttribute('data-help');
@@ -1669,6 +1708,21 @@
 
     const zp = el.getAttribute('data-zero');
     if (zp) { applyZeroProfile(zp); return; }
+
+    const fnt = el.getAttribute('data-font');
+    if (fnt) {
+      try { localStorage.setItem(FONT_KEY, fnt); } catch (err) {}
+      applyFont(); render();
+      toast('✅ ফন্ট বদলে গেছে — ' + ((FONTS.find(x => x.id === fnt) || {}).bn || fnt));
+      return;
+    }
+    const usc = el.getAttribute('data-uiscale');
+    if (usc) {
+      try { localStorage.setItem(SIZE_KEY, usc); } catch (err) {}
+      applyFont(); render();
+      toast('✅ লেখার আকার — ' + ((SIZES.find(x => x.id === usc) || {}).t || usc));
+      return;
+    }
 
     const wa = el.getAttribute('data-wact');
     if (wa) {

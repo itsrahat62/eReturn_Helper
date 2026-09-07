@@ -17,13 +17,36 @@
 
 * { box-sizing: border-box; }
 
+/* বাংলা ফন্ট সেটিংস পাতা থেকে বদলানো যায় (--bn-font)।
+   SolaimanLipi ইচ্ছাকৃতভাবে বাদ — পর্দায় পাতলা দেখায়, পড়তে কষ্ট হয়। */
+:root {
+  --bn-font: 'Anek Bangla';
+  --ui-scale: 1;
+}
 html, body {
   margin: 0; padding: 0;
   background: #fff;
   color: var(--er-text);
-  font-family: 'Poppins', 'SolaimanLipi', 'Noto Sans Bengali', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-  font-size: 14px;
+  font-family: 'Poppins', var(--bn-font), 'Noto Sans Bengali', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: calc(14.5px * var(--ui-scale));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
+input, select, textarea, button { font-family: inherit; }
+
+/* ফন্টের নমুনা দেখানোর জন্য */
+.fontpick { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; }
+.fontcard {
+  border: 1px solid var(--er-border); border-radius: 6px; padding: 12px 13px;
+  background: #fff; cursor: pointer; text-align: left;
+}
+.fontcard:hover { border-color: var(--er-primary); }
+.fontcard.active { border-color: var(--er-primary); border-width: 2px; background: #f4f9fa; padding: 11px 12px; }
+.fontcard .fn { font-size: 12.5px; color: #6b7785; margin-bottom: 6px; display: flex; gap: 8px; align-items: center; }
+.fontcard .fn .tick { color: var(--er-primary); font-weight: 700; }
+.fontcard .fs { font-size: 16px; line-height: 1.9; color: #22223B; }
+.sizepick { display: flex; gap: 8px; flex-wrap: wrap; }
 a { color: var(--er-link); text-decoration: none; }
 a:hover { text-decoration: none; color: var(--er-primary); }
 
@@ -227,7 +250,7 @@ table.calc tr.big td { font-size: 16px; font-weight: 700; background: #e8f2f6; }
 
 /* ---------- সহায়িকা ড্রয়ার ---------- */
 .drawer {
-  position: fixed; top: 0; right: 0; width: 400px; max-width: 92vw; height: 100vh;
+  position: fixed; top: 0; right: 0; width: 440px; max-width: 94vw; height: 100vh;
   background: #fff; box-shadow: -4px 0 24px rgba(0,0,0,.18);
   transform: translateX(105%); transition: transform .22s ease; z-index: 60;
   display: flex; flex-direction: column;
@@ -239,13 +262,21 @@ table.calc tr.big td { font-size: 16px; font-weight: 700; background: #e8f2f6; }
 }
 .drawer header .spacer { flex: 1; }
 .drawer header button { background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; }
-.drawer .body { padding: 16px 18px; overflow: auto; flex: 1; font-size: 14px; line-height: 1.7; }
-.drawer .body h3 { margin: 0 0 8px; font-size: 16px; }
-.drawer .body .ex { background: #f4f9fa; border-left: 3px solid var(--er-primary); padding: 10px 12px; margin-top: 12px; border-radius: 3px; }
+.drawer .body {
+  padding: 18px 20px 40px; overflow: auto; flex: 1;
+  font-size: 15px; line-height: 1.95; color: #2b3642;
+}
+.drawer .body h3 { margin: 0 0 10px; font-size: 18px; line-height: 1.5; }
+.drawer .body .ex { background: #f4f9fa; border-left: 3px solid var(--er-primary); padding: 11px 13px; margin-top: 12px; border-radius: 3px; }
+.drawer header { font-size: 15.5px; }
 
 /* ---------- Ask AI ---------- */
+/* Netlify-র "Powered by Netlify" ব্যাজ নিচে-ডানে বসে, তাই ভাসমান জিনিসগুলো
+   তার উপরে তুলে রাখা হয়েছে (--fab-bottom)। */
+:root { --fab-bottom: 78px; }
+
 .ai-fab {
-  position: fixed; right: 22px; bottom: 22px; z-index: 55;
+  position: fixed; right: 22px; bottom: var(--fab-bottom); z-index: 55;
   background: linear-gradient(135deg, #01649A, #2fa8dc); color: #fff;
   border: none; border-radius: 30px; padding: 12px 20px; font-size: 15px; font-weight: 600;
   box-shadow: 0 6px 20px rgba(1,100,154,.4); cursor: pointer;
@@ -253,8 +284,8 @@ table.calc tr.big td { font-size: 16px; font-weight: 700; background: #e8f2f6; }
 }
 .ai-fab:hover { filter: brightness(1.08); }
 .ai-panel {
-  position: fixed; right: 22px; bottom: 22px; width: 440px; max-width: 94vw;
-  height: 74vh; background: #fff; border-radius: 12px; z-index: 60;
+  position: fixed; right: 22px; bottom: var(--fab-bottom); width: 440px; max-width: 94vw;
+  height: 72vh; background: #fff; border-radius: 12px; z-index: 60;
   box-shadow: 0 10px 40px rgba(0,0,0,.28); display: none; flex-direction: column; overflow: hidden;
 }
 .ai-panel.open { display: flex; }
@@ -268,9 +299,9 @@ table.calc tr.big td { font-size: 16px; font-weight: 700; background: #e8f2f6; }
 .ai-panel header .spacer { flex: 1; }
 .ai-panel header button { background: none; border: none; color: #fff; font-size: 18px; cursor: pointer; }
 .ai-log { flex: 1; overflow: auto; padding: 14px; background: #f7fafb; }
-.ai-msg { margin-bottom: 12px; font-size: 13.5px; line-height: 1.7; }
-.ai-msg .who { font-size: 11px; color: #6b7785; margin-bottom: 3px; }
-.ai-msg .bubble { background: #fff; border: 1px solid var(--er-border); border-radius: 10px; padding: 10px 12px; white-space: pre-wrap; }
+.ai-msg { margin-bottom: 14px; font-size: 14.5px; line-height: 1.95; }
+.ai-msg .who { font-size: 11.5px; color: #6b7785; margin-bottom: 4px; }
+.ai-msg .bubble { background: #fff; border: 1px solid var(--er-border); border-radius: 10px; padding: 12px 14px; white-space: pre-wrap; color: #2b3642; }
 .ai-msg.me .bubble { background: #e8f2f8; border-color: #cfe3ef; }
 .ai-msg .via { font-size: 11px; color: #8a94a0; margin-top: 4px; }
 .ai-input { display: flex; gap: 8px; padding: 10px; border-top: 1px solid var(--er-border); background: #fff; }
@@ -304,9 +335,9 @@ table.calc tr.big td { font-size: 16px; font-weight: 700; background: #e8f2f6; }
 
 /* ---------- ইনলাইন সতর্কতা ---------- */
 .fw {
-  display: flex; gap: 7px; align-items: flex-start;
-  font-size: 12.5px; line-height: 1.6; margin-top: 5px;
-  padding: 7px 10px; border-radius: 4px;
+  display: flex; gap: 8px; align-items: flex-start;
+  font-size: 13.5px; line-height: 1.85; margin-top: 6px;
+  padding: 9px 12px; border-radius: 4px;
   width: 100%; flex-basis: 100%; box-sizing: border-box;
 }
 .checklist label.chk { flex-wrap: wrap; }
@@ -338,7 +369,7 @@ table.calc tr.big td { font-size: 16px; font-weight: 700; background: #e8f2f6; }
 
 .toast {
   position: fixed; left: 50%; transform: translateX(-50%) translateY(20px);
-  bottom: 26px; z-index: 80; background: #1f8a4c; color: #fff;
+  bottom: calc(var(--fab-bottom) + 6px); z-index: 80; background: #1f8a4c; color: #fff;
   padding: 10px 20px; border-radius: 24px; font-size: 13.5px; font-weight: 600;
   box-shadow: 0 6px 24px rgba(0,0,0,.28); opacity: 0; pointer-events: none;
   transition: opacity .2s, transform .2s; max-width: 92vw; text-align: center;
@@ -389,12 +420,12 @@ table.calc tr.big td { font-size: 16px; font-weight: 700; background: #e8f2f6; }
 @keyframes bobArrow { from { transform: translateY(0); } to { transform: translateY(-5px); } }
 
 /* ---------- সহায়িকা ড্রয়ারের অংশ ---------- */
-.hs { margin-bottom: 14px; }
+.hs { margin-bottom: 18px; }
 .hs .hh {
-  font-size: 12px; font-weight: 700; letter-spacing: .03em; color: #55606c;
-  text-transform: uppercase; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 700; letter-spacing: .01em; color: #3d4b5a;
+  margin-bottom: 6px; display: flex; align-items: center; gap: 6px;
 }
-.hs .hb { font-size: 13.5px; line-height: 1.75; white-space: pre-wrap; }
+.hs .hb { font-size: 14.5px; line-height: 1.95; white-space: pre-wrap; color: #2b3642; }
 .hs.ex .hb { background: #f4f9fa; border-left: 3px solid var(--er-primary); padding: 10px 12px; border-radius: 3px; }
 .hs.mis .hb { background: #fdf5e6; border-left: 3px solid #b4690e; padding: 10px 12px; border-radius: 3px; }
 .hs.tip .hb { background: #e8f6ec; border-left: 3px solid #1f8a4c; padding: 10px 12px; border-radius: 3px; }
@@ -407,15 +438,17 @@ table.calc tr.big td { font-size: 16px; font-weight: 700; background: #e8f2f6; }
 .choice.good { border-left-color: var(--er-good); background: #f6fbf7; }
 .choice.care { border-left-color: var(--er-warn); background: #fffbf3; }
 .choice.rare { opacity: .8; }
-.choice .co { font-weight: 700; font-size: 13px; margin-bottom: 5px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-.choice .cw, .choice .cy { font-size: 12.5px; line-height: 1.65; color: #3d4b5a; margin-top: 2px; }
-.ctag { font-size: 10.5px; font-weight: 600; border-radius: 20px; padding: 2px 8px; }
+.choice { padding: 11px 13px; }
+.choice .co { font-weight: 700; font-size: 14.5px; margin-bottom: 7px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.choice .cw, .choice .cy { font-size: 14px; line-height: 1.9; color: #2b3642; margin-top: 5px; }
+.choice .cw b, .choice .cy b { color: #55606c; }
+.ctag { font-size: 11.5px; font-weight: 600; border-radius: 20px; padding: 2px 9px; }
 .ctag.good { background: #e8f6ec; color: var(--er-good); }
 .ctag.care { background: #fdf5e6; color: var(--er-warn); }
 .ctag.rare { background: #eef1f4; color: #6b7785; }
 
-.chips3 { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
-.chip3 { font-size: 11.5px; padding: 4px 10px; border-radius: 20px; font-weight: 600; }
+.chips3 { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.chip3 { font-size: 12.5px; padding: 5px 11px; border-radius: 20px; font-weight: 600; line-height: 1.6; }
 .chip3.good { background: #e8f6ec; color: #1f8a4c; }
 .chip3.warn { background: #fdf5e6; color: #7a4d05; }
 .chip3.info { background: #eaf3fa; color: #1c4f7c; }
@@ -441,7 +474,7 @@ table.calc tr.big td { font-size: 16px; font-weight: 700; background: #e8f2f6; }
   border-radius: 20px; padding: 6px 14px; font-size: 12.5px; font-weight: 600; cursor: pointer;
 }
 .tour-bar {
-  position: fixed; left: 50%; transform: translateX(-50%); bottom: 22px; z-index: 63;
+  position: fixed; left: 50%; transform: translateX(-50%); bottom: var(--fab-bottom); z-index: 63;
   background: #22223B; color: #fff; border-radius: 30px; padding: 10px 16px;
   display: none; align-items: center; gap: 12px; box-shadow: 0 8px 28px rgba(0,0,0,.35);
   max-width: 92vw;
@@ -570,12 +603,12 @@ table.calc tr.big td { font-size: 16px; font-weight: 700; background: #e8f2f6; }
   table.calc td.amt { width: 110px; }
 
   /* ভাসমান অংশ */
-  .ai-panel { right: 6px; left: 6px; bottom: 6px; width: auto; height: 80vh; }
-  .ai-panel.big { width: auto; height: 92vh; }
-  .ai-fab { right: 12px; bottom: 12px; padding: 11px 17px; font-size: 14px; }
+  .ai-panel { right: 6px; left: 6px; bottom: var(--fab-bottom); width: auto; height: 74vh; }
+  .ai-panel.big { width: auto; height: 86vh; }
+  .ai-fab { right: 12px; bottom: var(--fab-bottom); padding: 11px 17px; font-size: 14px; }
   .drawer { width: 100%; max-width: 100%; }
-  .tour-bar { left: 6px; right: 6px; transform: none; bottom: 6px; flex-wrap: wrap; padding: 9px 12px; }
-  .toast { left: 8px; right: 8px; transform: none; max-width: none; }
+  .tour-bar { left: 6px; right: 6px; transform: none; bottom: var(--fab-bottom); flex-wrap: wrap; padding: 9px 12px; }
+  .toast { left: 8px; right: 8px; transform: none; max-width: none; bottom: calc(var(--fab-bottom) + 6px); }
   .toast.show { transform: none; }
   .spot-arrow { font-size: 12px; padding: 5px 10px; }
 
