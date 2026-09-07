@@ -6,13 +6,14 @@
   const esc = UI.esc;
 
   /* প্রতিবার ছাড়ার সময় বাড়ানো হয় — লাইভে কোন বিল্ড চলছে বোঝার জন্য */
-  const APP_VERSION = '2026.09.07-1';
+  const APP_VERSION = '2026.09.07-2';
 
   let data = ReturnState.load();
   let rules = TaxRules.load();
   let res = TaxCalc.compute(data, rules);
   let route = (location.hash || '#home').slice(1);
-  let sideCollapsed = false;
+  const isMobile = () => window.matchMedia('(max-width: 860px)').matches;
+  let sideCollapsed = isMobile();   // ফোনে সাইডবার শুরুতে বন্ধ থাকে
 
   /* ---------------- পাতার তালিকা ---------------- */
 
@@ -79,6 +80,7 @@
       '<span class="avatar">' + esc(initials) + '</span></span>' +
       '</div>' +
       '<div class="er-body">' + sidebar() +
+      '<div class="side-backdrop' + (sideCollapsed ? '' : ' show') + '" data-act="close-side"></div>' +
       '<div class="er-main" id="page"></div></div>' +
       '<div class="er-foot"><span>Copyright © 2026. National Board of Revenue. All rights reserved. ' +
       '<b>(ডেমো কপি)</b></span><span class="spacer"></span>' +
@@ -1531,6 +1533,8 @@
       // শেলের সাইডবার/হেডার আপডেট
       const side = root.querySelector('.er-side');
       if (side) side.outerHTML = sidebar();
+      const bd = root.querySelector('.side-backdrop');
+      if (bd) bd.classList.toggle('show', !sideCollapsed);
       const user = root.querySelector('.er-header .user');
       if (user) user.innerHTML = esc(data.taxpayer.name || 'ডেমো করদাতা') +
         '<span class="avatar">' + esc((data.taxpayer.name || 'ডে').trim().slice(0, 2)) + '</span>';
@@ -1645,7 +1649,7 @@
   }
 
   function onClick(e) {
-    const el = e.target.closest('[data-act],[data-go],[data-add],[data-del],[data-nav],[data-help],[data-askq],[data-goto],[data-tour],[data-zero],[data-scroll],[data-wact]');
+    const el = e.target.closest('[data-act],[data-go],[data-add],[data-del],[data-nav],[data-help],[data-askq],[data-goto],[data-tour],[data-zero],[data-scroll],[data-wact],.er-side a.item');
     if (!el) return;
 
     const help = el.getAttribute('data-help');
@@ -1681,7 +1685,10 @@
     }
 
     const go = el.getAttribute('data-go');
-    if (go) { location.hash = '#' + go; return; }
+    if (go) { if (isMobile()) sideCollapsed = true; location.hash = '#' + go; return; }
+
+    // ফোনে সাইডবারের লিংকে চাপলে সাইডবার বন্ধ হয়ে যাক
+    if (isMobile() && el.classList && el.classList.contains('item')) sideCollapsed = true;
 
     const add = el.getAttribute('data-add');
     if (add) {
@@ -1712,6 +1719,7 @@
 
     switch (el.getAttribute('data-act')) {
       case 'burger': sideCollapsed = !sideCollapsed; render(); break;
+      case 'close-side': sideCollapsed = true; render(); break;
       case 'warnings': openWarnings(); break;
       case 'tour-next': tourStep(1); break;
       case 'tour-prev': tourStep(-1); break;

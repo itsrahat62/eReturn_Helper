@@ -498,28 +498,101 @@ table.calc tr.big td { font-size: 16px; font-weight: 700; background: #e8f2f6; }
 .storagegrid .small { line-height: 1.7; margin-top: 3px; }
 
 /* ---------- মোবাইল ---------- */
+.side-backdrop { display: none; }
+
 @media (max-width: 860px) {
-  .er-side { position: fixed; left: 0; top: 0; bottom: 0; z-index: 40; box-shadow: 4px 0 20px rgba(0,0,0,.2); }
-  .er-side.collapsed { box-shadow: none; }
-  .er-main { padding: 14px 12px 24px; }
-  .er-header { min-height: 60px; padding: 8px 12px; gap: 8px; flex-wrap: wrap; }
-  .er-header .logo { height: 32px; }
+  html, body { overflow-x: hidden; }
+
+  /* সাইডবার — ওভারলে হিসেবে বাঁ দিক থেকে আসে */
+  .er-side {
+    position: fixed; left: 0; top: 0; bottom: 0; z-index: 45;
+    width: 254px; flex-basis: 254px; overflow-y: auto;
+    box-shadow: 4px 0 24px rgba(0,0,0,.28);
+    transform: translateX(0); transition: transform .22s ease;
+  }
+  .er-side.collapsed {
+    width: 254px; flex-basis: 254px; overflow: hidden;
+    transform: translateX(-100%); box-shadow: none;
+  }
+  .er-side .side-foot { display: none; }
+  .er-side a.item { padding: 13px 18px; font-size: 15.5px; }
+  .er-side a.item.sub { padding-left: 34px; }
+
+  .side-backdrop {
+    display: block; position: fixed; inset: 0; z-index: 44;
+    background: rgba(0,0,0,.42); opacity: 0; pointer-events: none;
+    transition: opacity .22s ease;
+  }
+  .side-backdrop.show { opacity: 1; pointer-events: auto; }
+
+  .er-main { padding: 14px 12px 28px; width: 100%; }
+
+  /* হেডার */
+  .er-header { min-height: 58px; padding: 8px 12px; gap: 10px; }
+  .er-header .logo { height: 30px; }
+  .er-header .burger { font-size: 24px; padding: 4px 6px; }
   .er-header .ay-label { display: none; }
-  .er-header select.ay { min-width: 118px; padding: 4px 8px; font-size: 13px; }
-  .er-header .user { font-size: 13px; }
-  .grid2, .row2, .row3 { grid-template-columns: 1fr; }
+  .er-header select.ay { min-width: 108px; padding: 5px 8px; font-size: 13px; }
+  .er-header .user { font-size: 0; gap: 0; }        /* নাম লুকিয়ে শুধু অবতার */
+  .er-header .avatar { width: 32px; height: 32px; font-size: 12px; }
+
+  .demo-banner { font-size: 11.5px; padding: 6px 10px; gap: 6px; line-height: 1.5; }
+  .demo-banner button { padding: 2px 9px; font-size: 11px; }
+
+  /* বিন্যাস — সব এক কলামে */
+  .grid2, .row2, .row3, .zgrid, .storagegrid { grid-template-columns: 1fr; }
+  .page-head { gap: 8px; }
   .page-head h1 { font-size: 18px; }
-  .kpi-row { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; }
+  .pills { gap: 5px; }
+  .pill { padding: 4px 10px; font-size: 12px; }
+  .kpi-row { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .kpi { padding: 9px 11px; }
+  .kpi .k { font-size: 11px; }
   .kpi .v { font-size: 17px; }
-  .card { padding: 12px 13px; }
-  .ai-panel { right: 8px; left: 8px; bottom: 8px; width: auto; height: 78vh; }
-  .ai-panel.big { width: auto; height: 88vh; }
-  .ai-fab { right: 12px; bottom: 12px; padding: 10px 16px; font-size: 14px; }
+  .card { padding: 12px 13px; margin-bottom: 14px; }
+  .card > h2 { font-size: 15px; }
+
+  /* ফর্ম — আঙুলে চাপার মতো বড় */
+  .field input[type=text], .field select, table.dt input, table.dt select {
+    padding: 10px 11px; font-size: 16px;               /* 16px = iOS-এ zoom হয় না */
+  }
+  .field > label { font-size: 13.5px; }
+  .inline { gap: 14px; }
+  .inline label, .checklist label, .chk-row > label.chk { font-size: 14px; }
+  .chk-row > label.chk input { width: 18px; height: 18px; }
+  .help { width: 20px; height: 20px; font-size: 12px; }
+
+  /* টেবিল — পাশে স্ক্রল */
+  .tbl-wrap { -webkit-overflow-scrolling: touch; }
+  table.dt { font-size: 12.5px; min-width: 520px; }
+  table.calc { font-size: 13px; }
+  table.calc td { padding: 7px 9px; }
+  table.calc td.amt { width: 110px; }
+
+  /* ভাসমান অংশ */
+  .ai-panel { right: 6px; left: 6px; bottom: 6px; width: auto; height: 80vh; }
+  .ai-panel.big { width: auto; height: 92vh; }
+  .ai-fab { right: 12px; bottom: 12px; padding: 11px 17px; font-size: 14px; }
   .drawer { width: 100%; max-width: 100%; }
-  .demo-banner { font-size: 11.5px; padding: 5px 10px; }
-  .tour-bar { left: 8px; right: 8px; transform: none; bottom: 8px; flex-wrap: wrap; }
-  .zgrid, .storagegrid { grid-template-columns: 1fr; }
-  table.calc td.amt { width: 120px; }
+  .tour-bar { left: 6px; right: 6px; transform: none; bottom: 6px; flex-wrap: wrap; padding: 9px 12px; }
+  .toast { left: 8px; right: 8px; transform: none; max-width: none; }
+  .toast.show { transform: none; }
+  .spot-arrow { font-size: 12px; padding: 5px 10px; }
+
+  .page-actions { flex-wrap: wrap; gap: 8px; }
+  .page-actions .btn { flex: 1 1 auto; }
+  .btn.wide { min-width: 0; }
+  .fw-acts { gap: 5px; }
+  .wbtn { padding: 5px 11px; }
+  .er-foot { flex-direction: column; align-items: flex-start; gap: 4px; font-size: 11.5px; }
+}
+
+@media (max-width: 420px) {
+  .er-header select.ay { min-width: 92px; font-size: 12px; }
+  .kpi { padding: 7px 9px; }
+  .kpi .k { font-size: 10.5px; }
+  .kpi .v { font-size: 15.5px; }
+  .demo-banner { font-size: 11px; }
 }
 
 /* ---------- তথ্যভাণ্ডার ---------- */
