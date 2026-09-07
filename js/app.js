@@ -5,6 +5,9 @@
   const f = v => TaxCalc.fmt(v);
   const esc = UI.esc;
 
+  /* প্রতিবার ছাড়ার সময় বাড়ানো হয় — লাইভে কোন বিল্ড চলছে বোঝার জন্য */
+  const APP_VERSION = '2026.09.07-1';
+
   let data = ReturnState.load();
   let rules = TaxRules.load();
   let res = TaxCalc.compute(data, rules);
@@ -79,7 +82,7 @@
       '<div class="er-main" id="page"></div></div>' +
       '<div class="er-foot"><span>Copyright © 2026. National Board of Revenue. All rights reserved. ' +
       '<b>(ডেমো কপি)</b></span><span class="spacer"></span>' +
-      '<span class="small">নিয়ম: ' + esc(rules.label) + '</span></div>' +
+      '<span class="small">নিয়ম: ' + esc(rules.label) + ' · সংস্করণ ' + esc(APP_VERSION) + '</span></div>' +
       '</div>' +
       drawer() + aiPanel() +
       '<div class="tour-bar" id="tourBar"><span class="txt"></span>' +
