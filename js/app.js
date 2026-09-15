@@ -6,7 +6,7 @@
   const esc = UI.esc;
 
   /* প্রতিবার ছাড়ার সময় বাড়ানো হয় — লাইভে কোন বিল্ড চলছে বোঝার জন্য */
-  const APP_VERSION = '2026.09.15-1';
+  const APP_VERSION = '2026.09.15-2';
 
   /* ---------------- বাংলা ফন্ট ও লেখার আকার ---------------- */
 
@@ -38,6 +38,13 @@
   let route = (location.hash || '#home').slice(1);
   const isMobile = () => window.matchMedia('(max-width: 860px)').matches;
   let sideCollapsed = isMobile();   // ফোনে সাইডবার শুরুতে বন্ধ থাকে
+
+  /* ফোনে ডেমো-ব্যানারটা গোটানো থাকে — পর্দার উপরের অংশ খালি রাখতে।
+     ব্যবহারকারী একবার খুললে সেটা মনে রাখা হয়। */
+  const BANNER_KEY = 'ereturn-demo:banner';
+  let bannerOpen = (function () {
+    try { return localStorage.getItem(BANNER_KEY) === 'open'; } catch (e) { return false; }
+  })();
 
   /* ---------------- পাতার তালিকা ---------------- */
 
@@ -85,24 +92,47 @@
       '<span class="lg-h">Helper</span></a>';
   }
 
+  /* ফোনের জন্য হেডারের নিচে আটকানো সরু হিসাব-পট্টি —
+     ফর্ম ভরার সময় নিচে নামলেও কর কত হচ্ছে সবসময় চোখের সামনে থাকে। */
+  function miniTaxInner() {
+    const pay = res.refundable > 0 ? res.refundable : res.netPayable;
+    return '<span class="mt-i"><span class="mt-k">মোট আয়</span>' +
+      '<span class="mt-v">' + f(res.totalIncome) + '</span></span>' +
+      '<span class="mt-i"><span class="mt-k">নিট কর</span>' +
+      '<span class="mt-v hi">' + f(res.netTaxAfterRebate) + '</span></span>' +
+      '<span class="mt-i"><span class="mt-k">' +
+      (res.refundable > 0 ? 'ফেরতযোগ্য' : 'দিতে হবে') + '</span>' +
+      '<span class="mt-v ' + (res.refundable > 0 ? 'good' : 'danger') + '">' + f(pay) + '</span></span>';
+  }
+  function paintMiniTax() {
+    const m = document.getElementById('miniTax');
+    if (m) m.innerHTML = miniTaxInner();
+  }
+
   /* ---------------- শেল ---------------- */
 
   function shell() {
     const t = data.taxpayer;
     const initials = (t.name || 'ডে').trim().slice(0, 2);
     return '' +
-      '<div class="demo-banner">' +
-      '<span>⚠️ এটি একটি <b>ডেমো</b> — সব তথ্য শুধু এই কম্পিউটারে থাকে, NBR-এ কিছুই যায় না। ' +
+      '<div class="demo-banner' + (bannerOpen ? ' open' : '') + '">' +
+      '<button class="bn-toggle" data-act="banner" aria-expanded="' + (bannerOpen ? 'true' : 'false') + '">' +
+      '<span class="bn-short">⚠️ ডেমো — NBR-এ কিছুই যায় না</span>' +
+      '<span class="bn-car">⌄</span></button>' +
+      '<span class="bn-full">⚠️ এটি একটি <b>ডেমো</b> — সব তথ্য শুধু এই কম্পিউটারে থাকে, NBR-এ কিছুই যায় না। ' +
       'এখানে অনুশীলন করে তারপর লাইভ সাইটে বসান।</span>' +
       '<span class="grow"></span>' +
+      '<span class="bn-acts">' +
       '<button data-act="export">সেভ ফাইল</button>' +
       '<button data-act="import">ফাইল লোড</button>' +
       '<button data-act="reset">সব মুছুন</button>' +
+      '</span>' +
       '</div>' +
       '<div class="er-shell">' +
+      '<div class="er-top">' +
       '<div class="er-header">' +
       logoMark() +
-      '<button class="burger" data-act="burger">&#9776;</button>' +
+      '<button class="burger" data-act="burger" aria-label="মেনু">&#9776;</button>' +
       '<span class="spacer"></span>' +
       '<span class="ay-label">Assessment Year</span>' +
       '<select class="ay" data-path="assessment.assessmentYear">' +
@@ -111,6 +141,8 @@
       '</select>' +
       '<span class="user">' + esc(t.name || 'ডেমো করদাতা') +
       '<span class="avatar">' + esc(initials) + '</span></span>' +
+      '</div>' +
+      '<div class="mini-tax" id="miniTax">' + miniTaxInner() + '</div>' +
       '</div>' +
       '<div class="er-body">' + sidebar() +
       '<div class="side-backdrop' + (sideCollapsed ? '' : ' show') + '" data-act="close-side"></div>' +
@@ -124,7 +156,8 @@
       '<button class="ghost" data-act="tour-prev">← আগেরটা</button>' +
       '<button data-act="tour-next">পরেরটা →</button>' +
       '<button class="ghost" data-act="tour-stop">✕</button></div>' +
-      '<button class="ai-fab" data-act="ai">💬 Ask AI</button>';
+      '<button class="ai-fab" data-act="ai" aria-label="Ask AI">' +
+      '<span class="fab-i">💬</span><span class="fab-t">Ask AI</span></button>';
   }
 
   function sideItem(id, label, sub) {
@@ -134,6 +167,9 @@
 
   function sidebar() {
     let h = '<div class="er-side' + (sideCollapsed ? ' collapsed' : '') + '">';
+    /* ফোনে সাইডবার ওভারলে হয়ে আসে — বন্ধ করার বোতাম দরকার */
+    h += '<div class="side-head"><span>মেনু</span>' +
+      '<button data-act="close-side" aria-label="মেনু বন্ধ">&#10005;</button></div>';
     h += sideItem('home', '🏠  Home');
     h += '<div class="grp">Submission</div>';
     h += sideItem('assessment', 'Regular e-Return', true);
@@ -1543,7 +1579,7 @@
   }
 
   function aiPanel() {
-    return '<div class="ai-panel" id="aiPanel"><header>💬 Ask AI — কোথায় কী দিতে হবে' +
+    return '<div class="ai-panel" id="aiPanel"><header><span>💬 Ask AI — কোথায় কী দিতে হবে</span>' +
       '<span class="spacer"></span>' +
       '<button data-act="ai-clear" title="কথোপকথন মুছুন">🗑</button>' +
       '<button data-act="ai-size" title="বড়/ছোট করুন">⤢</button>' +
@@ -1591,6 +1627,9 @@
       if (user) user.innerHTML = esc(data.taxpayer.name || 'ডেমো করদাতা') +
         '<span class="avatar">' + esc((data.taxpayer.name || 'ডে').trim().slice(0, 2)) + '</span>';
     }
+    /* সাইডবার খোলা থাকলে পেছনের পাতা যেন স্ক্রল না হয় */
+    document.body.classList.toggle('side-open', !sideCollapsed && isMobile());
+    paintMiniTax();
     const fn = PAGES[route] || pageHome;
     document.getElementById('page').innerHTML = fn();
     // পুরনো তীর যেন ঝুলে না থাকে — যে ঘরটা দেখানো হচ্ছিল সেটা DOM-এ না থাকলে সরাও
@@ -1598,6 +1637,19 @@
     applyWarnings();
     restoreAIPanel();
     window.scrollTo({ top: 0 });
+    document.body.classList.remove('scrolled');
+    centerActivePill();
+  }
+
+  /* ফোনে ধাপের পিলগুলো পাশে স্ক্রল হয় — চালু ধাপটা যেন চোখের সামনে থাকে */
+  function centerActivePill() {
+    if (!isMobile()) return;
+    document.querySelectorAll('#page .pills').forEach(function (row) {
+      const a = row.querySelector('.pill.active');
+      if (!a) return;
+      const left = a.offsetLeft - (row.clientWidth - a.offsetWidth) / 2;
+      row.scrollLeft = Math.max(0, left);
+    });
   }
 
   /* শেল আবার তৈরি হলেও AI প্যানেল যেন খোলা ও কথাসহ থাকে */
@@ -1617,6 +1669,7 @@
     const p = el && el.getAttribute && el.getAttribute('data-path');
     const pos = el && el.selectionStart;
     recompute();
+    paintMiniTax();
     const fn = PAGES[route] || pageHome;
     document.getElementById('page').innerHTML = fn();
     // পুরনো তীর যেন ঝুলে না থাকে — যে ঘরটা দেখানো হচ্ছিল সেটা DOM-এ না থাকলে সরাও
@@ -1787,6 +1840,17 @@
     switch (el.getAttribute('data-act')) {
       case 'burger': sideCollapsed = !sideCollapsed; render(); break;
       case 'close-side': sideCollapsed = true; render(); break;
+      case 'banner': {
+        bannerOpen = !bannerOpen;
+        try { localStorage.setItem(BANNER_KEY, bannerOpen ? 'open' : 'shut'); } catch (e) {}
+        const b = document.querySelector('.demo-banner');
+        if (b) {
+          b.classList.toggle('open', bannerOpen);
+          const tg = b.querySelector('.bn-toggle');
+          if (tg) tg.setAttribute('aria-expanded', bannerOpen ? 'true' : 'false');
+        }
+        break;
+      }
       case 'warnings': openWarnings(); break;
       case 'tour-next': tourStep(1); break;
       case 'tour-prev': tourStep(-1); break;
@@ -2372,6 +2436,17 @@
       }
     });
     window.addEventListener('hashchange', onHash);
+
+    /* একটু নিচে নামলেই হেডারের নিচে সরু হিসাব-পট্টি নামে (শুধু ফোনে) */
+    let tick = false;
+    window.addEventListener('scroll', function () {
+      if (tick) return;
+      tick = true;
+      requestAnimationFrame(function () {
+        tick = false;
+        document.body.classList.toggle('scrolled', window.scrollY > 120);
+      });
+    }, { passive: true });
   });
 
   global.Demo = { get data() { return data; }, get res() { return res; }, get rules() { return rules; }, render };
