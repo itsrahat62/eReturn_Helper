@@ -6,7 +6,7 @@
   const esc = UI.esc;
 
   /* প্রতিবার ছাড়ার সময় বাড়ানো হয় — লাইভে কোন বিল্ড চলছে বোঝার জন্য */
-  const APP_VERSION = '2026.09.07-4';
+  const APP_VERSION = '2026.09.15-1';
 
   /* ---------------- বাংলা ফন্ট ও লেখার আকার ---------------- */
 
@@ -76,6 +76,15 @@
     { key: 'return', label: 'Return View', pages: ['return-view'] }
   ];
 
+  /* ---------------- লোগো ---------------- */
+
+  /* রঙিন টেক্সট লোগো — হালকা সবুজ "e" + গাঢ় সবুজ "Return" + "Helper" */
+  function logoMark() {
+    return '<a class="logo" href="#home" aria-label="eReturn Helper — হোম">' +
+      '<span class="lg-top"><span class="lg-e">e</span><span class="lg-r">Return</span></span>' +
+      '<span class="lg-h">Helper</span></a>';
+  }
+
   /* ---------------- শেল ---------------- */
 
   function shell() {
@@ -92,7 +101,7 @@
       '</div>' +
       '<div class="er-shell">' +
       '<div class="er-header">' +
-      '<img class="logo" src="assets/img/eReturn_Logo.svg" alt="e-Return">' +
+      logoMark() +
       '<button class="burger" data-act="burger">&#9776;</button>' +
       '<span class="spacer"></span>' +
       '<span class="ay-label">Assessment Year</span>' +
