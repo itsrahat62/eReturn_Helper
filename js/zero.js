@@ -173,6 +173,50 @@
         d.wealth.previousNetWealth = 0;
         d.wealth.otherReceipts = 108000;
       }
+    },
+    {
+      id: 'freelancer',
+      icon: '🌐',
+      title: 'ফ্রিল্যান্সার / IT আউটসোর্সিং',
+      who: 'দেশে বসে আপওয়ার্ক, ফাইভার বা সরাসরি বিদেশি ক্লায়েন্টের জন্য IT-সংক্রান্ত কাজ করেন — ' +
+        'টাকা ব্যাংকে রেমিট্যান্স হয়ে আসে।',
+      why: 'IT ফ্রিল্যান্সিং ৩০ জুন ২০২৭ পর্যন্ত **সম্পূর্ণ করমুক্ত** (ষষ্ঠ তফসিল, অংশ ১, অনুচ্ছেদ ২১)। ' +
+        'তাই আয় যত বড়ই হোক কর ০ — কিন্তু শর্ত হলো ওই ব্যবসার সব আয়, ব্যয় ও বিনিয়োগ ' +
+        '১০০% ব্যাংক ট্রান্সফারে হতে হবে, আর রিটার্ন দিয়ে আয়টা দেখাতেই হবে।',
+      steps: [
+        'Assessment → "Any taxable income in the income year?" = **Yes**',
+        'Assessment → "Any income which is fully exempted from tax?" = **Yes** ' +
+          '(এই ঘরটা Yes না করলে Tax Exempted Income পাতাই আসবে না)',
+        'Income → **Tax Exempted Income** → ধরন **"Software and IT Business"** → ' +
+          'Particulars-এ কাজের ধরন → বছরের মোট আয়',
+        '⚠️ কাজটা তালিকাভুক্ত ১৯টি IT সেবার বাইরে হলে (যেমন নিছক কনটেন্ট রাইটিং) অথবা নগদে ' +
+          'টাকা নিলে — এখানে নয়, **Business or Profession**-এ দেখাতে হবে, তখন কর দিতে হবে',
+        'Expenditure → বাস্তব খরচ লিখুন — আয় করমুক্ত হলেও খরচের হিসাব দিতে হয়',
+        'Assets & Liabilities → ব্যাংকের স্থিতি, ল্যাপটপ/আসবাব, সঞ্চয় — সব ক্রয়মূল্যে',
+        'Tax & Payment → ব্যাংক উৎসে কর কাটেনি তা দেখুন (অনুচ্ছেদ ২১-এর আয়ে ধারা ১২৪ অনুযায়ী ' +
+          'কর্তন হয় না)। কেটে থাকলে সনদ নিয়ে Source Tax-এ দাবি করুন',
+        'কর ০ দেখাবে → Proceed to online return → Submit'
+      ],
+      fill: d => {
+        d.assessment.hasTaxableIncome = 'Yes';
+        d.assessment.hasExemptedIncome = 'Yes';
+        d.additional.location = 'Any Other Area';
+        const x = ReturnState.blankExempt();
+        x.type = 'Software and IT Business';
+        x.particulars = 'IT ফ্রিল্যান্সিং (ষষ্ঠ তফসিল, অংশ ১, অনুচ্ছেদ ২১)';
+        x.amount = 900000;
+        d.exempted = [x];
+        Object.assign(d.expenditure, {
+          food: 180000, accommodation: 120000, utilityElectricity: 18000,
+          utilityPhoneInternet: 24000, autoOther: 24000
+        });
+        Object.assign(d.assets, {
+          cashInHand: 40000, bankCardsElectronic: 450000, furnitureElectronics: 180000
+        });
+        /* তহবিলের হিসাব মিলিয়ে দেওয়া: করমুক্ত আয় ৯,০০,০০০ = খরচ ৩,৬৬,০০০ + নিট সম্পদ বৃদ্ধি ৫,৩৪,০০০ */
+        d.wealth.previousNetWealth = 136000;
+        d.wealth.otherReceipts = 0;
+      }
     }
   ];
 
